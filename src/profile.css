@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Quicksand:wght@300..700&family=Slabo+27px&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #230030;
+  color: white;
+  font-family: "Quicksand", sans-serif;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(35, 0, 48, 0.9);
+  padding: 1rem 0;
+  text-align: right;
+  z-index: 10;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-right: 20px;
+}
+
+.nav-links button {
+  background: none;
+  color: rgb(255, 251, 202);
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  font-family: "Orbitron", sans-serif;
+}
+
+.nav-links button:hover {
+  color: #646cff;
+}
+
+.nav-links .btn-resume {
+  border: 1px solid white;
+  border-radius: 2px;
+  padding: 0.5rem 1rem;
+}
+
+.btn-resume:hover {
+  border-color: rgb(75, 26, 116);
+}
+
+.profile-about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.profile-content {
+  display: flex;
+  align-items: center;
+  max-width: 900px;
+  gap: 2rem;
+}
+
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  background-color: gray;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.profile-info {
+  max-width: 400px;
+  text-align: left;
+}
+
+.profile-name {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #646cff;
+}
+
+.profile-description {
+  font-size: 1.2rem;
+  color: #d1d5db;
+}
+
+.profile-experience,
+.profile-works,
+.profile-contact {
+  margin-top: 5rem;
+  text-align: center;
+}
+
+.profile-experience h2,
+.profile-works h2,
+.profile-contact h2 {
+  font-size: 1.5rem;
+  color: #ffcc00;
+  margin-bottom: 1rem;
+}
+
+.link-format {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.contact-link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  gap: 1.2rem;
+  transition: color 0.3s;
+}
+
+.contact-link:hover {
+  color: #646cff;
+}
+
+.footer {
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  font-family: "Orbitron", sans-serif;
+  font-size: 1rem;
+  color: #ff0000;
+  opacity: 0.8;
+}
+
+.serial-number {
+  writing-mode: vertical-rl;
+  font-size: 0.5rem;
+}
