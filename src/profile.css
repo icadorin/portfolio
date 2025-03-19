@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Quicksand:wght@300..700&family=Slabo+27px&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=M+PLUS+Rounded+1c&family=Quicksand:wght@300..700&family=Slabo+27px&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
   margin: 0;
@@ -10,28 +12,17 @@ html,
 body {
   height: 100%;
   width: 100%;
-  background-color: #230030;
-  color: white;
+  background-color: #1d0327;
+  color: #d1d5db;
   font-family: "Quicksand", sans-serif;
-}
-
-.profile-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
 }
 
 .header {
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(35, 0, 48, 0.9);
+  position: relative;
+  background-color: #1d0327;
   padding: 1rem 0;
   text-align: right;
-  z-index: 10;
 }
 
 .nav-links {
@@ -43,12 +34,11 @@ body {
 
 .nav-links button {
   background: none;
-  color: rgb(255, 251, 202);
+  color: rgb(216, 212, 173);
   border: none;
   font-size: 1rem;
   cursor: pointer;
   transition: 0.3s;
-  font-family: "Orbitron", sans-serif;
 }
 
 .nav-links button:hover {
@@ -56,61 +46,72 @@ body {
 }
 
 .nav-links .btn-resume {
-  border: 1px solid white;
+  color: #646cff;
+  border: 1px solid hsl(273, 63%, 28%);
   border-radius: 2px;
   padding: 0.5rem 1rem;
 }
 
-.btn-resume:hover {
-  border-color: rgb(75, 26, 116);
+.nav-links .btn-resume:hover {
+  color: rgb(216, 212, 173);
+  border-color: rgb(107, 52, 151);
+}
+
+.resume {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rem;
+  padding: 0 25rem;
 }
 
 .profile-about {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-top: 5rem;
+  align-items: flex-start;
+  margin: 2rem auto;
+  max-width: 1200px;
+  padding: 0 18rem;
+  margin-top: 20rem;
 }
 
-.profile-content {
-  display: flex;
-  align-items: center;
-  max-width: 900px;
-  gap: 2rem;
+.profile-text {
+  flex: 1;
+  padding-right: 2rem;
 }
 
 .profile-photo {
   width: 150px;
-  height: 150px;
+  height: 180px;
+  border-radius: 4px;
   background-color: gray;
-  border-radius: 50%;
   flex-shrink: 0;
 }
 
-.profile-info {
-  max-width: 400px;
-  text-align: left;
+.profile-greeting {
+  color: #646cff;
+  font-size: 0.8rem;
+  font-family: 'Fira Code', monospace;
 }
 
-.profile-name {
+.profile-name,
+.profile-proficiency {
   font-size: 2rem;
   font-weight: bold;
-  font-family: "Orbitron", sans-serif;
   letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #646cff;
+  font-family: "Heebo", sans-serif;
+}
+
+.profile-proficiency {
+  opacity: 0.7;
 }
 
 .profile-description {
   font-size: 1.2rem;
-  color: #d1d5db;
 }
 
 .profile-experience,
 .profile-works,
 .profile-contact {
-  margin-top: 5rem;
+  margin-top: 15rem;
   text-align: center;
 }
 
@@ -140,7 +141,7 @@ body {
   color: #646cff;
 }
 
-.footer {
+.easter-egg {
   position: fixed;
   bottom: 10px;
   right: 15px;
@@ -153,4 +154,58 @@ body {
 .serial-number {
   writing-mode: vertical-rl;
   font-size: 0.5rem;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 15rem;
+}
+
+@media (max-width: 1200px) {
+  .resume {
+    margin-top: 15rem;
+    padding: 0 15rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .resume {
+    margin-top: 10rem;
+    padding: 0 5rem;
+  }
+
+  .profile-about {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 clamp(1rem, 4vw, 3rem);
+  }
+
+  .profile-text {
+    padding-right: 0;
+    padding-bottom: 1rem;
+    width: 100%;
+  }
+
+  .profile-photo {
+    width: 120px;
+    height: 160px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .resume {
+    margin-top: 6rem;
+    padding: 0 1.5rem;
+  }
+
+  .profile-about {
+    padding: 0 clamp(0.5rem, 3vw, 2rem);
+    margin-top: 10rem;
+  }
+
+  .profile-photo {
+    width: 100px;
+    height: 140px;
+  }
 }
