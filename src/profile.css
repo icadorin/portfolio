@@ -14,7 +14,7 @@ body {
   width: 100%;
   background-color: #1d0327;
   color: #d1d5db;
-  font-family: "Quicksand", sans-serif;
+  font-family: "Heebo", sans-serif;
 }
 
 .header {
@@ -34,7 +34,7 @@ body {
 
 .nav-links button {
   background: none;
-  color: rgb(216, 212, 173);
+  color: #d1d5db;
   border: none;
   font-size: 1rem;
   cursor: pointer;
@@ -53,29 +53,61 @@ body {
 }
 
 .nav-links .btn-resume:hover {
-  color: rgb(216, 212, 173);
+  color: #d1d5db;
   border-color: rgb(107, 52, 151);
+}
+
+.resume,
+.about,
+.experience,
+.works,
+.contact {
+  margin-top: 20rem;
+}
+
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 25%;
 }
 
 .resume {
   display: flex;
   flex-direction: column;
-  margin-top: 20rem;
-  padding: 0 25rem;
+}
+
+.resume-greeting {
+  color: #646cff;
+  font-size: 0.8rem;
+  font-family: 'Fira Code', monospace;
+}
+
+.resume-name {
+  color: white;
+}
+
+.resume-name,
+.resume-proficiency {
+  font-size: 2.3rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.resume-proficiency {
+  opacity: 0.7;
+}
+
+.resume-description {
+  font-size: 1rem;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
 }
 
 .profile-about {
   display: flex;
-  align-items: flex-start;
-  margin: 2rem auto;
-  max-width: 1200px;
-  padding: 0 18rem;
-  margin-top: 20rem;
-}
-
-.profile-text {
-  flex: 1;
-  padding-right: 2rem;
 }
 
 .profile-photo {
@@ -86,41 +118,16 @@ body {
   flex-shrink: 0;
 }
 
-.profile-greeting {
-  color: #646cff;
-  font-size: 0.8rem;
-  font-family: 'Fira Code', monospace;
+.experience {
+  /* */
 }
 
-.profile-name,
-.profile-proficiency {
-  font-size: 2rem;
-  font-weight: bold;
-  letter-spacing: 2px;
-  font-family: "Heebo", sans-serif;
+.works {
+  /* */
 }
 
-.profile-proficiency {
-  opacity: 0.7;
-}
-
-.profile-description {
-  font-size: 1.2rem;
-}
-
-.profile-experience,
-.profile-works,
-.profile-contact {
-  margin-top: 15rem;
+.contact {
   text-align: center;
-}
-
-.profile-experience h2,
-.profile-works h2,
-.profile-contact h2 {
-  font-size: 1.5rem;
-  color: #ffcc00;
-  margin-bottom: 1rem;
 }
 
 .link-format {
@@ -130,8 +137,8 @@ body {
 }
 
 .contact-link {
-  color: white;
   text-decoration: none;
+  color: #d1d5db;
   font-size: 1.2rem;
   gap: 1.2rem;
   transition: color 0.3s;
@@ -158,54 +165,43 @@ body {
 
 .footer {
   text-align: center;
+  font-size: 0.9rem;
   margin-top: 15rem;
 }
 
-@media (max-width: 1200px) {
-  .resume {
-    margin-top: 15rem;
-    padding: 0 15rem;
-  }
-}
+@media (max-width: 680px) {
 
-@media (max-width: 768px) {
-  .resume {
-    margin-top: 10rem;
-    padding: 0 5rem;
-  }
 
-  .profile-about {
-    flex-direction: column;
-    text-align: center;
-    padding: 0 clamp(1rem, 4vw, 3rem);
-  }
-
-  .profile-text {
-    padding-right: 0;
-    padding-bottom: 1rem;
-    width: 100%;
-  }
-
-  .profile-photo {
-    width: 120px;
-    height: 160px;
+  .content-wrapper {
+    max-width: 1200px;
     margin: 0 auto;
-  }
-}
-
-@media (max-width: 480px) {
-  .resume {
-    margin-top: 6rem;
-    padding: 0 1.5rem;
+    padding: 0 15%;
   }
 
-  .profile-about {
-    padding: 0 clamp(0.5rem, 3vw, 2rem);
+  .resume,
+  .about,
+  .experience,
+  .works,
+  .contact {
     margin-top: 10rem;
   }
 
+  .resume-name,
+  .resume-proficiency {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  .profile-about {
+    display: flex;
+    flex-direction: column;
+  }
+
   .profile-photo {
+    margin: 0 auto;
+    margin-top: 20px;
     width: 100px;
-    height: 140px;
+    height: 130px;
   }
 }
