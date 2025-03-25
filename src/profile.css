@@ -1,6 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Quicksand:wght@300..700&family=Slabo+27px&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700');
+@import url('https://fonts.googleapis.com/css2?family=Slabo+27px');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=M+PLUS+Rounded+1c&family=Quicksand:wght@300..700&family=Slabo+27px&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
   margin: 0;
@@ -107,6 +110,10 @@ body {
   opacity: 0.7;
 }
 
+.description-container {
+  width: 75%;
+}
+
 .resume-description {
   font-size: 1rem;
 }
@@ -119,7 +126,7 @@ body {
 .profile-about {
   display: flex;
   flex-direction: column;
-  margin-right: 15px;
+  margin-right: 25px;
 }
 
 .photo-container {
@@ -128,10 +135,10 @@ body {
 }
 
 .photo-border {
-  width: 160px;
-  height: 188px;
-  margin-top: 10px;
-  border: 2px solid #3498db;
+  width: 150px;
+  height: 180px;
+  margin-top: 20px;
+  border: 2px solid #646cff;
   border-radius: 2px;
   position: relative;
 }
@@ -141,13 +148,9 @@ body {
   height: 180px;
   border-radius: 2px;
   background-color: gray;
-  margin-top: -12px;
-  margin-left: -10px;
+  margin-top: -20px;
+  margin-left: -20px;
   flex-shrink: 0;
-}
-
-.experience {
-  /* */
 }
 
 .section-about {
@@ -167,8 +170,92 @@ body {
   vertical-align: middle;
 }
 
+.experience {
+  padding: 0 25%;
+}
+
+.section-experience {
+  text-align: right;
+}
+
+.experience-container {
+  display: flex;
+}
+
 .works {
-  /* */
+  padding: 0 10%;
+}
+
+.section-works,
+.work-description {
+  text-align: center;
+}
+
+.card-container {
+  display: grid;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem auto;
+  width: fit-content;
+}
+
+.card-container:has(.card:nth-child(3)) {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.card-container:has(.card:nth-child(2)):not(:has(.card:nth-child(3))) {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card-container:has(.card:nth-child(1)):not(:has(.card:nth-child(2))) {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.card {
+  padding: 15px;
+  height: 220px;
+  width: 200px;
+  background-color: #462553;
+  position: relative;
+}
+
+.card:hover {
+  margin-top: -5px;
+}
+
+.card:hover .project-title {
+  color: #646cff;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.github-icon {
+  margin-left: auto;
+}
+
+.project-title {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.project-description {
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+}
+
+.technologies-container {
+  display: flex;
+  position: absolute;
+  bottom: 15px;
+}
+
+.project-technologies {
+  margin-right: 0.4rem;
+  font-size: 0.6rem;
 }
 
 .section-contact {
@@ -200,20 +287,25 @@ body {
 
 .link-format {
   display: flex;
+  margin-top: 2rem;
   justify-content: center;
   gap: 1.2rem;
 }
 
 .contact-link {
   text-decoration: none;
-  color: #d1d5db;
+  color: #646cff;
   font-size: 1.2rem;
   gap: 1.2rem;
   transition: color 0.3s;
 }
 
 .contact-link:hover {
-  color: #646cff;
+  color: #d1d5db;
+}
+
+.contact-email {
+  margin-top: 2rem;
 }
 
 .easter-egg {
@@ -235,6 +327,14 @@ body {
   text-align: center;
   font-size: 0.9rem;
   margin-top: 15rem;
+}
+
+@media (max-width: 780px) {
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 @media (max-width: 680px) {
@@ -287,8 +387,8 @@ body {
   }
 
   .photo-border {
-    width: 104px;
-    height: 134px;
+    width: 100px;
+    height: 130px;
     margin-top: 10px;
     border: 2px solid #3498db;
     border-radius: 2px;
@@ -300,8 +400,8 @@ body {
     margin-top: 5px;
     width: 100px;
     height: 130px;
-    margin-top: -12px;
-    margin-left: -10px;
+    margin-top: -14px;
+    margin-left: -14px;
     flex-shrink: 0;
   }
 }
