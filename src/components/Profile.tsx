@@ -8,31 +8,40 @@ import companies from "../data/companiesData";
 const Profile: React.FC = () => {
   const [selectedCompany, setSelectedCompany] = useState(companies[0]);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="profile-container">
       <header className="header">
+
         <nav className="nav-links">
-          <button onClick={() => document.getElementById("sobre")?.scrollIntoView({ behavior: "smooth" })}>
-            Sobre Mim
-          </button>
-          <button onClick={() => document.getElementById("experiencia")?.scrollIntoView({ behavior: "smooth" })}>
-            Experiência
-          </button>
-          <button onClick={() => document.getElementById("Projetos")?.scrollIntoView({ behavior: "smooth" })}>
-            Projetos
-          </button>
-          <button onClick={() => document.getElementById("contatos")?.scrollIntoView({ behavior: "smooth" })}>
-            Contatos
-          </button>
-          <button
-            className="btn-resume"
-            onClick={() => document.getElementById("resumo")?.scrollIntoView({ behavior: "smooth" })}>
-            Resumo
-          </button>
+          <button onClick={() => scrollToSection("sobre")}>Sobre Mim</button>
+          <button onClick={() => scrollToSection("experiencia")}> Experiência</button>
+          <button onClick={() => scrollToSection("projetos")}>Projetos</button>
+          <button onClick={() => scrollToSection("contato")}>Contato</button>
+          <button className="btn-resume" onClick={() => scrollToSection("resumo")}>Resumo</button>
         </nav>
+
       </header>
 
       <main className="content-wrapper">
+
+        <div className="side-navigation">
+          {['resumo', 'sobre', 'experiencia', 'projetos', 'contato'].map((section) => (
+            <button
+              key={section}
+              onClick={() => document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' })}
+              className="nav-dot"
+              aria-label={`Ir para ${section}`}
+            />
+          ))}
+        </div>
+
         <section id="resumo" className="resume">
           <p className="resume-greeting">Olá, meu nome é</p>
           <p className="resume-name">Israel.</p>
@@ -109,16 +118,18 @@ const Profile: React.FC = () => {
             {[...Array(5)].map((_, index) => (
               <div key={index} className="card">
                 <div className="icon-container">
-                  <div>
-                    <Folder className="folder-icon" sx={{ fontSize: 25, color: " #1d0327" }} />
+                  <div className="folder-icon">
+                    <Folder sx={{ color: " #1d0327" }} />
                   </div>
-                  <a
-                    className="github-icon"
-                    href="https://github.com/username!#!@$!$!"
-                    target="_blank" rel="noopener noreferrer"
-                  >
-                    <GitHub sx={{ fontSize: 25, color: " #1d0327" }} />
-                  </a>
+                  <div>
+                    <a
+                      className="github-icon"
+                      href="https://github.com/username!#!@$!$!"
+                      target="_blank" rel="noopener noreferrer"
+                    >
+                      <GitHub sx={{ fontSize: 25, color: " #1d0327" }} />
+                    </a>
+                  </div>
                 </div>
                 <h2 className="project-title">Api Rest CRUD</h2>
                 <p className="project-description">
@@ -134,21 +145,23 @@ const Profile: React.FC = () => {
           </div>
         </section>
 
-        <section id="contatos" className="contact">
+        <section id="contato" className="contact">
           <h2 className="section-contact">Contato</h2>
           <div className="link-format">
             <a
+              className="linkedin-icon"
               href="https://www.linkedin.com/in/username!#!@$!$!"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <LinkedIn sx={{ color: 'white' }} />
+              <LinkedIn sx={{ fontSize: 25, color: 'white' }} />
             </a>
             <a
+              className="github-g-icon"
               href="https://github.com/username!#!@$!$!"
               target="_blank" rel="noopener noreferrer"
             >
-              <GitHub sx={{ color: 'white' }} />
+              <GitHub sx={{ fontSize: 25, color: 'white' }} />
             </a>
           </div>
           <p className="contact-email">email_bolado34@gmail.com</p>
@@ -161,6 +174,7 @@ const Profile: React.FC = () => {
         <footer className="footer">
           <p>Desenvolvido por Israel &copy; {new Date().getFullYear()}</p>
         </footer>
+
       </main>
     </section>
   );

@@ -20,6 +20,10 @@ body {
   font-family: "Heebo", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .header {
   width: 100%;
   position: relative;
@@ -28,18 +32,47 @@ body {
   text-align: right;
 }
 
+.side-navigation {
+  position: fixed;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 100;
+}
+
+.nav-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+
+.nav-dot:hover,
+.nav-dot.active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
 .nav-links {
   display: flex;
   justify-content: flex-end;
-  gap: 1rem;
+  gap: 1.3rem;
   margin-right: 20px;
 }
 
 .nav-links button {
   background: none;
   color: #d1d5db;
+  font-family: 'Fira Code', monospace;
   border: none;
-  font-size: 1rem;
+  font-size: 0.8rem;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -49,7 +82,6 @@ body {
 }
 
 .nav-links .btn-resume {
-  color: #646cff;
   border: 1px solid hsl(273, 63%, 28%);
   border-radius: 2px;
   padding: 0.5rem 1rem;
@@ -60,27 +92,19 @@ body {
   border-color: rgb(107, 52, 151);
 }
 
-.about,
-.experience,
-.works,
-.contact {
-  margin-top: 20rem;
+section {
+  min-height: 90vh;
 }
 
-.resume-greeting,
-.resume-name,
-.resume-proficiency,
+.resume-name {
+  margin-top: 0.6rem;
+}
+
 .section-about,
 .section-experience,
 .section-works,
 .section-contact {
   margin-bottom: 2rem;
-}
-
-.section-about,
-.section-experience,
-.section-works,
-.section-contact {
   font-size: 1.8rem;
 }
 
@@ -115,6 +139,7 @@ body {
 
 .resume-proficiency {
   opacity: 0.7;
+  margin-bottom: 2rem;
 }
 
 .description-container {
@@ -226,6 +251,10 @@ body {
   font-size: 0.9rem;
 }
 
+.exp-button:hover {
+  background-color: #f8f6f809;
+}
+
 .exp-button.selected {
   border-left: 2px solid #646cff;
   color: #646cff;
@@ -234,9 +263,10 @@ body {
 .exp-description {
   padding: 0.95rem;
   width: 75%;
-  height: 300px;
+  padding-bottom: 5rem;
   font-family: 'Fira Code', monospace;
   font-size: 0.9rem;
+  border-bottom: 2px solid #646cff;
 }
 
 .exp-desc-container {
@@ -267,6 +297,7 @@ body {
 
 .works {
   padding: 0 10%;
+  padding-bottom: 15rem;
 }
 
 .section-works,
@@ -300,6 +331,7 @@ body {
   width: 200px;
   background-color: #462553;
   position: relative;
+  transition: margin-top 0.2s ease-in-out;
 }
 
 .card:hover {
@@ -312,17 +344,37 @@ body {
 
 .icon-container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  height: 25px;
   width: 100%;
 }
 
+.folder-icon {
+  display: flex;
+  align-items: center;
+}
+
 .github-icon {
-  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2px;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.github-icon:hover {
+  border-radius: 50%;
+  background-color: #d1d5db;
 }
 
 .project-title {
   margin-top: 1rem;
   font-size: 0.9rem;
+  transition: color 0.2s ease-in-out;
 }
 
 .project-description {
@@ -339,6 +391,12 @@ body {
 .project-technologies {
   margin-right: 0.4rem;
   font-size: 0.6rem;
+}
+
+.contact {
+  text-align: center;
+  padding: 0 25%;
+  min-height: 60vh;
 }
 
 .section-contact {
@@ -363,28 +421,43 @@ body {
   white-space: nowrap;
 }
 
-.contact {
-  text-align: center;
-  padding: 0 25%;
-}
-
 .link-format {
   display: flex;
-  margin-top: 2rem;
+  align-items: center;
   justify-content: center;
-  gap: 1.2rem;
+  height: 25px;
+  gap: 2.5rem;
 }
 
-.contact-link {
-  text-decoration: none;
-  color: #646cff;
-  font-size: 1.2rem;
-  gap: 1.2rem;
-  transition: color 0.3s;
+.linkedin-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
-.contact-link:hover {
-  color: #d1d5db;
+.github-g-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2px;
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.linkedin-icon:hover {
+  transform: scale(1.2);
+  background-color: #646cff;
+}
+
+.github-g-icon:hover {
+  transform: scale(1.2);
+  border-radius: 50%;
+  background-color: #646cff;
 }
 
 .contact-email {
@@ -394,7 +467,7 @@ body {
 .easter-egg {
   position: fixed;
   bottom: 10px;
-  right: 15px;
+  left: 10px;
   font-family: "Orbitron", sans-serif;
   font-size: 1rem;
   color: #ff0000;
@@ -409,10 +482,27 @@ body {
 .footer {
   text-align: center;
   font-size: 0.9rem;
-  margin-top: 15rem;
 }
 
 @media (max-width: 780px) {
+
+  .content-wrapper {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .content-wrapper.menu-open {
+    transform: translateX(-25%);
+  }
+
+  .side-navigation {
+    right: 15px;
+    gap: 10px;
+  }
+
+  .nav-dot {
+    width: 10px;
+    height: 10px;
+  }
 
   .card-container {
     display: flex;
@@ -427,11 +517,11 @@ body {
 @media (max-width: 680px) {
 
   .nav-links {
-    gap: 0.5rem;
+    gap: 0.6rem;
   }
 
   .nav-links button {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
   }
 
   .content-wrapper {
@@ -500,11 +590,15 @@ body {
 @media (max-width: 480px) {
 
   .nav-links {
-    gap: 0.5rem;
+    display: none;
   }
 
-  .nav-links button {
-    font-size: 0.8rem;
+  .header {
+    padding: 0.5rem 0;
+  }
+
+  .resume {
+    margin-top: 5rem;
   }
 }
 
