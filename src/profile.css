@@ -151,9 +151,9 @@ section {
 }
 
 .about {
-  margin-top: 5rem;
+  margin-top: 8rem;
   display: flex;
-  padding: 3rem;
+  padding: 0 3rem 3rem 3rem;
 }
 
 .profile-about {
@@ -210,6 +210,7 @@ section {
 }
 
 .experience {
+  margin-top: 5rem;
   padding: 0 0%;
 }
 
@@ -298,6 +299,7 @@ section {
 }
 
 .projects {
+  margin-top: 5rem;
   padding: 0;
   padding-bottom: 15rem;
 }
@@ -348,7 +350,7 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 25px;
+  height: 30px;
   width: 100%;
 }
 
@@ -362,8 +364,8 @@ section {
   align-items: center;
   justify-content: center;
   padding-bottom: 2px;
-  width: 21px;
-  height: 21px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   transition: background-color 0.3s ease-in-out;
 }

@@ -14,7 +14,7 @@ const Projects: React.FC = () => {
           <div key={index} className="card">
             <div className="icon-container">
               <div className="folder-icon">
-                <Folder sx={{ color: " #1d0327" }} />
+                <Folder sx={{ fontSize: 30, color: " #1d0327" }} />
               </div>
               <div>
                 <a
@@ -23,7 +23,7 @@ const Projects: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <GitHub sx={{ fontSize: 25, color: " #1d0327" }} />
+                  <GitHub sx={{ fontSize: 30, color: " #1d0327" }} />
                 </a>
               </div>
             </div>

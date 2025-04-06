@@ -15,7 +15,15 @@ const Profile: React.FC = () => {
   const scrollToSection = (id: string) => {
     const elemento = document.getElementById(id);
     if (elemento) {
-      elemento.scrollIntoView({ behavior: "smooth" });
+      const offset = -30;
+      const elementPosition = elemento.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition + offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+
       setIsOpen(false);
     }
   };
