@@ -25,13 +25,14 @@ html {
 }
 
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   width: 100%;
   position: fixed;
   top: 0;
-  left: 0;
-  background-color: #1d0327;
+  background-color: #1d0327d5;
   padding: 1rem 0;
-  text-align: right;
   transition: all 0.3s ease-in-out;
   z-index: 1000;
   transform: translateY(0);
@@ -76,6 +77,17 @@ html {
 .nav-links .btn-resume:hover {
   color: #d1d5db;
   border-color: rgb(107, 52, 151);
+}
+
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
+  align-self: center;
 }
 
 section {
@@ -523,6 +535,41 @@ section {
 
   .experience-container {
     padding: 0%;
+  }
+}
+
+@media (max-width: 780px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: block;
+    float: right;
+    width: 24px;
+    height: 24px;
+    margin-right: 1rem;
+  }
+
+  .nav-links.open {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #1d0327;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 1000;
+  }
+
+  .btn-resume {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
   }
 }
 
