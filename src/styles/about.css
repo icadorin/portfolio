@@ -1,0 +1,143 @@
+.about p {
+  margin-bottom: 1.5rem;
+}
+
+.about {
+  display: flex;
+  padding: 0 3rem 3rem 3rem;
+}
+
+.profile-about {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-about {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.section-about::after {
+  content: '';
+  display: inline-block;
+  width: 60%;
+  height: 2px;
+  background-color: #c0c0c01e;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.profile-description {
+  font-size: 1.1rem;
+  width: 90%;
+}
+
+.highlight {
+  color: #646cff;
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.tech,
+.tech-underline {
+  font-size: 0.9rem;
+  font-family: 'Fira Code', monospace;
+  position: relative;
+}
+
+.tech-underline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  width: 100%;
+  height: 1px;
+  background: #646cff;
+  opacity: 0.7;
+}
+
+.tech-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: start;
+  margin-top: 1.5rem;
+}
+
+.tech-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.tech-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.arrow-icon {
+  color: #646cff;
+  width: 1rem;
+  height: 1rem;
+}
+
+.photo-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.profile-photo {
+  width: 150px;
+  height: 180px;
+  border-radius: 2px;
+  background-color: gray;
+  flex-shrink: 0;
+}
+
+.photo-border {
+  width: 150px;
+  height: 180px;
+  margin-top: 20px;
+  margin-left: 20px;
+  border: 2px solid #646cff;
+  border-radius: 2px;
+  position: relative;
+  z-index: -1;
+}
+
+@media (max-width: 680px) {
+  .about {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .photo-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem auto;
+    width: 115px;
+    height: 145px;
+  }
+
+  .photo-border {
+    width: 100px;
+    height: 130px;
+    border: 2px solid #646cff;
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .profile-photo {
+    margin: 0 auto;
+    margin-top: 5px;
+    width: 100px;
+    height: 130px;
+    flex-shrink: 0;
+  }
+}

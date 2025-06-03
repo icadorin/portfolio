@@ -1,0 +1,34 @@
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 8%;
+}
+
+@media (min-width: 1400px) {
+  .content-wrapper {
+    padding: 0 2%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-wrapper {
+    padding: 0 4%;
+  }
+}
+
+@media (max-width: 880px) {
+  .content-wrapper {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .content-wrapper.menu-open {
+    transform: translateX(-25%);
+  }
+}
+
+@media (max-width: 680px) {
+  .content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}

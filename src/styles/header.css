@@ -1,0 +1,99 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #1d0327d5;
+  padding: 1rem 0;
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.header.hidden {
+  transform: translateY(-100%);
+}
+
+.header.shadow {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
+  align-self: center;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.3rem;
+  margin-right: 20px;
+}
+
+.nav-links button {
+  background: none;
+  color: #d1d5db;
+  font-family: 'Fira Code', monospace;
+  border: none;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-links button:hover {
+  color: #646cff;
+}
+
+.nav-links .btn-resume {
+  border: 1px solid #431a63;
+  border-radius: 2px;
+  padding: 0.5rem 1rem;
+}
+
+.nav-links .btn-resume:hover {
+  color: #d1d5db;
+  border-color: rgb(107, 52, 151);
+}
+
+@media (max-width: 780px) {
+  .hamburger-btn {
+    display: block;
+    float: right;
+    width: 24px;
+    height: 24px;
+    margin-right: 1rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #1d0327;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    z-index: 1000;
+  }
+
+  .btn-resume {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+  }
+}

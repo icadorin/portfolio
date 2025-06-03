@@ -1,40 +1,90 @@
-import React from "react";
-import Folder from "@mui/icons-material/FolderOutlined";
-import GitHub from '@mui/icons-material/GitHub';
+import React from 'react';
+import { FaGithub } from 'react-icons/fa';
+import { FiExternalLink } from 'react-icons/fi';
+import { projectsData } from '../data/projectsData';
+import '../styles/global.css';
+import '../styles/projects.css';
 
 const Projects: React.FC = () => {
+  const highlightLinks = (text: string) => {
+    const linkMap: Record<string, string> = {
+      ViaCEP: 'https://viacep.com.br',
+      'OpenWeather API': 'https://openweathermap.org/api',
+    };
+
+    return text.split(/(\*\*.*?\*\*)/g).map((part, index) => {
+      const cleanPart = part.replace(/\*\*/g, '');
+      if (linkMap[cleanPart]) {
+        return (
+          <a
+            key={index}
+            href={linkMap[cleanPart]}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="highlight-link"
+          >
+            {cleanPart}
+          </a>
+        );
+      }
+      return part;
+    });
+  };
+
   return (
     <section id="projects" className="projects">
       <h2 className="section-projects">Projetos</h2>
       <p className="projects-description">
-        Sistema de gerenciamento de tarefas, plataforma e-commerce e aplicativo mobile.
+        Projetos desenvolvidos e em andamento
       </p>
       <div className="card-container">
-        {[...Array(5)].map((_, index) => (
-          <div key={index} className="card">
-            <div className="icon-container">
-              <div className="folder-icon">
-                <Folder sx={{ fontSize: 30, color: " #1d0327" }} />
-              </div>
-              <div>
+        {projectsData.map((project) => (
+          <div key={project.id} className="card">
+            <div className="project-image-container">
+              <img
+                src={project.imageUrl}
+                alt={`Prévia do projeto ${project.title}`}
+                className="project-image"
+                loading="lazy"
+              />
+            </div>
+            <div className="card-content">
+              <div className="icon-container">
                 <a
                   className="github-icon"
-                  href="https://github.com/username!#!@$!$!"
+                  href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`Código no GitHub - ${project.title}`}
                 >
-                  <GitHub sx={{ fontSize: 30, color: " #1d0327" }} />
+                  <FaGithub size={25} />
                 </a>
+                {project.liveUrl && (
+                  <a
+                    className="external-link-icon"
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Ver projeto online - ${project.title}`}
+                  >
+                    <FiExternalLink size={25} />
+                  </a>
+                )}
               </div>
-            </div>
-            <h2 className="project-title">Api Rest CRUD</h2>
-            <p className="project-description">
-              Desenvolvimento de uma API simples para gerenciar o cadastro CRUD.
-            </p>
-            <div className="technologies-container">
-              {[...Array(5)].map((_, index) => (
-                <p key={index} className="project-technologies">Node</p>
-              ))}
+
+              <h2 className="project-title">{project.title}</h2>
+
+              <p className="project-description">
+                {highlightLinks(project.description)}
+              </p>
+
+              <div className="technologies-container">
+                {project.technologies.map((tech, index) => (
+                  <p key={index} className="project-technologies">
+                    {tech}
+                  </p>
+                ))}
+              </div>
             </div>
           </div>
         ))}

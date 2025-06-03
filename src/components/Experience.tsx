@@ -1,13 +1,14 @@
-import React from "react";
+import React from 'react';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import companies from "../data/companiesData";
+import companies from '../data/experienceData';
+import '../styles/global.css';
+import '../styles/experience.css';
+import { ExperienceProps } from '../types/experience';
 
-interface ExperienceProps {
-  selectedCompany: any;
-  setSelectedCompany: React.Dispatch<React.SetStateAction<any>>;
-}
-
-const Experience: React.FC<ExperienceProps> = ({ selectedCompany, setSelectedCompany }) => {
+const Experience: React.FC<ExperienceProps> = ({
+  selectedCompany,
+  setSelectedCompany,
+}) => {
   return (
     <section id="experience" className="experience">
       <h2 className="section-experience">Experiência</h2>
@@ -16,7 +17,7 @@ const Experience: React.FC<ExperienceProps> = ({ selectedCompany, setSelectedCom
           {companies.map((company, index) => (
             <button
               key={index}
-              className={`exp-button ${selectedCompany.name === company.name ? "selected" : ""}`}
+              className={`exp-button ${selectedCompany.name === company.name ? 'selected' : ''}`}
               onClick={() => setSelectedCompany(company)}
             >
               {company.name}
@@ -30,17 +31,14 @@ const Experience: React.FC<ExperienceProps> = ({ selectedCompany, setSelectedCom
             <p className="company-name">{selectedCompany.name}</p>
           </div>
           <p className="time-worked">{selectedCompany.period}</p>
-          <div>
-            {[selectedCompany.descriptionP1, selectedCompany.descriptionP2].map(
-              (desc, index) =>
-                desc && (
-                  <div key={index} className="task-item">
-                    <ArrowRightIcon />
-                    <p>{desc}</p>
-                  </div>
-                )
-            )}
-          </div>
+          <ul className="description-list">
+            {selectedCompany.descriptions.map((desc: string, index: number) => (
+              <li key={index} className="description-item">
+                <ArrowRightIcon className="arrow-icon" />
+                <span className="description-text">{desc}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

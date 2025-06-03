@@ -1,16 +1,20 @@
-import React from "react";
+import React from 'react';
+import '../styles/global.css';
+import '../styles/resume.css';
 
 const Resume: React.FC = () => {
   return (
     <section id="resume" className="resume">
       <p className="resume-greeting">Olá, meu nome é</p>
       <p className="resume-name">Israel.</p>
-      <p className="resume-proficiency">Desenvolvedor web Full-Stack.</p>
+      <p className="resume-proficiency">
+        Eu escrevo códigos web com foco em solução.
+      </p>
       <div className="description-container">
         <p className="resume-description">
-          Sou desenvolvedor full-stack, utilizo diversas tecnologias e gosto
-          de aplicar minhas habilidades para solucionar problemas.
-          Trabalhar em equipe é essencial para criar soluções inovadoras e eficientes.
+          Sou engenheiro de software, gosto de imaginar cenários que podem ser
+          transformados em aplicações, essas ideias me fascinam. Atualmente,
+          estou desenvolvendo projetos para expandir minhas habilidades.
         </p>
       </div>
     </section>

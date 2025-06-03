@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700');
+@import url('https://fonts.googleapis.com/css2?family=Slabo+27px');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900');
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #1d0327;
+  color: #d1d5db;
+  font-family: 'Heebo', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+p {
+  line-height: 1.6;
+}
+
+section {
+  min-height: 90vh;
+}
+
+#resume {
+  height: 100vh;
+}
+
+section:not(:first-child) {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.section-about,
+.section-experience,
+.section-projects,
+.section-contact {
+  font-size: 1.8rem;
+  color: #ffffff;
+}
+
+.section-about,
+.section-experience,
+.section-projects {
+  margin-bottom: 2rem;
+}
+
+#contact {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+}
+
+#footer {
+  padding-bottom: 0.3rem;
+}
+
+@media (max-width: 680px) {
+  .about .experience,
+  .projects,
+  .contact {
+    margin-top: 10rem;
+    padding: 0 7%;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #646cff;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #4548c0;
+}

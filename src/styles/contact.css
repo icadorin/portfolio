@@ -1,0 +1,86 @@
+.contact {
+  text-align: center;
+  padding: 0 25%;
+  min-height: 60vh;
+}
+
+.section-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-top: 1rem;
+}
+
+.section-contact::before,
+.section-contact::after {
+  content: '';
+  flex-grow: 1;
+  height: 2px;
+  background-color: #c0c0c01e;
+  margin: 0 0.5rem;
+}
+
+.section-contact h2 {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.link-format {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  gap: 3rem;
+}
+
+.linkedin-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #878dff;
+  width: 20px;
+  height: 20px;
+  transition:
+    transform 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
+}
+
+.linkedin-icon:hover {
+  transform: scale(1.2);
+  background-color: #ffffff;
+}
+
+.github-g-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 2px;
+  color: #646cff;
+  width: 25.45px;
+  height: 25.45px;
+  border-radius: 50%;
+  transition:
+    transform 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
+}
+
+.github-g-icon:hover {
+  transform: scale(1.2);
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.contact-email {
+  display: inline-block;
+  margin-top: 2rem;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.contact-email:hover {
+  color: #646cff;
+  transform: translateY(-2px);
+}
