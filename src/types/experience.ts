@@ -1,13 +1,14 @@
-interface Company {
+export interface Company {
+  id: number;
   name: string;
   position: string;
   period: string;
   descriptions: string[];
 }
 
-interface ExperienceProps {
+export type CompanyList = Company[];
+
+export interface ExperienceProps {
   selectedCompany: Company;
   setSelectedCompany: React.Dispatch<React.SetStateAction<Company>>;
 }
-
-export type { Company, ExperienceProps };

@@ -10,7 +10,6 @@
 
 .section-projects {
   text-align: center;
-  font-size: 2rem;
   position: relative;
 }
 
@@ -87,7 +86,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s ease;
+  transition: all 0.4s ease;
 }
 
 .github-icon {
@@ -152,6 +151,10 @@
 }
 
 @media (max-width: 768px) {
+  .projects {
+    padding: 0 5rem;
+  }
+
   .card-container {
     grid-template-columns: minmax(260px, 1fr);
     justify-content: normal;
@@ -159,5 +162,17 @@
 
   .card-container:has(.card:nth-child(1)):not(:has(.card:nth-child(2))) {
     justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .projects {
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects {
+    padding: 0;
   }
 }

@@ -1,24 +1,17 @@
 import React from 'react';
+import { HighlightedTextProps } from '../../types/highlightedText';
 
-interface Props {
-  text: string;
-  boldHighlights?: string[];
-  underlineHighlights?: string[];
-  boldClass: string;
-  underlineClass: string;
-}
-
-const HighlightedText: React.FC<Props> = ({
+const HighlightedText: React.FC<HighlightedTextProps> = ({
   text,
-  boldHighlights = [],
+  highlights = [],
   underlineHighlights = [],
-  boldClass,
+  hightlightClass,
   underlineClass,
 }) => {
   const highlightMap = new Map<string, string>();
 
-  boldHighlights.forEach((item) => {
-    highlightMap.set(item.toLowerCase(), boldClass);
+  highlights.forEach((item) => {
+    highlightMap.set(item.toLowerCase(), hightlightClass);
   });
   underlineHighlights.forEach((item) => {
     highlightMap.set(item.toLowerCase(), underlineClass);

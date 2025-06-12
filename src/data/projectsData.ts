@@ -1,8 +1,8 @@
-import type { Projects } from '../types/project';
+import type { ProjectList } from '../types/project';
 import weatherImage from '../assets/images/weather-preview.png';
 import freightImage from '../assets/images/frete-preview.png';
 
-export const projectsData: Projects = [
+export const projectsData: ProjectList = [
   {
     id: 1,
     imageUrl: weatherImage,

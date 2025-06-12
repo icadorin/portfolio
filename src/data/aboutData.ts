@@ -14,7 +14,7 @@ export const aboutData = {
 
     `Atualmente, as tecnologias que eu tenho como foco são:`,
   ],
-  boldHighlights: [
+  highlights: [
     'Israel Cadorin',
     'desenvolvedor full-stack',
     'videogames',

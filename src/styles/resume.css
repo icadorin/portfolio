@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
 }
 
 .resume-greeting {
@@ -11,15 +12,14 @@
 }
 
 .resume-name {
-  margin-top: 0.6rem;
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: bold;
   color: #ffffff;
   letter-spacing: 2px;
 }
 
 .resume-proficiency {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: bold;
   letter-spacing: 2px;
   opacity: 0.7;
@@ -27,42 +27,54 @@
 }
 
 .description-container {
-  width: 80%;
+  width: 60%;
 }
 
 .resume-description {
   font-size: 1.1rem;
-  width: 70%;
 }
 
-@media (max-width: 680px) {
-  .resume {
-    padding: 0 7%;
+@media (max-width: 1920px) {
+}
+
+@media (max-width: 1600px) {
+}
+
+@media (max-width: 1400px) {
+  .resume-name {
+    font-size: 3.5rem;
   }
 
+  .resume-proficiency {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .description-container {
+    width: 80%;
+  }
+}
+
+@media (max-width: 576px) {
   .resume-name,
   .resume-proficiency {
-    font-size: 1.8rem;
-    font-weight: bold;
-    letter-spacing: 1px;
+    font-size: 2rem;
   }
 
-  .resume-description {
-    width: 100%;
-  }
-}
-
-@media (max-width: 880px) {
-  .description-container {
-    width: 100%;
-  }
-
+  .resume-description,
   .description-container {
     width: 100%;
   }
 
   .resume-description {
     font-size: 1.1rem;
-    width: 70%;
+  }
+}
+
+@media (max-width: 480px) {
+  .resume-name,
+  .resume-proficiency {
+    font-size: 1.8rem;
   }
 }

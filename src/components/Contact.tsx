@@ -1,5 +1,6 @@
 import React from 'react';
-import { GitHub, LinkedIn } from '@mui/icons-material';
+import { FiGithub, FiLinkedin } from 'react-icons/fi';
+import { contactLinks } from '../data/contactLinks';
 import '../styles/global.css';
 import '../styles/contact.css';
 
@@ -13,24 +14,24 @@ const Contact: React.FC = () => {
       </p>
       <div className="link-format">
         <a
-          className="linkedin-icon"
-          href="https://www.linkedin.com/in/israelmcadorin"
+          className="github-g-icon"
+          href={contactLinks.github}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <LinkedIn sx={{ fontSize: 30 }} />
+          <FiGithub size={20} />
         </a>
         <a
-          className="github-g-icon"
-          href="https://github.com/icadorin"
+          className="linkedin-icon"
+          href={contactLinks.linkedin}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <GitHub sx={{ fontSize: 30 }} />
+          <FiLinkedin size={20} />
         </a>
       </div>
-      <a href="mailto:cadorinisrael@gmail.com" className="contact-email">
-        cadorinisrael@gmail.com
+      <a href={`mailto:${contactLinks.email}`} className="contact-email">
+        {contactLinks.email}
       </a>
     </section>
   );

@@ -1,21 +1,25 @@
-const companies = [
+import type { Company } from '../types/experience';
+
+export const companiesData: Company[] = [
   {
-    name: "SoftExpert",
-    position: " Estágio em Desenvolvimento",
-    period: "Jan 2021 - Jan 2022",
+    id: 1,
+    name: 'SoftExpert',
+    position: 'Estágio em Desenvolvimento',
+    period: 'Jan 2021 - Jan 2022',
     descriptions: [
-      "Desenvolvimento front-end com criação de novas funcionalidades e componentes React.",
-      "Refatoração de código legado e otimizações de performance para maior eficiência."
-    ]
+      'Desenvolvimento front-end com criação de novas funcionalidades e componentes React.',
+      'Refatoração de código legado e otimizações de performance para maior eficiência.',
+    ],
   },
   {
-    name: "Tigre",
-    position: "Desenvolvedor Front-End",
-    period: "Mar 2019 - Jul 2019",
+    id: 2,
+    name: 'Tigre',
+    position: 'Desenvolvedor Front-End',
+    period: 'Mar 2019 - Jul 2019',
     descriptions: [
-      "Desenvolvimento de interfaces responsivas utilizando Vuetify."
-    ]
-  }
+      'Desenvolvimento de interfaces responsivas utilizando Vuetify.',
+    ],
+  },
 ];
 
-export default companies;
+export default companiesData;

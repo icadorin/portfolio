@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
-import { FaTimes } from 'react-icons/fa';
-import CustomHamburgerIcon from '../icons/CustomHamburgerIcon';
+import { CustomHamburgerIcon } from '../icons/CustomHamburgerIcon';
+import { CustomCloseIcon } from '../icons/CustomCloseIcon';
 import { useHeaderScroll } from '../../hooks/useHeaderScroll';
+import { HeaderProps } from '../../types/header';
 import { navItems } from './navItems';
 import '../../styles/header.css';
-
-interface HeaderProps {
-  scrollToSection: (id: string) => void;
-}
 
 const Header: React.FC<HeaderProps> = ({ scrollToSection }) => {
   const { isVisible, hasShadow, setIsProgrammaticScroll } = useHeaderScroll();
@@ -36,7 +33,7 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection }) => {
         onClick={() => setIsMenuOpen((prev) => !prev)}
         aria-label="Abrir menu"
       >
-        {isMenuOpen ? <FaTimes /> : <CustomHamburgerIcon />}
+        {isMenuOpen ? <CustomCloseIcon /> : <CustomHamburgerIcon />}
       </button>
 
       <nav className={`nav-links ${isMenuOpen ? 'open' : ''}`}>

@@ -10,13 +10,13 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .content-wrapper {
     padding: 0 4%;
   }
 }
 
-@media (max-width: 880px) {
+@media (max-width: 992px) {
   .content-wrapper {
     transition: transform 0.3s ease-in-out;
   }
@@ -26,7 +26,7 @@
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 768px) {
   .content-wrapper {
     max-width: 1200px;
     margin: 0 auto;

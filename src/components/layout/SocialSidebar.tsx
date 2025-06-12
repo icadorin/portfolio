@@ -1,11 +1,12 @@
 import { FiGithub, FiLinkedin } from 'react-icons/fi';
+import { contactLinks } from '../../data/contactLinks';
 import '../../styles/social-sidebar.css';
 
 const SocialSidebar: React.FC = () => {
   return (
     <div className="sidebarContainer">
       <a
-        href="https://github.com/icadorin"
+        href={contactLinks.github}
         target="_blank"
         rel="noopener noreferrer"
         className="socialLink"
@@ -13,7 +14,7 @@ const SocialSidebar: React.FC = () => {
         <FiGithub size={20} />
       </a>
       <a
-        href="https://www.linkedin.com/in/israelmcadorin/"
+        href={contactLinks.linkedin}
         target="_blank"
         rel="noopener noreferrer"
         className="socialLink"

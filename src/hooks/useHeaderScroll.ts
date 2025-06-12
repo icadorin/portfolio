@@ -7,14 +7,14 @@ export function useHeaderScroll() {
   const isProgrammaticScroll = useRef(false);
 
   const handleScroll = () => {
-    if (isProgrammaticScroll.current) return;
-
     const currentScrollY = window.scrollY;
     const scrolledDown = currentScrollY > lastScrollY.current;
     const nearTop = currentScrollY < 30;
 
-    setIsVisible(!scrolledDown || nearTop);
-    setHasShadow(currentScrollY > 10);
+    const shouldBeVisible = !scrolledDown || nearTop;
+    setIsVisible(shouldBeVisible);
+
+    setHasShadow(shouldBeVisible && currentScrollY > 10);
 
     lastScrollY.current = currentScrollY;
   };
@@ -30,6 +30,10 @@ export function useHeaderScroll() {
     isProgrammaticScroll,
     setIsProgrammaticScroll: (value: boolean) => {
       isProgrammaticScroll.current = value;
+    },
+    forceShadowCheck: () => {
+      const scrollY = window.scrollY;
+      setHasShadow(isVisible && scrollY > 10);
     },
   };
 }

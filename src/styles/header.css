@@ -6,7 +6,7 @@
   position: fixed;
   top: 0;
   background-color: #1d0327d5;
-  padding: 1rem 0;
+  padding: 1.1rem 0.5rem;
   transition: all 0.3s ease-in-out;
   z-index: 1000;
   transform: translateY(0);
@@ -30,6 +30,7 @@
   cursor: pointer;
   z-index: 1001;
   align-self: center;
+  min-height: 32px;
 }
 
 .nav-links {
@@ -64,13 +65,17 @@
   border-color: rgb(107, 52, 151);
 }
 
-@media (max-width: 780px) {
+@media (max-width: 768px) {
+  .header {
+    padding: 1.4rem 0.5rem;
+  }
+
   .hamburger-btn {
     display: block;
     float: right;
     width: 24px;
     height: 24px;
-    margin-right: 1rem;
+    margin-right: 1.7rem;
   }
 
   .nav-links {

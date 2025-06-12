@@ -1,4 +1,4 @@
-interface Project {
+export interface Project {
   id: number;
   imageUrl: string;
   title: string;
@@ -8,4 +8,4 @@ interface Project {
   technologies: string[];
 }
 
-export type Projects = Project[];
+export type ProjectList = Project[];

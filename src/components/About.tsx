@@ -3,11 +3,10 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import '../styles/global.css';
 import '../styles/about.css';
 import { aboutData } from '../data/aboutData';
-import HighlightedText from './common/HighlightedText';
+import HighlightedText from './common/HighlightedTextAbout';
 
 const About: React.FC = () => {
-  const { paragraphs, boldHighlights, underlineHighlights, techStack } =
-    aboutData;
+  const { paragraphs, highlights, underlineHighlights, techStack } = aboutData;
 
   return (
     <section id="about" className="about">
@@ -18,9 +17,9 @@ const About: React.FC = () => {
             <p key={index}>
               <HighlightedText
                 text={text}
-                boldHighlights={boldHighlights}
+                highlights={highlights}
                 underlineHighlights={underlineHighlights}
-                boldClass="highlight"
+                hightlightClass="highlight"
                 underlineClass="tech-underline"
               />
             </p>

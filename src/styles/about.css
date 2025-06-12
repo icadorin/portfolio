@@ -36,7 +36,6 @@
 
 .highlight {
   color: #646cff;
-  font-weight: 500;
   font-size: 1.1rem;
   line-height: 1.6;
 }
@@ -111,33 +110,22 @@
   z-index: -1;
 }
 
-@media (max-width: 680px) {
+@media (max-width: 768px) {
   .about {
     display: flex;
     flex-direction: column;
+    padding: 0;
+  }
+
+  .section-about::after {
+    width: 100%;
+  }
+
+  .profile-description {
+    width: 100%;
   }
 
   .photo-container {
-    display: flex;
-    justify-content: center;
-    margin: 2rem auto;
-    width: 115px;
-    height: 145px;
-  }
-
-  .photo-border {
-    width: 100px;
-    height: 130px;
-    border: 2px solid #646cff;
-    border-radius: 2px;
-    position: relative;
-  }
-
-  .profile-photo {
-    margin: 0 auto;
-    margin-top: 5px;
-    width: 100px;
-    height: 130px;
-    flex-shrink: 0;
+    margin-top: 3rem;
   }
 }
