@@ -28,10 +28,6 @@ p {
   line-height: 1.6;
 }
 
-section {
-  min-height: 90vh;
-}
-
 #resume {
   height: 100vh;
 }
@@ -51,8 +47,8 @@ section:not(:first-child) {
 }
 
 #contact {
-  padding-top: 4rem;
-  padding-bottom: 10rem;
+  padding-top: 5rem;
+  padding-bottom: 11rem;
 }
 
 #footer {
@@ -73,14 +69,14 @@ section:not(:first-child) {
   background-color: #4548c0;
 }
 
-@media (max-width: 768px) {
-  .about {
-    margin-top: 1rem;
-    margin-bottom: 3rem;
+@media (min-width: 1920px) {
+  section:not(:first-child) {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
   }
 
-  .contact {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+  #contact {
+    padding-top: 7rem;
+    padding-bottom: 17rem;
   }
 }

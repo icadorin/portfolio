@@ -65,6 +65,12 @@
   border-color: rgb(107, 52, 151);
 }
 
+@media (min-width: 1920px) {
+  .header {
+    padding: 1.8rem 1rem;
+  }
+}
+
 @media (max-width: 768px) {
   .header {
     padding: 1.4rem 0.5rem;
