@@ -92,11 +92,23 @@
 }
 
 .profile-photo {
+  position: relative;
   width: 170px;
   height: 200px;
-  border-radius: 2px;
+  border-radius: 4px;
   background-color: gray;
   flex-shrink: 0;
+}
+
+.photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 170px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 2px;
+  z-index: 2;
 }
 
 .photo-border {

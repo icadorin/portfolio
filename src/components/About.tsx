@@ -3,6 +3,7 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import '../styles/global.css';
 import '../styles/about.css';
 import { aboutData } from '../data/aboutData';
+import profileImage from '../assets/images/profile-photo.jpeg';
 import HighlightedText from './common/HighlightedTextAbout';
 
 const About: React.FC = () => {
@@ -42,6 +43,7 @@ const About: React.FC = () => {
 
       <div className="photo-container">
         <div className="profile-photo">
+          <img src={profileImage} alt="Foto de perfil" className="photo" />
           <div className="photo-border"></div>
         </div>
       </div>
