@@ -1,5 +1,3 @@
-import React from 'react';
-
 const linkMap: Record<string, string> = {
   ViaCEP: 'https://viacep.com.br',
   'OpenWeather API': 'https://openweathermap.org/api',
