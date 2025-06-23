@@ -6,9 +6,10 @@
   position: fixed;
   top: 0;
   background-color: #1d0327d5;
-  padding: 1.1rem 0.5rem;
+  padding-top: max(1.1rem, env(safe-area-inset-top));
+  padding-right: 0.5rem;
   transition: all 0.3s ease-in-out;
-  z-index: 1000;
+  z-index: 1002;
   transform: translateY(0);
   box-shadow: none;
 }
@@ -45,7 +46,7 @@
   color: #d1d5db;
   font-family: 'Fira Code', monospace;
   border: none;
-  font-size: 1.2rem;
+  font-size: 0.8rem;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -93,14 +94,18 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background: #1d0327;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
     z-index: 1000;
+    overflow: hidden;
+    margin: 0;
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+      env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
 
   .btn-resume {
