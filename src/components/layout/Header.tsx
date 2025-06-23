@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CustomHamburgerIcon } from '../icons/CustomHamburgerIcon';
 import { CustomCloseIcon } from '../icons/CustomCloseIcon';
 import { useHeaderScroll } from '../../hooks/useHeaderScroll';
@@ -9,6 +9,18 @@ import '../../styles/header.css';
 const Header: React.FC<HeaderProps> = ({ scrollToSection }) => {
   const { isVisible, hasShadow, setIsProgrammaticScroll } = useHeaderScroll();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
 
   const navigateToSection = (sectionId: string) => {
     setIsProgrammaticScroll(true);

@@ -80,3 +80,9 @@ section:not(:first-child) {
     padding-bottom: 17rem;
   }
 }
+
+@media (max-width: 768px) {
+  #footer {
+    padding-bottom: 1.4rem;
+  }
+}
