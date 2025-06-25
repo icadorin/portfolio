@@ -141,3 +141,18 @@
     margin-top: 3rem;
   }
 }
+
+@media (max-width: 576px) {
+  .profile-description {
+    font-size: 0.9rem;
+  }
+
+  .tech,
+  .tech-underline {
+    font-size: 0.8rem;
+  }
+
+  .highlight {
+    font-size: 0.9rem;
+  }
+}

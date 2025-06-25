@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 export function useHeaderScroll() {
   const [isVisible, setIsVisible] = useState(true);
   const [hasShadow, setHasShadow] = useState(false);
+  const [isAtTop, setIsAtTop] = useState(true);
   const lastScrollY = useRef(0);
   const isProgrammaticScroll = useRef(false);
 
@@ -11,6 +12,7 @@ export function useHeaderScroll() {
     const scrolledDown = currentScrollY > lastScrollY.current;
     const nearTop = currentScrollY < 30;
 
+    setIsAtTop(currentScrollY === 0);
     const shouldBeVisible = !scrolledDown || nearTop;
     setIsVisible(shouldBeVisible);
 
@@ -27,6 +29,7 @@ export function useHeaderScroll() {
   return {
     isVisible,
     hasShadow,
+    isAtTop,
     isProgrammaticScroll,
     setIsProgrammaticScroll: (value: boolean) => {
       isProgrammaticScroll.current = value;

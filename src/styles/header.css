@@ -7,10 +7,16 @@
   top: 0;
   background-color: #1d0327d5;
   padding: 1.1rem 0.5rem;
-  transition: all 0.3s ease-in-out;
+  transition:
+    all 0.3s ease-in-out,
+    margin-top 0.3s ease-in-out;
   z-index: 1000;
   transform: translateY(0);
   box-shadow: none;
+}
+
+.header.at-top {
+  margin-top: 1.2rem;
 }
 
 .header.hidden {
@@ -65,6 +71,13 @@
   border-color: rgb(107, 52, 151);
 }
 
+.no-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
 @media (min-width: 1920px) {
   .header {
     padding: 1.8rem 1rem;
@@ -73,7 +86,7 @@
 
 @media (max-width: 768px) {
   .header {
-    padding: 1.4rem 0.5rem;
+    padding: 1rem 0.5rem;
   }
 
   .hamburger-btn {
@@ -97,23 +110,10 @@
     height: 100vh;
     background: #1d0327;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
     z-index: 1000;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-  }
-
-  .btn-resume {
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-  }
-
-  .no-scroll {
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    height: 100%;
+    padding-top: 8rem;
   }
 }

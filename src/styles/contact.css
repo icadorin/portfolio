@@ -109,4 +109,8 @@
   .contact {
     padding: 0 3%;
   }
+
+  .contact-description {
+    font-size: 0.9rem;
+  }
 }

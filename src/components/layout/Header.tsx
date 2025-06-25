@@ -1,41 +1,22 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CustomHamburgerIcon } from '../icons/CustomHamburgerIcon';
 import { CustomCloseIcon } from '../icons/CustomCloseIcon';
 import { useHeaderScroll } from '../../hooks/useHeaderScroll';
-import { useMenuScrollControl } from '../../hooks/useMenuScrollControl';
 import { HeaderProps } from '../../types/header';
 import { navItems } from './navItems';
 import '../../styles/header.css';
 
 const Header: React.FC<HeaderProps> = ({ scrollToSection }) => {
-  const { isVisible, hasShadow, setIsProgrammaticScroll } = useHeaderScroll();
+  const { isVisible, hasShadow, isAtTop, setIsProgrammaticScroll } =
+    useHeaderScroll();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
-
-  useMenuScrollControl(isMenuOpen);
 
   useEffect(() => {
-    const menu = menuRef.current;
-    if (!menu || !isMenuOpen) return;
-
-    const handleScroll = () => {
-      const buffer = 5;
-
-      if (menu.scrollTop + menu.clientHeight >= menu.scrollHeight - buffer) {
-        menu.scrollTop = menu.scrollHeight - menu.clientHeight;
-      }
-
-      if (menu.scrollTop <= buffer) {
-        menu.scrollTop = 0;
-      }
-    };
-
-    menu.addEventListener('scroll', handleScroll, { passive: true });
-    return () => menu.removeEventListener('scroll', handleScroll);
+    document.body.classList.toggle('no-scroll', isMenuOpen);
+    return () => document.body.classList.remove('no-scroll');
   }, [isMenuOpen]);
 
   const navigateToSection = (sectionId: string) => {
-    setIsMenuOpen(false);
     setIsProgrammaticScroll(true);
     scrollToSection(sectionId);
 
@@ -44,28 +25,31 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection }) => {
     }
   };
 
+  const handleMenuClick = (sectionId: string) => {
+    setIsMenuOpen(false);
+    navigateToSection(sectionId);
+  };
+
   return (
     <header
-      className={`header ${isVisible ? 'visible' : 'hidden'} ${hasShadow ? 'shadow' : ''}`}
+      className={`header ${isVisible ? 'visible' : 'hidden'} ${
+        hasShadow ? 'shadow' : ''
+      } ${isAtTop ? 'at-top' : ''}`}
     >
       <button
         className="hamburger-btn"
         onClick={() => setIsMenuOpen((prev) => !prev)}
-        aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
+        aria-label="Abrir menu"
       >
         {isMenuOpen ? <CustomCloseIcon /> : <CustomHamburgerIcon />}
       </button>
 
-      <nav
-        ref={menuRef}
-        className={`nav-links ${isMenuOpen ? 'open' : ''}`}
-        aria-hidden={!isMenuOpen}
-      >
+      <nav className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
         {navItems.map(({ id, label, isPrimary }) => (
           <button
             key={id}
             className={isPrimary ? 'btn-resume' : ''}
-            onClick={() => navigateToSection(id)}
+            onClick={() => handleMenuClick(id)}
             aria-label={`Ir para ${label}`}
           >
             {label}

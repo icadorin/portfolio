@@ -51,9 +51,19 @@
 }
 
 @media (max-width: 576px) {
+  .resume {
+    justify-content: initial;
+    margin-top: 6rem;
+  }
+
+  .resume-greeting {
+    line-height: 4;
+  }
+
   .resume-name,
   .resume-proficiency {
-    font-size: 2rem;
+    font-size: 2.2rem;
+    line-height: 1.2;
   }
 
   .resume-description,
@@ -62,13 +72,6 @@
   }
 
   .resume-description {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .resume-name,
-  .resume-proficiency {
-    font-size: 1.8rem;
+    font-size: 0.9rem;
   }
 }
