@@ -6,10 +6,9 @@
   position: fixed;
   top: 0;
   background-color: #1d0327d5;
-  padding-top: max(1.1rem, env(safe-area-inset-top));
-  padding-right: 0.5rem;
+  padding: 1.1rem 0.5rem;
   transition: all 0.3s ease-in-out;
-  z-index: 1002;
+  z-index: 1000;
   transform: translateY(0);
   box-shadow: none;
 }
@@ -66,6 +65,16 @@
   border-color: rgb(107, 52, 151);
 }
 
+body.menu-open {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
 @media (min-width: 1920px) {
   .header {
     padding: 1.8rem 1rem;
@@ -94,7 +103,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background: #1d0327;
     flex-direction: column;
@@ -102,10 +111,6 @@
     align-items: center;
     gap: 2rem;
     z-index: 1000;
-    overflow: hidden;
-    margin: 0;
-    padding: env(safe-area-inset-top) env(safe-area-inset-right)
-      env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
 
   .btn-resume {

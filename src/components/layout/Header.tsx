@@ -12,20 +12,12 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection }) => {
 
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-      document.documentElement.style.overflow = 'hidden';
-      document.body.style.touchAction = 'none';
+      document.body.classList.add('menu-open');
     } else {
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-      document.body.style.touchAction = '';
+      document.body.classList.remove('menu-open');
     }
 
-    return () => {
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-      document.body.style.touchAction = '';
-    };
+    return () => document.body.classList.remove('menu-open');
   }, [isMenuOpen]);
 
   const navigateToSection = (sectionId: string) => {
