@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { CustomHamburgerIcon } from '../icons/CustomHamburgerIcon';
 import { CustomCloseIcon } from '../icons/CustomCloseIcon';
 import { useHeaderScroll } from '../../hooks/useHeaderScroll';
+import { useMenuScrollControl } from '../../hooks/useMenuScrollControl';
 import { HeaderProps } from '../../types/header';
 import { navItems } from './navItems';
 import '../../styles/header.css';
@@ -9,29 +10,38 @@ import '../../styles/header.css';
 const Header: React.FC<HeaderProps> = ({ scrollToSection }) => {
   const { isVisible, hasShadow, setIsProgrammaticScroll } = useHeaderScroll();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useMenuScrollControl(isMenuOpen);
 
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.classList.add('menu-open');
-    } else {
-      document.body.classList.remove('menu-open');
-    }
+    const menu = menuRef.current;
+    if (!menu || !isMenuOpen) return;
 
-    return () => document.body.classList.remove('menu-open');
+    const handleScroll = () => {
+      const buffer = 5;
+
+      if (menu.scrollTop + menu.clientHeight >= menu.scrollHeight - buffer) {
+        menu.scrollTop = menu.scrollHeight - menu.clientHeight;
+      }
+
+      if (menu.scrollTop <= buffer) {
+        menu.scrollTop = 0;
+      }
+    };
+
+    menu.addEventListener('scroll', handleScroll, { passive: true });
+    return () => menu.removeEventListener('scroll', handleScroll);
   }, [isMenuOpen]);
 
   const navigateToSection = (sectionId: string) => {
+    setIsMenuOpen(false);
     setIsProgrammaticScroll(true);
     scrollToSection(sectionId);
 
     if (sectionId !== 'resume') {
       setTimeout(() => setIsProgrammaticScroll(false), 1000);
     }
-  };
-
-  const handleMenuClick = (sectionId: string) => {
-    setIsMenuOpen(false);
-    navigateToSection(sectionId);
   };
 
   return (
@@ -41,17 +51,21 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection }) => {
       <button
         className="hamburger-btn"
         onClick={() => setIsMenuOpen((prev) => !prev)}
-        aria-label="Abrir menu"
+        aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
       >
         {isMenuOpen ? <CustomCloseIcon /> : <CustomHamburgerIcon />}
       </button>
 
-      <nav className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
+      <nav
+        ref={menuRef}
+        className={`nav-links ${isMenuOpen ? 'open' : ''}`}
+        aria-hidden={!isMenuOpen}
+      >
         {navItems.map(({ id, label, isPrimary }) => (
           <button
             key={id}
             className={isPrimary ? 'btn-resume' : ''}
-            onClick={() => handleMenuClick(id)}
+            onClick={() => navigateToSection(id)}
             aria-label={`Ir para ${label}`}
           >
             {label}
