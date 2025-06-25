@@ -91,6 +91,10 @@ p {
 }
 
 @media (max-width: 576px) {
+  #resume {
+    height: 90vh;
+  }
+
   .section-about,
   .section-experience,
   .section-projects,

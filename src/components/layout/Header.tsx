@@ -26,6 +26,7 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection }) => {
   };
 
   const handleMenuClick = (sectionId: string) => {
+    document.body.classList.remove('no-scroll');
     setIsMenuOpen(false);
     navigateToSection(sectionId);
   };
