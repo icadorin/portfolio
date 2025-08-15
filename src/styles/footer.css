@@ -11,6 +11,8 @@
 .serial-number {
   writing-mode: vertical-rl;
   font-size: 0.5rem;
+  cursor: pointer;
+  position: relative;
 }
 
 .copy-right {
@@ -23,4 +25,33 @@
   .serial-number {
     padding-bottom: 1.4rem;
   }
+}
+
+.serial-number:hover {
+  opacity: 1;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  writing-mode: horizontal-tb;
+  width: 200px;
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-family: 'Fira Code', monospace;
+  text-align: center;
+  line-height: 1.4;
+  z-index: 100;
+  border: 1px solid #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.serial-number:hover .tooltip {
+  opacity: 1;
 }

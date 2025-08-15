@@ -6,7 +6,12 @@ const Footer: React.FC = () => {
   return (
     <footer id="footer" className="footer">
       <div className="easter-egg">
-        <div className="serial-number">R34-Z-015</div>
+        <div className="serial-number">RB28DETT Z2
+          <div className="tooltip">
+            RB28DETT Z2 é um easter egg que faz referência ao motor do carro
+            Nissan Skyline R34 Z-TUNE.
+          </div>
+        </div>
       </div>
 
       <div className="copy-right">
