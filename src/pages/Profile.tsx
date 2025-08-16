@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import Header from './layout/Header';
+import Header from '../components/layout/Header';
 import Resume from './Resume';
 import About from './About';
 import Experience from './Experience';
 import Projects from './Projects';
 import Contact from './Contact';
-import Footer from './layout/Footer';
-import SocialSidebar from './layout/SocialSidebar';
+import Footer from '../components/layout/Footer';
+import SocialSidebar from '../components/layout/SocialSidebar';
 import companies from '../data/experienceData';
 import '../styles/global.css';
 import '../styles/profile.css';

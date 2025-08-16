@@ -2,7 +2,7 @@ import React from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { FiExternalLink } from 'react-icons/fi';
 import { projectsData } from '../data/projectsData';
-import { highlightLinks } from './common/HighlightedLinkProject';
+import { highlightLinks } from '../components/common/HighlightedLinkProject';
 import '../styles/global.css';
 import '../styles/projects.css';
 
