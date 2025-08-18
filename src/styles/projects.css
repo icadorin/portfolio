@@ -107,7 +107,7 @@
 }
 
 .external-link-icon {
-  color: var(--color-accent-dark);
+  color: var(--color-primary-dark);
 }
 
 .external-link-icon:hover {
@@ -155,7 +155,7 @@
 .project-technologies {
   font-size: 0.7rem;
   padding-right: 0.3rem;
-  color: var(--color-accent-lighter);
+  color: var(--color-primary-lighter);
   font-family: 'Fira Code', monospace;
 }
 
