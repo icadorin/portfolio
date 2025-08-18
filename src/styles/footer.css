@@ -4,7 +4,7 @@
   left: 10px;
   font-family: 'Orbitron', sans-serif;
   font-size: 1rem;
-  color: #ff0000;
+  color: var(--color-red-highlight);
 }
 
 .serial-number {
@@ -37,7 +37,7 @@
   writing-mode: horizontal-tb;
   width: 240px;
   background: rgba(29, 3, 39, 0.904);
-  color: #d1d5db;
+  color: var(--color-text-primary);
   padding: 12px;
   border-radius: 4px;
   font-size: 0.8rem;
@@ -55,16 +55,16 @@
 }
 
 .tooltip .engine {
-  color: #ff0000;
+  color: var(--color-red-highlight);
 }
 
 .tooltip .easter-egg-text {
-  color: #a78bfa;
+  color: var(--color-accent-light);
   font-weight: 600;
 }
 
 .tooltip .car-model {
-  color: #10b981;
+  color: var(--color-green-highlight);
   font-weight: 600;
 }
 

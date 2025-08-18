@@ -5,7 +5,7 @@
   width: 100%;
   position: fixed;
   top: 0;
-  background-color: #1d0327d5;
+  background-color: var(--color-background-header);
   padding: 1.1rem 0.5rem;
   transition:
     all 0.3s ease-in-out,
@@ -47,7 +47,7 @@
 
 .nav-links button {
   background: none;
-  color: #d1d5db;
+  color: var(--color-text-primary);
   font-family: 'Fira Code', monospace;
   border: none;
   font-size: 0.8rem;
@@ -56,18 +56,18 @@
 }
 
 .nav-links button:hover {
-  color: #646cff;
+  color: var(--color-accent);
 }
 
 .nav-links .btn-resume {
-  border: 1px solid #431a63;
+  border: 1px solid var(--color-border-primary);
   border-radius: 2px;
   padding: 0.5rem 1rem;
 }
 
 .nav-links .btn-resume:hover {
-  color: #d1d5db;
-  border-color: rgb(107, 52, 151);
+  color: var(--color-text-primary);
+  border-color: var(--color-accent);
 }
 
 .no-scroll {
@@ -107,7 +107,7 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background: #1d0327;
+    background: var(--color-background);
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;

@@ -18,7 +18,7 @@
   display: block;
   width: 10%;
   height: 2px;
-  background-color: #c0c0c01e;
+  background-color: var(--color-background-card);
   margin: 10px auto 0;
 }
 
@@ -99,49 +99,49 @@
 }
 
 .github-icon {
-  color: #ffffff;
+  color: var(--color-text-secondary);
 }
 
 .github-icon:hover {
-  color: #646cff;
+  color: var(--color-accent);
 }
 
 .external-link-icon {
-  color: #4a52e2;
+  color: var(--color-accent-dark);
 }
 
 .external-link-icon:hover {
-  color: #ffffff;
+  color: var(--color-text-secondary);
 }
 
 .project-title {
   margin-top: 1.4rem;
   font-size: 1.4rem;
-  color: #f8f8f8;
+  color: var(--color-text-light);
   line-height: 1.4;
   transition: all 0.2s ease;
 }
 
 .card:hover .project-title {
-  color: #646cff;
+  color: var(--color-accent);
 }
 
 .project-description {
   margin-top: 0.2rem;
-  color: #c2c2c2;
+  color: var(--color-text-muted);
   font-size: 0.9rem;
   line-height: 1.5;
 }
 
 .highlight-link {
-  color: #646cff;
+  color: var(--color-accent);
   text-decoration: none;
   transition: all 0.3s;
   padding: 0 2px;
 }
 
 .highlight-link:hover {
-  color: #535bf2;
+  color: var(--color-accent-darker);
   text-decoration: underline;
 }
 
@@ -155,7 +155,7 @@
 .project-technologies {
   font-size: 0.7rem;
   padding-right: 0.3rem;
-  color: #a3a8ff;
+  color: var(--color-accent-lighter);
   font-family: 'Fira Code', monospace;
 }
 
