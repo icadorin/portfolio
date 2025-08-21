@@ -16,6 +16,7 @@
     "@mui/material": "^6.4.8",
     "@tailwindcss/cli": "^4.0.14",
     "@types/react-router-dom": "^5.3.3",
+    "lucide-react": "^0.540.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",

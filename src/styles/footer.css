@@ -1,7 +1,7 @@
 .easter-egg {
   position: fixed;
   bottom: 10px;
-  left: 10px;
+  left: 8px;
   font-family: 'Orbitron', sans-serif;
   font-size: 1rem;
   color: var(--color-red-highlight);
@@ -35,7 +35,7 @@
   bottom: 110%;
   left: 50%;
   writing-mode: horizontal-tb;
-  width: 240px;
+  width: 280px;
   background: rgba(29, 3, 39, 0.904);
   color: var(--color-text-primary);
   padding: 12px;
@@ -52,6 +52,21 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   word-spacing: 0.1em;
   letter-spacing: 0.02em;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.tooltip-icon {
+  color: var(--color-lamp);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.tooltip-content {
+  flex: 1;
+  text-align: left;
 }
 
 .tooltip .engine {
