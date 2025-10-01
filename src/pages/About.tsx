@@ -7,7 +7,7 @@ import profileImage from '../assets/images/profile-photo.jpeg';
 import HighlightedText from '../components/common/HighlightedTextAbout';
 
 const About: React.FC = () => {
-  const { paragraphs, highlights, underlineHighlights, techStack } = aboutData;
+  const { paragraphs, highlights, techStack } = aboutData;
 
   return (
     <section id="about" className="about">
@@ -19,9 +19,7 @@ const About: React.FC = () => {
               <HighlightedText
                 text={text}
                 highlights={highlights}
-                underlineHighlights={underlineHighlights}
-                hightlightClass="highlight"
-                underlineClass="tech-underline"
+                highlightClass="highlight"
               />
             </p>
           ))}
