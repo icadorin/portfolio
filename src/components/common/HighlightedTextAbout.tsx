@@ -4,25 +4,16 @@ import { HighlightedTextProps } from '../../types/highlightedText';
 const HighlightedText: React.FC<HighlightedTextProps> = ({
   text,
   highlights = [],
-  underlineHighlights = [],
-  hightlightClass,
-  underlineClass,
+  highlightClass = 'highlight',
 }) => {
-  const highlightMap = new Map<string, string>();
+  if (highlights.length === 0) {
+    return <>{text}</>;
+  }
 
-  highlights.forEach((item) => {
-    highlightMap.set(item.toLowerCase(), hightlightClass);
-  });
-  underlineHighlights.forEach((item) => {
-    highlightMap.set(item.toLowerCase(), underlineClass);
-  });
-
-  const highlightWords = Array.from(highlightMap.keys());
-  if (highlightWords.length === 0) return <>{text}</>;
-
-  const escapedWords = highlightWords.map((w) =>
-    w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'),
+  const escapedWords = highlights.map((word) =>
+    word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'),
   );
+
   const regex = new RegExp(`(${escapedWords.join('|')})`, 'gi');
 
   const parts = text.split(regex);
@@ -30,14 +21,18 @@ const HighlightedText: React.FC<HighlightedTextProps> = ({
   return (
     <>
       {parts.map((part, index) => {
-        const styleClass = highlightMap.get(part.toLowerCase());
-        if (styleClass) {
+        const shouldHighlight = highlights.some(
+          (highlight) => highlight.toLowerCase() === part.toLowerCase(),
+        );
+
+        if (shouldHighlight) {
           return (
-            <span className={styleClass} key={index}>
+            <span key={index} className={highlightClass}>
               {part}
             </span>
           );
         }
+
         return <React.Fragment key={index}>{part}</React.Fragment>;
       })}
     </>
