@@ -16,14 +16,6 @@ const Projects: React.FC = () => {
       <div className="card-container">
         {projectsData.map((project) => (
           <div key={project.id} className="card">
-            <div className="project-image-container">
-              <img
-                src={project.imageUrl}
-                alt={`Prévia do projeto ${project.title}`}
-                className="project-image"
-                loading="lazy"
-              />
-            </div>
             <div className="card-content">
               <div className="icon-container">
                 <a

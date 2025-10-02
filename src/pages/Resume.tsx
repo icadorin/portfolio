@@ -8,13 +8,13 @@ const Resume: React.FC = () => {
       <p className="resume-greeting">Olá, meu nome é</p>
       <p className="resume-name">Israel.</p>
       <p className="resume-proficiency">
-        Eu escrevo códigos web com foco em solução.
+        Soluciono problemas com código e doses de café.
       </p>
       <div className="description-container">
         <p className="resume-description">
-          Sou engenheiro de software, gosto de imaginar cenários que podem ser
-          transformados em aplicações, essas ideias me fascinam. Atualmente,
-          estou desenvolvendo projetos para expandir minhas habilidades.
+          Sou desenvolvedor full-stack, gosto de imaginar cenários que podem ser
+          solucionados através de código. Atualmente, estou dedicado aos estudos
+          back-end, mais especificamente de Java e Spring-Boot.
         </p>
       </div>
     </section>
