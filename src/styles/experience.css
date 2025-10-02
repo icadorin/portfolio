@@ -57,6 +57,7 @@
 
 .exp-description {
   padding: 0.95rem;
+  height: 320px;
   width: 75%;
   padding-bottom: 5rem;
   font-family: 'Fira Code', monospace;

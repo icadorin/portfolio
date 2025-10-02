@@ -41,7 +41,7 @@ const Projects: React.FC = () => {
               </div>
 
               <h2 className="project-title">{project.title}</h2>
-
+              <p className="project-status">{project.status}</p>
               <p className="project-description">
                 {highlightLinks(project.description)}
               </p>

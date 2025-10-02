@@ -122,6 +122,11 @@
   transition: all 0.2s ease;
 }
 
+.project-status {
+  font-size: 0.8rem;
+  color: var(--color-text-status);
+}
+
 .card:hover .project-title {
   color: var(--color-accent);
 }
@@ -154,9 +159,10 @@
 
 .project-technologies {
   font-size: 0.7rem;
-  padding-right: 0.3rem;
+  padding: 0 0.3rem 0 0.3rem;
   color: var(--color-primary-lighter);
   font-family: 'Fira Code', monospace;
+  border-radius: 2px;
 }
 
 @media (max-width: 768px) {

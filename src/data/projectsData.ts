@@ -30,4 +30,23 @@ export const projectsData: ProjectList = [
       'ViaCEP API',
     ],
   },
+  {
+    id: 3,
+    imageUrl: freightImage,
+    title: 'Quick Bite',
+    status: 'Em Desenvolvimento',
+    description: 'Plataforma de delivery com arquitetura de microsserviços.',
+    githubUrl: 'https://github.com/icadorin/quick-bite-backend',
+    // liveUrl: ' ',
+    technologies: [
+      'Java',
+      'Spring Boot',
+      'Spring Cloud',
+      'PostgreSQL',
+      'Kafka',
+      'Redis',
+      'JWT',
+      'Microservices',
+    ],
+  },
 ];
