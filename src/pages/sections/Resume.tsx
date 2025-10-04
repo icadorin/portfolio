@@ -1,6 +1,7 @@
 import React from 'react';
-import '../styles/global.css';
-import '../styles/resume.css';
+
+import '@styles/global.css';
+import '@styles-sections/resume.css';
 
 const Resume: React.FC = () => {
   return (

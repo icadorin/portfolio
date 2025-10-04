@@ -32,12 +32,12 @@ export const projectsData: ProjectList = [
   },
   {
     id: 3,
-    imageUrl: freightImage,
+    imageUrl: freightImage, // Remover imagem
     title: 'Quick Bite',
     status: 'Em Desenvolvimento',
     description: 'Plataforma de delivery com arquitetura de microsserviços.',
     githubUrl: 'https://github.com/icadorin/quick-bite-backend',
-    // liveUrl: ' ',
+    liveUrl: 'https://israelcadorin.vercel.app/quickbite',
     technologies: [
       'Java',
       'Spring Boot',

@@ -1,9 +1,11 @@
 import React from 'react';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import companies from '../data/experienceData';
-import '../styles/global.css';
-import '../styles/experience.css';
-import { ExperienceProps } from '../types/experience';
+import companies from '../../data/experienceData';
+
+import '@styles/global.css';
+import '@styles-sections/experience.css';
+
+import { ExperienceProps } from '../../types/experience';
 
 const Experience: React.FC<ExperienceProps> = ({
   selectedCompany,

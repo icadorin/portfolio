@@ -1,10 +1,12 @@
 import React from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { FiExternalLink } from 'react-icons/fi';
-import { projectsData } from '../data/projectsData';
-import { highlightLinks } from '../components/common/HighlightedLinkProject';
-import '../styles/global.css';
-import '../styles/projects.css';
+
+import '@styles/global.css';
+import '@styles-sections/projects.css';
+
+import { projectsData } from '../../data/projectsData';
+import { highlightLinks } from '../../components/common/HighlightedLinkProject';
 
 const Projects: React.FC = () => {
   return (

@@ -1,8 +1,10 @@
 import React from 'react';
 import { FiGithub, FiLinkedin } from 'react-icons/fi';
-import { contactLinks } from '../data/contactLinks';
-import '../styles/global.css';
-import '../styles/contact.css';
+
+import '@styles/global.css';
+import '@styles-sections/contact.css';
+
+import { contactLinks } from '../../data/contactLinks';
 
 const Contact: React.FC = () => {
   return (

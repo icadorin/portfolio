@@ -25,6 +25,8 @@
   --color-border-primary: #431a63;
   --color-border-secondary: #c0c0c01e;
   --color-border-light: #ddd;
+  --color-border-arch: #c0c0c018;
+  --color-border-hover: #646cff42;
 
   /* destaque */
   --color-green-highlight: #10b981;

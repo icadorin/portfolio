@@ -1,7 +1,8 @@
 import React from 'react';
-import '../../styles/global.css';
-import '../../styles/footer.css';
 import { Lightbulb } from 'lucide-react';
+
+import '@styles/global.css';
+import '@styles/footer.css';
 
 const Footer: React.FC = () => {
   return (

@@ -3,8 +3,10 @@ import { CustomHamburgerIcon } from '../icons/CustomHamburgerIcon';
 import { CustomCloseIcon } from '../icons/CustomCloseIcon';
 import { useHeaderScroll } from '../../hooks/useHeaderScroll';
 import { HeaderProps } from '../../types/header';
+
+import '@styles/header.css';
+
 import { navItems } from './navItems';
-import '../../styles/header.css';
 
 const Header: React.FC<HeaderProps> = ({ scrollToSection }) => {
   const { isVisible, hasShadow, isAtTop, setIsProgrammaticScroll } =

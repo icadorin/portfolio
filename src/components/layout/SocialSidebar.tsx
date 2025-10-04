@@ -1,6 +1,7 @@
 import { FiGithub, FiLinkedin } from 'react-icons/fi';
 import { contactLinks } from '../../data/contactLinks';
-import '../../styles/social-sidebar.css';
+
+import '@styles/social-sidebar.css';
 
 const SocialSidebar: React.FC = () => {
   return (

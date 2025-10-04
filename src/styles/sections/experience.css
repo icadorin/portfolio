@@ -48,6 +48,8 @@
 
 .exp-button:hover {
   background-color: var(--color-background-hover);
+  border-left: 2px solid var(--color-border-hover);
+  cursor: pointer;
 }
 
 .exp-button.selected {
