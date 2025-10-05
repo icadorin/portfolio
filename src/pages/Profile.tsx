@@ -3,20 +3,28 @@ import React, { useState } from 'react';
 import '@styles/global.css';
 import '@styles-sections/profile.css';
 
-import Header from '../../components/layout/Header';
-import Resume from './Resume';
-import About from './About';
-import Experience from './Experience';
-import Projects from './Projects';
-import Contact from './Contact';
-import Footer from '../../components/layout/Footer';
-import SocialSidebar from '../../components/layout/SocialSidebar';
-import companies from '../../data/experienceData';
+import Header from '../components/layout/Header';
+import Resume from './sections/Resume';
+import About from './sections/About';
+import Experience from './sections/Experience';
+import Projects from './sections/Projects';
+import Contact from './sections/Contact';
+import Footer from '../components/layout/Footer';
+import SocialSidebar from '../components/layout/SocialSidebar';
+import companies from '../data/experienceData';
 
 const Profile: React.FC = () => {
   const [selectedCompany, setSelectedCompany] = useState(companies[0]);
 
   const scrollToSection = (id: string) => {
+    if (id === 'hero') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+      return;
+    }
+
     const elemento = document.getElementById(id);
     if (elemento) {
       const offset = -30;

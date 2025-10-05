@@ -1,6 +1,6 @@
 import type { ProjectList } from '../types/project';
-import weatherImage from '../assets/images/weather-preview.png';
-import freightImage from '../assets/images/frete-preview.png';
+import weatherImage from '/assets/images/weather-preview.png';
+import freightImage from '/assets/images/frete-preview.png';
 
 export const projectsData: ProjectList = [
   {

@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection }) => {
     setIsProgrammaticScroll(true);
     scrollToSection(sectionId);
 
-    if (sectionId !== 'resume') {
+    if (sectionId !== 'hero') {
       setTimeout(() => setIsProgrammaticScroll(false), 1000);
     }
   };
@@ -30,6 +30,12 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection }) => {
   const handleMenuClick = (sectionId: string) => {
     document.body.classList.remove('no-scroll');
     setIsMenuOpen(false);
+
+    if (sectionId === 'resume') {
+      window.open('/assets/resumo.pdf', '_blank');
+      return;
+    }
+
     navigateToSection(sectionId);
   };
 

@@ -5,7 +5,7 @@ import '@styles/global.css';
 import '@styles-sections/about.css';
 
 import { aboutData } from '../../data/aboutData';
-import profileImage from '../../assets/images/profile-photo.jpeg';
+import profileImage from '/assets/images/profile-photo.jpeg';
 import HighlightedText from '../../components/common/HighlightedTextAbout';
 
 const About: React.FC = () => {
