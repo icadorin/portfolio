@@ -22,35 +22,31 @@ const MavenDependency: React.FC<MavenDependencyProps> = ({
         <code className="maven-code">
           <span className="tag-code">&lt;dependency&gt;</span>
           {'\n'}
-          {'    '}
+          {'  '}
           <span className="tag-code">&lt;groupId&gt;</span>
-          <span className="maven-value groupid-value">{groupId}</span>
+          <span className="maven-value">{groupId}</span>
           <span className="tag-code">&lt;/groupId&gt;</span>
           {'\n'}
-          {'    '}
+          {'  '}
           <span className="tag-code">&lt;artifactId&gt;</span>
-          <span className="maven-value artifactid-value">{artifactId}</span>
+          <span className="maven-value">{artifactId}</span>
           <span className="tag-code">&lt;/artifactId&gt;</span>
           {version && (
             <>
               {'\n'}
-              {'    '}
+              {'  '}
               <span className="tag-code">&lt;version&gt;</span>
-              <span className="maven-value version-value">{version}</span>
+              <span className="maven-value">{version}</span>
               <span className="tag-code">&lt;/version&gt;</span>
             </>
           )}
           {scope && (
             <>
               {'\n'}
-              {'    '}
-              <span className="maven-tag-code scope-tag-code">
-                &lt;scope&gt;
-              </span>
-              <span className="maven-value scope-value">{scope}</span>
-              <span className="maven-tag-code scope-tag-code">
-                &lt;/scope&gt;
-              </span>
+              {'  '}
+              <span className="tag-code">&lt;scope&gt;</span>
+              <span className="maven-value">{scope}</span>
+              <span className="tag-code">&lt;/scope&gt;</span>
             </>
           )}
           {'\n'}

@@ -8,13 +8,15 @@ const EntityImplementation: React.FC = () => {
     <div className="entity-container">
       <h1 className="entity-title">Implementação de Entidades</h1>
       <h2>Dependências</h2>
-      <span>JPA e Lombok</span>
-      <p>Import da depenência no arquivo pom.xml</p>
+      <div className="dependencies-section">
+        <span>JPA e Lombok</span>
+        <p>Import da depenência no arquivo pom.xml</p>
 
-      <MavenDependency
-        groupId="org.springframework.boot"
-        artifactId="spring-boot-starter-data-jpa"
-      />
+        <MavenDependency
+          groupId="org.springframework.boot"
+          artifactId="spring-boot-starter-data-jpa"
+        />
+      </div>
 
       <p>
         Essa dependência permite o acesso ao JPA e Hibernate. Dessa forma, eu
@@ -25,6 +27,7 @@ const EntityImplementation: React.FC = () => {
       </p>
 
       <JavaExample />
+
       <p>
         O Lombok foi uma opção adotada para redução do código boilerplate,
         códigos que se repetem com pouca ou nenhuma variação. Um exemplo disso

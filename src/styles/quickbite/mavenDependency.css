@@ -1,69 +1,66 @@
 .maven-dependency-container {
-  display: flex;
-  align-items: center;
-  position: relative;
-  margin: 16px 0;
+  background: #1e1e1e;
+  border-radius: 8px;
+  border: 1px solid #333;
+  overflow: hidden;
+  margin: 1rem 0;
 }
 
 .maven-dependency-block {
-  background: #000000;
-  border: 1px solid #3f063f;
-  border-radius: 6px;
-  padding: 16px;
   margin: 0;
-  overflow-x: auto;
-  font-family:
-    ui-monospace,
-    SFMono-Regular,
-    SF Mono,
-    Menlo,
-    Consolas,
-    Liberation Mono,
-    monospace;
+  padding: 1rem;
+  background: transparent;
+  color: #d4d4d4;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
   font-size: 14px;
   line-height: 1.5;
-  color: #24292e;
   white-space: pre;
+  overflow-x: auto;
 }
 
 .maven-code {
   display: block;
-  font-family: inherit;
-}
-
-.maven-tag {
-  font-weight: 600;
 }
 
 .tag-code {
-  color: #16b65e;
+  color: #569cd6;
+  font-weight: bold;
 }
 
 .maven-value {
-  color: #f8f5ff;
+  color: #ce9178;
   font-weight: 400;
   margin: 0 2px;
+  padding: 1px 4px;
+  border-radius: 3px;
 }
 
 .groupid-value {
-  padding: 1px 4px;
-  border-radius: 3px;
 }
-
 .artifactid-value {
-  color: #f8f5ff;
-  padding: 1px 4px;
-  border-radius: 3px;
 }
-
 .version-value {
-  color: #f8f5ff;
-  padding: 1px 4px;
-  border-radius: 3px;
+}
+.scope-value {
 }
 
-.scope-value {
-  color: #f8f5ff;
-  padding: 1px 4px;
-  border-radius: 3px;
+.maven-dependency-container:hover {
+  box-shadow: 0 0 0 1px rgba(86, 156, 214, 0.1);
+}
+
+.maven-dependency-block::-webkit-scrollbar {
+  height: 8px;
+}
+
+.maven-dependency-block::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+.maven-dependency-block::-webkit-scrollbar-thumb {
+  background: #424242;
+  border-radius: 4px;
+}
+
+.maven-dependency-block::-webkit-scrollbar-thumb:hover {
+  background: #4f4f4f;
 }
