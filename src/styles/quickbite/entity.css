@@ -1,0 +1,123 @@
+.entity-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+.entity-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  font-weight: 700;
+  position: relative;
+}
+
+.section {
+  margin: 2rem 0;
+  padding: 2rem;
+  border: 1px solid var(--color-border-primary);
+  border-radius: 5px;
+}
+
+.section h2 {
+  color: var(--color-text-ice);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-border-light);
+  padding-bottom: 0.5rem;
+}
+
+.compact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.compact-list li {
+  padding: 1rem 1.5rem;
+  margin: 0.8rem 0;
+  background: var(--color-background-mid);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.highlight {
+  color: var(--color-text-status);
+  border-radius: 6px;
+  font-family: Heebo, sans-serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.description-ann {
+  color: var(--color-text-pr);
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.annotation {
+  color: var(--color-text-ann);
+  background: var(--color-background);
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.inline-tags {
+  margin: 0.5rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.code-block {
+  background: var(--color-background-code);
+  color: var(--color-text-secondary);
+  padding: 1rem;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  margin: 0.8rem 0;
+  overflow-x: auto;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .entity-container {
+    padding: 1rem;
+  }
+
+  .entity-title {
+    font-size: 2rem;
+  }
+
+  .section {
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+
+  .compact-list li {
+    padding: 0.8rem 1rem;
+  }
+
+  .inline-tags {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
