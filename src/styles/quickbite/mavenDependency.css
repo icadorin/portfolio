@@ -1,0 +1,69 @@
+.maven-dependency-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 16px 0;
+}
+
+.maven-dependency-block {
+  background: #000000;
+  border: 1px solid #3f063f;
+  border-radius: 6px;
+  padding: 16px;
+  margin: 0;
+  overflow-x: auto;
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    SF Mono,
+    Menlo,
+    Consolas,
+    Liberation Mono,
+    monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #24292e;
+  white-space: pre;
+}
+
+.maven-code {
+  display: block;
+  font-family: inherit;
+}
+
+.maven-tag {
+  font-weight: 600;
+}
+
+.tag-code {
+  color: #16b65e;
+}
+
+.maven-value {
+  color: #f8f5ff;
+  font-weight: 400;
+  margin: 0 2px;
+}
+
+.groupid-value {
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.artifactid-value {
+  color: #f8f5ff;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.version-value {
+  color: #f8f5ff;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
+
+.scope-value {
+  color: #f8f5ff;
+  padding: 1px 4px;
+  border-radius: 3px;
+}
