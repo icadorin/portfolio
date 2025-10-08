@@ -45,16 +45,6 @@
   position: relative;
 }
 
-.highlight {
-  color: var(--color-text-status);
-  border-radius: 6px;
-  font-family: Heebo, sans-serif;
-  font-weight: 600;
-  font-size: 1.4rem;
-  display: inline-block;
-  margin-right: 0.5rem;
-}
-
 .description-ann {
   color: var(--color-text-pr);
   font-weight: 600;
