@@ -5,6 +5,7 @@ import { CustomCloseIcon } from '@icons/CustomCloseIcon';
 import { useHeaderScroll } from '@hooks/useHeaderScroll';
 import { HeaderProps } from '@app-types/header';
 import { navItems } from '@data-sections/navItems';
+import resumePdf from '@assets/resumo.pdf';
 
 const Header: React.FC<HeaderProps> = ({ scrollToSection }) => {
   const { isVisible, hasShadow, isAtTop, setIsProgrammaticScroll } =
@@ -30,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection }) => {
     setIsMenuOpen(false);
 
     if (sectionId === 'resume') {
-      window.open('src/assets/resumo.pdf', '_blank');
+      window.open(resumePdf, '_blank');
       return;
     }
 

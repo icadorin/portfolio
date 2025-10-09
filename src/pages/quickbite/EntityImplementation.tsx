@@ -1,9 +1,10 @@
 import React from 'react';
 import '@styles-quickbite/entity.css';
 import MavenDependency from '@code-block/MavenDependency';
-import CodeJakarAnn from '@data-code/CodeJakarAnn';
-import CodeWithBuilder from '@data-code/CodeWithBuilder';
-import CodeWithoutBuilder from '@data-code/CodeWithoutBuilder';
+import CodeBlockWithTitle from '@code-block/CodeBlockWithTitle';
+import { codeJakarAnn } from '@data-code/codeJakarAnn';
+import { codeWithoutBuilder } from '@data-code/codeWithoutBuilder';
+import { codeWithBuilder } from '@data-code/codeWithBuilder';
 
 const EntityImplementation: React.FC = () => {
   return (
@@ -32,7 +33,7 @@ const EntityImplementation: React.FC = () => {
         No código abaixo, eu faço o uso das anotações do Jakarta, que estão
         contidas no JPA.
       </p>
-      <CodeJakarAnn />
+      <CodeBlockWithTitle title={codeJakarAnn.title} code={codeJakarAnn.code} />
       <p>
         O Lombok foi uma opção adotada para redução do código boilerplate,
         códigos que se repetem com pouca ou nenhuma variação. Um exemplo disso
@@ -45,7 +46,22 @@ const EntityImplementation: React.FC = () => {
         dos objetos mais elegantes.
       </p>
       <div>
-        <CodeWithBuilder /> <CodeWithoutBuilder />
+        <CodeBlockWithTitle
+          title={codeWithoutBuilder.title}
+          code={codeWithoutBuilder.code}
+        />
+        <CodeBlockWithTitle
+          title={codeWithBuilder.title}
+          code={codeWithBuilder.code}
+        />
+        <p>
+          Quando o padrão builder é utilizado através do Lombok não é necessário
+          a criar de um construtor ele já cuida disso, porém o JPA exige que
+          haja um construtor sem parâmetros criado para funcionar. Para esse
+          projeto eu estou usando o builder, com os construtores com e sem
+          parâmetro, para padronizar, e em alguns casos eu também criei
+          construtores personalizados, apenas com os atributos necessários.
+        </p>
       </div>
     </div>
   );

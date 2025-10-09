@@ -1,11 +1,6 @@
-import React from 'react';
-import CodeBlockWithTitle from '@code-block/CodeBlockWithTitle';
-
-const CodeJakarAnn: React.FC = () => {
-  return (
-    <CodeBlockWithTitle
-      title="Sem o uso do Builder"
-      code={`
+export const codeWithoutBuilder = {
+  title: 'Sem o uso do Builder',
+  code: `
 private User createUser(RegisterRequest request) {
     User user = new User();
     user.setEmail(request.getEmail());
@@ -15,10 +10,5 @@ private User createUser(RegisterRequest request) {
     user.setStatus(User.UserStatus.ACTIVE);
     
     return userRepository.save(user);
-}
-      `}
-    />
-  );
+}`.trim(),
 };
-
-export default CodeJakarAnn;

@@ -25,7 +25,8 @@
       "@layout/*": ["src/components/layout/*"],
       "@hooks/*": ["src/hooks/*"],
       "@icons/*": ["src/components/icons/*"],
-      "@images/*": ["src/assets/images/*"]
+      "@images/*": ["src/assets/images/*"],
+      "@assets/*": ["src/assets/*"]
     },
 
     /* Bundler mode */
