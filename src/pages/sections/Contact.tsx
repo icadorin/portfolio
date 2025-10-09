@@ -4,7 +4,7 @@ import { FiGithub, FiLinkedin } from 'react-icons/fi';
 import '@styles/global.css';
 import '@styles-sections/contact.css';
 
-import { contactLinks } from '../../data/contactLinks';
+import { contactLinks } from '../../data/sections/contactLinks';
 
 const Contact: React.FC = () => {
   return (

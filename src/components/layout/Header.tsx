@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { CustomHamburgerIcon } from '../icons/CustomHamburgerIcon';
-import { CustomCloseIcon } from '../icons/CustomCloseIcon';
-import { useHeaderScroll } from '../../hooks/useHeaderScroll';
-import { HeaderProps } from '../../types/header';
-
 import '@styles/header.css';
-
-import { navItems } from './navItems';
+import { CustomHamburgerIcon } from '@icons/CustomHamburgerIcon';
+import { CustomCloseIcon } from '@icons/CustomCloseIcon';
+import { useHeaderScroll } from '@hooks/useHeaderScroll';
+import { HeaderProps } from '@app-types/header';
+import { navItems } from '@data-sections/navItems';
 
 const Header: React.FC<HeaderProps> = ({ scrollToSection }) => {
   const { isVisible, hasShadow, isAtTop, setIsProgrammaticScroll } =
@@ -32,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection }) => {
     setIsMenuOpen(false);
 
     if (sectionId === 'resume') {
-      window.open('/assets/resumo.pdf', '_blank');
+      window.open('src/assets/resumo.pdf', '_blank');
       return;
     }
 

@@ -1,11 +1,8 @@
-import type { ProjectList } from '../types/project';
-import weatherImage from '/assets/images/weather-preview.png';
-import freightImage from '/assets/images/frete-preview.png';
+import type { ProjectList } from '@app-types/project';
 
 export const projectsData: ProjectList = [
   {
     id: 1,
-    imageUrl: weatherImage,
     title: 'Previsão do Tempo',
     description:
       'Previsão do tempo com geolocalização ou busca manual, integrada com a **OpenWeather API**.',
@@ -15,7 +12,6 @@ export const projectsData: ProjectList = [
   },
   {
     id: 2,
-    imageUrl: freightImage,
     title: 'Calculadora de Frete',
     description:
       'API para cálculo de frete com base no estado, usando a API **ViaCEP**.',
@@ -32,7 +28,6 @@ export const projectsData: ProjectList = [
   },
   {
     id: 3,
-    imageUrl: freightImage, // Remover imagem
     title: 'Quick Bite',
     status: 'Em Desenvolvimento',
     description: 'Plataforma de delivery com arquitetura de microsserviços.',

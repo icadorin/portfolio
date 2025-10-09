@@ -1,5 +1,5 @@
 import { FiGithub, FiLinkedin } from 'react-icons/fi';
-import { contactLinks } from '../../data/contactLinks';
+import { contactLinks } from '@data-sections/contactLinks';
 
 import '@styles/social-sidebar.css';
 

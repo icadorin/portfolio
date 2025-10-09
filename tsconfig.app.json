@@ -1,11 +1,32 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
+    "paths": {
+      "@/*": ["src/*"],
+      "@styles/*": ["src/styles/*"],
+      "@styles-sections/*": ["src/styles/sections/*"],
+      "@styles-quickbite/*": ["src/styles/quickbite/*"],
+      "@pages/*": ["src/pages/*"],
+      "@pages-sections/*": ["src/pages/sections/*"],
+      "@pages-quickbite/*": ["src/pages/quickbite/*"],
+      "@data/*": ["src/data/*"],
+      "@data-code/*": ["src/data/code/*"],
+      "@data-sections/*": ["src/data/sections/*"],
+      "@app-types/*": ["src/types/*"],
+      "@code-block/*": ["src/components/code-block/*"],
+      "@code-highlight/*": ["src/components/highlight/code-highlight/*"],
+      "@text-highlight/*": ["src/components/highlight/text-highlight/*"],
+      "@layout/*": ["src/components/layout/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@icons/*": ["src/components/icons/*"],
+      "@images/*": ["src/assets/images/*"]
+    },
 
     /* Bundler mode */
     "moduleResolution": "bundler",

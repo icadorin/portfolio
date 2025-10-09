@@ -1,4 +1,6 @@
-import type { Company } from '../types/experience';
+import type { Company } from '../../types/experience';
+
+import type { Company } from '@types/experience.ts';
 
 export const companiesData: Company[] = [
   {

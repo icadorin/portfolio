@@ -1,10 +1,8 @@
 import React from 'react';
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import companies from '../../data/experienceData';
-
 import '@styles/global.css';
 import '@styles-sections/experience.css';
-
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import companies from '@data-sections/experienceData';
 import { ExperienceProps } from '../../types/experience';
 
 const Experience: React.FC<ExperienceProps> = ({

@@ -1,5 +1,5 @@
 import React from 'react';
-import { HighlightedTextProps } from '../../types/highlightedText';
+import { HighlightedTextProps } from '@app-types/highlightedText';
 
 const HighlightedText: React.FC<HighlightedTextProps> = ({
   text,

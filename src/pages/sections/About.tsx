@@ -1,12 +1,10 @@
 import React from 'react';
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-
 import '@styles/global.css';
 import '@styles-sections/about.css';
-
-import { aboutData } from '../../data/aboutData';
-import profileImage from '/assets/images/profile-photo.jpeg';
-import HighlightedText from '../../components/common/HighlightedTextAbout';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import { aboutData } from '@data-sections/aboutData';
+import profileImage from '@images/profile-photo.jpeg';
+import HighlightedText from '@text-highlight/HighlightedTextAbout';
 
 const About: React.FC = () => {
   const { paragraphs, highlights, techStack } = aboutData;

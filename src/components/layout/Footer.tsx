@@ -1,6 +1,5 @@
 import React from 'react';
 import { Lightbulb } from 'lucide-react';
-
 import '@styles/global.css';
 import '@styles/footer.css';
 

@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
-
 import '@styles/global.css';
 import '@styles-sections/profile.css';
-
-import Header from '../components/layout/Header';
-import Resume from './sections/Resume';
-import About from './sections/About';
-import Experience from './sections/Experience';
-import Projects from './sections/Projects';
-import Contact from './sections/Contact';
-import Footer from '../components/layout/Footer';
-import SocialSidebar from '../components/layout/SocialSidebar';
-import companies from '../data/experienceData';
+import Header from '@layout/Header';
+import Resume from '@pages-sections/Resume';
+import About from '@pages-sections/About';
+import Experience from '@pages-sections/Experience';
+import Projects from '@pages-sections/Projects';
+import Contact from '@pages-sections/Contact';
+import Footer from '@layout/Footer';
+import SocialSidebar from '@layout/SocialSidebar';
+import companies from '@data-sections/experienceData.ts';
 
 const Profile: React.FC = () => {
   const [selectedCompany, setSelectedCompany] = useState(companies[0]);

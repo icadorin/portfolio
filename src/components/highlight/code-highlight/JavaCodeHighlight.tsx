@@ -51,7 +51,7 @@ const JavaCodeHighlight: React.FC<JavaCodeHighlightProps> = ({
       'int',
       'double',
       'float',
-      'long',
+      'Long',
       'short',
       'byte',
       'char',

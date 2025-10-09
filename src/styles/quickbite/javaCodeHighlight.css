@@ -16,6 +16,10 @@
   line-height: 1.5;
 }
 
+.desc-code {
+  color: var(--color-text-ice);
+}
+
 .java-code {
   display: block;
   padding: 1rem;
