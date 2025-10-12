@@ -45,6 +45,8 @@ const JavaCodeHighlight: React.FC<JavaCodeHighlightProps> = ({
       'finally',
       'throw',
       'throws',
+      'true',
+      'false',
     ];
 
     const types = [
@@ -65,6 +67,23 @@ const JavaCodeHighlight: React.FC<JavaCodeHighlightProps> = ({
       'HashSet',
     ];
 
+    const constants = [
+      'LAZY',
+      'EAGER',
+      'IDENTITY',
+      'SEQUENCE',
+      'TABLE',
+      'AUTO',
+      'NONE',
+      'ALL',
+      'PERSIST',
+      'MERGE',
+      'REMOVE',
+      'REFRESH',
+      'DETACH',
+      'ACTIVE',
+    ];
+
     const combinedRegex = new RegExp(
       [
         // Comentários
@@ -73,6 +92,8 @@ const JavaCodeHighlight: React.FC<JavaCodeHighlightProps> = ({
         '(?<annotation>@\\w+)',
         // Strings "..."
         '(?<string>"([^"\\\\]|\\\\.)*")',
+        // Constantes/Enums (FetchType.LAZY, GenerationType.IDENTITY)
+        `\\b(?<constant>${constants.join('|')})\\b`,
         // Palavras-chave
         `\\b(?<keyword>${keywords.join('|')})\\b`,
         // Tipos
@@ -93,6 +114,7 @@ const JavaCodeHighlight: React.FC<JavaCodeHighlightProps> = ({
       type: 'java-type',
       number: 'java-number',
       method: 'java-method',
+      constant: 'java-constant',
     };
 
     return javaCode.replace(combinedRegex, (match, ...args) => {
