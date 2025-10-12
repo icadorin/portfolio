@@ -1,0 +1,32 @@
+.annotation {
+  color: var(--color-highlight-annotation);
+  padding: 2px 4px;
+  font-weight: bold;
+}
+
+.bold-word {
+  background-color: var(--color-highlight-bold-bg);
+  color: var(--color-highlight-bold-text);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.constant {
+  color: var(--color-highlight-constant);
+  font-weight: 600;
+}
+
+.framework {
+  font-style: italic;
+}
+
+.programming-term {
+  color: var(--color-highlight-programming-term);
+  font-style: italic;
+  font-weight: 600;
+}
+
+.code-concept {
+  color: var(--color-text-ice);
+}

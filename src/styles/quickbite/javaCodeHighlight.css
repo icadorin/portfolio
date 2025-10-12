@@ -17,6 +17,8 @@
 }
 
 .desc-code {
+  font-weight: 600;
+  border-radius: 3px;
   color: var(--color-text-ice);
 }
 
@@ -79,6 +81,11 @@
 
 .java-method {
   color: #dcdcaa;
+}
+
+.java-constant {
+  color: #c586c0;
+  font-weight: bold;
 }
 
 .java-code-container:hover {
