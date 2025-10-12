@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '@styles-quickbite/main.css';
+import '@styles-quickbite/quickbite.css';
 import { ArrowUp } from 'lucide-react';
 
 import EntityImplementation from './EntityImplementation';

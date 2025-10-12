@@ -1,13 +1,14 @@
 :root {
-  /* detalhes */
+  /* Cores principais */
   --color-primary: #646cff;
   --color-primary-hover: #4548c0;
   --color-primary-dark: #4a52e2;
   --color-primary-darker: #535bf2;
   --color-primary-lighter: #a3a8ff;
   --color-lamp: #ffd700;
+  --color-heading-primary: #e2e2e2;
 
-  /* fundo */
+  /* Fundos */
   --color-background: #1d0327;
   --color-background-header: #1d0327d5;
   --color-background-card: #c0c0c01e;
@@ -16,8 +17,10 @@
   --color-background-dark: #18111b;
   --color-background-mid: #290735;
   --color-background-code: #2e2f36;
+  --color-badge-background: rgb(68, 37, 104);
+  --color-section-background: #260236;
 
-  /* texto */
+  /* Textos */
   --color-text-primary: #d1d5db;
   --color-text-secondary: #ffffff;
   --color-text-muted: #c2c2c2;
@@ -26,18 +29,27 @@
   --color-text-ice: #a6c5e4;
   --color-text-ann: #33adcc;
 
-  /* borda */
+  /* Bordas */
   --color-border-primary: #431a63;
   --color-border-secondary: #c0c0c01e;
   --color-border-light: #ddd;
   --color-border-arch: #c0c0c018;
   --color-border-hover: #646cff42;
+  --color-border-highlight: #ad6bcc;
 
-  /* destaque */
+  /* Destaques e Acentos */
   --color-green-highlight: #10b981;
   --color-red-highlight: #ff0000;
   --color-primary-light: #a78bfa;
   --color-placeholder: #808080;
   --color-accent: #646cff;
   --color-accent-hover: #4548c0;
+
+  /* syntax highlighting */
+  --color-highlight-annotation: #84b7fa;
+  --color-highlight-bold-bg: #e3f2fd;
+  --color-highlight-bold-text: #1565c0;
+  --color-highlight-constant: #c586c0;
+  --color-highlight-programming-term: #6899d0;
+  --color-list-marker: #6899d0;
 }
