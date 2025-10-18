@@ -6,11 +6,22 @@
   width: 100%;
 }
 
+.entity h3 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.entity p {
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
 .entity-title {
   font-size: 2.5rem;
   font-weight: 700;
   color: var(--color-heading-primary);
-  margin-bottom: 1rem;
   border-bottom: 2px solid var(--color-background-button);
 }
 
@@ -24,7 +35,6 @@
 
 .entity-tech-title {
   font-size: 1.4rem;
-  font-weight: 600;
   color: var(--color-primary-lighter);
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
   line-height: 1.5;
@@ -42,7 +52,6 @@
   border-left: 4px solid var(--color-border-highlight);
   background: var(--color-badge-background);
   border-radius: 3px;
-  margin-bottom: 1rem;
 }
 
 .jpa-dep,
@@ -57,26 +66,19 @@
   margin-bottom: 2rem;
 }
 
-.entity-paragraph {
-  font-size: 1rem;
-  color: var(--color-text-primary);
-  margin-bottom: 1rem;
-  line-height: 1.8;
-}
-
-.entity-list {
+.list {
   padding-left: 2rem;
   margin-bottom: 1rem;
 }
 
-.entity-list-item {
+.list-item {
   margin-bottom: 0.5rem;
 }
 
-.entity-list-item::marker {
+.list-item::marker {
   color: var(--color-list-marker);
 }
 
-.entity-code-examples {
-  margin-top: 2rem;
+.upgrade {
+  color: var(--color-upgrade);
 }

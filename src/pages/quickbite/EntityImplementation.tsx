@@ -8,6 +8,7 @@ import { codeWithBuilder } from '@data-code/codeWithBuilder';
 import { construtors } from '@data-code/constructors';
 import { manyToOne } from '@/data/code/manyToOne';
 import { oneToMany } from '@/data/code/oneToMany';
+import { buildDefaultEntity } from '@/data/code/buildDefaultEntity';
 
 import HighlightedTextQuickbite from '@text-highlight/HighlightedTextQuickbite';
 import '@styles-quickbite/highlightedTextQuickbite.css';
@@ -25,27 +26,25 @@ const EntityImplementation: React.FC = () => {
       </div>
       <div className="jpa-dep">
         <h3 className="entity-tech-title">JPA</h3>
-        <p className="entity-paragraph">
-          Import da dependência no arquivo pom.xml
-        </p>
+        <p>Import da dependência no arquivo pom.xml</p>
 
         {/* CRIAR UM COMPONENTE REUTIL. PARA O REGEX */}
         <MavenDependency
           groupId="org.springframework.boot"
           artifactId="spring-boot-starter-data-jpa"
         />
-        <p className="entity-paragraph">
+        <p>
           <HighlightedTextQuickbite>
             Essa dependência permite o acesso ao JPA e Hibernate. Dessa forma,
-            eu utilizo as anotações do JPA, como: @Table, @Id, @Column, etc;
-            para montar um planejamento dos dados com o JPA. Depois, o Hibernate
-            faz o trabalho de execução para criação das tabelas, de acordo com o
+            utilizo as anotações do JPA, como: @Table, @Id, @Column, etc; para
+            montar um planejamento dos dados com o JPA. Depois, o Hibernate faz
+            o trabalho de execução para criação das tabelas, de acordo com o
             planejado.
           </HighlightedTextQuickbite>
         </p>
-        <p className="entity-paragraph">
+        <p>
           <HighlightedTextQuickbite>
-            No código abaixo, eu faço o uso das anotações do Jakarta, que estão
+            No código abaixo, faço o uso das anotações do Jakarta, que estão
             contidas no JPA.
           </HighlightedTextQuickbite>
         </p>
@@ -55,21 +54,20 @@ const EntityImplementation: React.FC = () => {
           code={codeJakarAnn.code}
         />
 
-        <p className="entity-paragraph">
+        <p>
           <HighlightedTextQuickbite>
-            Para implementação de alguns campos eu utilizei relacionamentos
+            Para implementação de alguns campos, utilizei relacionamentos
             como(@OneToMany, @ManyToOne, etc) onde a configuração é adaptada
-            conforme a necessidade do caso. Neste caso, implementei um
-            relacionamento many-to-one utilizando estratégia de carregamento
-            LAZY. Essa configuração impede que os dados relacionados sejam
-            carregados automaticamente em uma consulta, exige uma consulta
-            específica quando necessário.
+            conforme a necessidade. Neste caso, implementei um relacionamento
+            many-to-one com estratégia de carregamento LAZY. Essa configuração
+            impede que os dados relacionados sejam carregados automaticamente em
+            uma consulta, exige uma consulta específica quando necessário.
           </HighlightedTextQuickbite>
         </p>
 
         <CodeBlockWithTitle title={manyToOne.title} code={manyToOne.code} />
 
-        <p className="entity-paragraph">
+        <p>
           <HighlightedTextQuickbite>
             Neste caso, com @OneToMany usei outras configurações, um pouco mais
             específicas, porém comum para salvar dados, apesar de não ser o
@@ -77,23 +75,23 @@ const EntityImplementation: React.FC = () => {
           </HighlightedTextQuickbite>
         </p>
 
-        <ul className="entity-list">
-          <li className="entity-list-item">
+        <ul className="list">
+          <li className="list-item">
             <HighlightedTextQuickbite>
               mappedBy: Define o lado inverso da relação.
             </HighlightedTextQuickbite>
           </li>
-          <li className="entity-list-item">
+          <li className="list-item">
             <HighlightedTextQuickbite>
               order: Garante a ordenação dos dados.
             </HighlightedTextQuickbite>
           </li>
-          <li className="entity-list-item">
+          <li className="list-item">
             <HighlightedTextQuickbite>
               cascade: Aplica exclusão em modo cascata para os registros.
             </HighlightedTextQuickbite>
           </li>
-          <li className="entity-list-item">
+          <li className="list-item">
             {' '}
             <HighlightedTextQuickbite>
               orphanRemoval: Remove entidades "órfãs", quando um registro não
@@ -106,11 +104,9 @@ const EntityImplementation: React.FC = () => {
       </div>{' '}
       <div className="lombok-dep">
         <h3 className="entity-tech-title">Lombok</h3>
-        <p className="entity-paragraph">
-          Import da dependência no arquivo pom.xml
-        </p>
+        <p>Import da dependência no arquivo pom.xml</p>
         <MavenDependency groupId="org.projectlombok" artifactId="lombok" />
-        <p className="entity-paragraph">
+        <p>
           <HighlightedTextQuickbite>
             O Lombok foi uma opção adotada para redução do código boilerplate,
             códigos que se repetem com pouca ou nenhuma variação. Um exemplo
@@ -118,11 +114,11 @@ const EntityImplementation: React.FC = () => {
             também permite a criação de construtores com e sem parâmetros.
           </HighlightedTextQuickbite>
         </p>
-        <p className="entity-paragraph">
-          Para construtores implementei o padrão de projeto builder para deixar
-          a criação dos objetos mais elegantes.
+        <p>
+          Para criar objetos utilizei o padrão Builder, que torna a criação dos
+          objetos mais legível e segura por ser imutável.
         </p>
-        <div className="entity-code-examples">
+        <div>
           <CodeBlockWithTitle
             title={codeWithoutBuilder.title}
             code={codeWithoutBuilder.code}
@@ -133,15 +129,26 @@ const EntityImplementation: React.FC = () => {
             code={codeWithBuilder.code}
             icon={<span>✅</span>}
           />
-
-          <p className="entity-paragraph">
+          <p>
+            É importante ressaltar que, para criar objetos sem passar valores
+            padrão com o Builder é necessário configurar isso no campo da
+            entidade.
+          </p>
+          <CodeBlockWithTitle
+            title={buildDefaultEntity.title}
+            code={buildDefaultEntity.code}
+          />
+          <p>
             <HighlightedTextQuickbite>
-              Embora o uso do padrão Builder pelo Lombok elimine a necessidade
-              de um construtor, o JPA requer obrigatoriamente um construtor sem
-              parâmetros. Para o projeto, eu implementei construtores sem
-              parâmetros, com todos os parâmetros para padronização, e também
-              construtores personalizados que recebem apenas os atributos
-              necessários.
+              Quando o padrão Builder é utilizado, ele cria um construtor com
+              todos os parâmetros, mas para que tenha esse funcionamento não
+              pode haver outros construtores, seja criado manualmente ou por
+              anotação. O JPA exige a criação de um construtor sem parâmetros,
+              isso faz com que o Builder não gere um construtor, ele passa a
+              usar o construtor que eu criei, porém o contrutor sem parâmetros
+              utilizado para o JPA não funciona para o Builder, ele precisa de
+              um construtor com parâmetros. Neste caso, eu implementei os dois
+              contrutores, com e sem parâmetros jutamente com o Builder.
             </HighlightedTextQuickbite>
           </p>
 

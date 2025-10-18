@@ -1,7 +1,7 @@
 .annotation {
   color: var(--color-highlight-annotation);
   padding: 2px 4px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .bold-word {

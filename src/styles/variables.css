@@ -28,6 +28,7 @@
   --color-text-status: #0f885a;
   --color-text-ice: #a6c5e4;
   --color-text-ann: #33adcc;
+  --color-upgrade: #00e7ff;
 
   /* Bordas */
   --color-border-primary: #431a63;
@@ -46,7 +47,7 @@
   --color-accent-hover: #4548c0;
 
   /* syntax highlighting */
-  --color-highlight-annotation: #84b7fa;
+  --color-highlight-annotation: #b2b248;
   --color-highlight-bold-bg: #e3f2fd;
   --color-highlight-bold-text: #1565c0;
   --color-highlight-constant: #c586c0;

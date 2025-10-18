@@ -21,6 +21,7 @@ const driftCars: DriftCar[] = [
 
 const sectionComponents: Record<string, React.FC> = {
   Entities: EntityImplementation,
+  Repositories: React.lazy(() => import('./RepositoryImplementation')),
 };
 
 const QuickBite: React.FC = () => {
