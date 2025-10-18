@@ -1,3 +1,10 @@
+.highlighted-paragraph {
+  font-size: 1rem;
+  color: var(--color-text-primary);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
 .annotation {
   color: var(--color-highlight-annotation);
   padding: 2px 4px;
@@ -24,7 +31,6 @@
 .programming-term {
   color: var(--color-highlight-programming-term);
   font-style: italic;
-  font-weight: 600;
 }
 
 .code-concept {
