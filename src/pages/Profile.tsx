@@ -26,8 +26,7 @@ const Profile: React.FC = () => {
     const elemento = document.getElementById(id);
     if (elemento) {
       const offset = -30;
-      const elementPosition =
-        elemento.getBoundingClientRect().top + window.pageYOffset;
+      const elementPosition = elemento.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition + offset;
 
       window.scrollTo({
@@ -43,10 +42,7 @@ const Profile: React.FC = () => {
       <main className="content-wrapper">
         <Resume />
         <About />
-        <Experience
-          selectedCompany={selectedCompany}
-          setSelectedCompany={setSelectedCompany}
-        />
+        <Experience selectedCompany={selectedCompany} setSelectedCompany={setSelectedCompany} />
         <Projects />
         <Contact />
       </main>

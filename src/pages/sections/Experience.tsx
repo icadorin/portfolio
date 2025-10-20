@@ -5,10 +5,7 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import companies from '@data-sections/experienceData';
 import { ExperienceProps } from '../../types/experience';
 
-const Experience: React.FC<ExperienceProps> = ({
-  selectedCompany,
-  setSelectedCompany,
-}) => {
+const Experience: React.FC<ExperienceProps> = ({ selectedCompany, setSelectedCompany }) => {
   return (
     <section id="experience" className="experience">
       <h2 className="section-experience">Experiência</h2>

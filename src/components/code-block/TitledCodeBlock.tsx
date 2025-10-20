@@ -1,14 +1,14 @@
 import React from 'react';
-import JavaCodeHighlight from '@code-highlight/JavaCodeHighlight';
+import JavaHighlighter from '@/components/highlight/JavaHighlighter';
 
-interface CodeBlockWithTitleProps {
+interface TitledCodeBlockProps {
   title: string;
   code: string;
   showLineNumbers?: boolean;
   icon?: React.ReactNode;
 }
 
-const CodeBlockWithTitle: React.FC<CodeBlockWithTitleProps> = ({
+const TitledCodeBlock: React.FC<TitledCodeBlockProps> = ({
   title,
   code,
   showLineNumbers = true,
@@ -23,9 +23,9 @@ const CodeBlockWithTitle: React.FC<CodeBlockWithTitleProps> = ({
         {icon && <div className="icon-wrapper">{icon}</div>}
         <h3 className="desc-code">{title}</h3>
       </div>
-      <JavaCodeHighlight code={code.trim()} showLineNumbers={showLineNumbers} />
+      <JavaHighlighter code={code.trim()} showLineNumbers={showLineNumbers} />
     </div>
   );
 };
 
-export default CodeBlockWithTitle;
+export default TitledCodeBlock;

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import '@styles-quickbite/quickbite.css';
 import { ArrowUp } from 'lucide-react';
-
 import EntityImplementation from './EntityImplementation';
+import RepositoryImplementation from './RepositoryImplementation';
 
 interface DriftCar {
   id: number;
@@ -21,7 +21,7 @@ const driftCars: DriftCar[] = [
 
 const sectionComponents: Record<string, React.FC> = {
   Entities: EntityImplementation,
-  Repositories: React.lazy(() => import('./RepositoryImplementation')),
+  Repositories: RepositoryImplementation,
 };
 
 const QuickBite: React.FC = () => {
@@ -29,8 +29,7 @@ const QuickBite: React.FC = () => {
   const [showButton, setShowButton] = useState(false);
 
   const SelectedComponent =
-    sectionComponents[selectedCar.model] ||
-    (() => <div>Componente não encontrado</div>);
+    sectionComponents[selectedCar.model] || (() => <div>Componente não encontrado</div>);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,9 +54,8 @@ const QuickBite: React.FC = () => {
     <div className="">
       <h1 className="title">QuickBite</h1>
       <p className="description">
-        Aqui eu explico um pouco sobre a implementação do projeto, como os
-        componentes estão sendo criados e a interação do framework e
-        dependências.
+        Aqui eu explico um pouco sobre a implementação do projeto, como os componentes estão sendo
+        criados e a interação do framework e dependências.
       </p>
       <div className="car-container">
         <div className="side-bar">

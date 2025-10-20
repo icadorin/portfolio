@@ -4,15 +4,13 @@ import '@styles-sections/projects.css';
 import { FaGithub } from 'react-icons/fa';
 import { FiExternalLink } from 'react-icons/fi';
 import { projectsData } from '@data-sections/projectsData.ts';
-import { highlightLinks } from '@text-highlight/HighlightedLinkProject';
+import { highlightLinks } from '@/components/highlight/ProjectLinkHighlighter';
 
 const Projects: React.FC = () => {
   return (
     <section id="projects" className="projects">
       <h2 className="section-projects">Projetos</h2>
-      <p className="projects-description">
-        Projetos desenvolvidos e em andamento
-      </p>
+      <p className="projects-description">Projetos desenvolvidos e em andamento</p>
       <div className="card-container">
         {projectsData.map((project) => (
           <div key={project.id} className="card">
@@ -42,9 +40,7 @@ const Projects: React.FC = () => {
 
               <h2 className="project-title">{project.title}</h2>
               <p className="project-status">{project.status}</p>
-              <p className="project-description">
-                {highlightLinks(project.description)}
-              </p>
+              <p className="project-description">{highlightLinks(project.description)}</p>
 
               <div className="technologies-container">
                 {project.technologies.map((tech, index) => (

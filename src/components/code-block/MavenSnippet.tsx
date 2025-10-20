@@ -1,7 +1,7 @@
 import React from 'react';
-import '@styles-quickbite/mavenDependency.css';
+import '@styles-quickbite/mavenSnippet.css';
 
-interface MavenDependencyProps {
+interface MavenSnippetProps {
   groupId: string;
   artifactId: string;
   version?: string;
@@ -9,7 +9,7 @@ interface MavenDependencyProps {
   className?: string;
 }
 
-const MavenDependency: React.FC<MavenDependencyProps> = ({
+const MavenSnippet: React.FC<MavenSnippetProps> = ({
   groupId,
   artifactId,
   version,
@@ -57,4 +57,4 @@ const MavenDependency: React.FC<MavenDependencyProps> = ({
   );
 };
 
-export default MavenDependency;
+export default MavenSnippet;

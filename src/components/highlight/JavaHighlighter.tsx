@@ -1,13 +1,13 @@
 import React from 'react';
-import '@styles-quickbite/javaCodeHighlight.css';
+import '@styles-quickbite/javaHighlighter.css';
 
-interface JavaCodeHighlightProps {
+interface JavaHighlighterProps {
   code: string;
   className?: string;
   showLineNumbers?: boolean;
 }
 
-const JavaCodeHighlight: React.FC<JavaCodeHighlightProps> = ({
+const JavaHighlighter: React.FC<JavaHighlighterProps> = ({
   code,
   className = '',
   showLineNumbers = true,
@@ -103,7 +103,7 @@ const JavaCodeHighlight: React.FC<JavaCodeHighlightProps> = ({
         // Métodos
         '(?<method>\\w+)\\s*\\(',
       ].join('|'),
-      'g',
+      'g'
     );
 
     const classMap: Record<string, string> = {
@@ -118,10 +118,7 @@ const JavaCodeHighlight: React.FC<JavaCodeHighlightProps> = ({
     };
 
     return javaCode.replace(combinedRegex, (match, ...args) => {
-      const groups = args[args.length - 1] as Record<
-        string,
-        string | undefined
-      >;
+      const groups = args[args.length - 1] as Record<string, string | undefined>;
 
       for (const key in classMap) {
         const value = groups[key];
@@ -165,4 +162,4 @@ const JavaCodeHighlight: React.FC<JavaCodeHighlightProps> = ({
   );
 };
 
-export default JavaCodeHighlight;
+export default JavaHighlighter;

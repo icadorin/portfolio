@@ -69,7 +69,7 @@ const highlightText = (
   );
 };
 
-const HighlightedTextQuickbite: React.FC<HighlightedTextProps> = ({
+const QuickbiteHighlighter: React.FC<HighlightedTextProps> = ({
   text,
   children,
   asParagraph = false,
@@ -87,4 +87,4 @@ const HighlightedTextQuickbite: React.FC<HighlightedTextProps> = ({
   return <>{highlightedContent}</>;
 };
 
-export default HighlightedTextQuickbite;
+export default QuickbiteHighlighter;

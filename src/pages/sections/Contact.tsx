@@ -1,9 +1,7 @@
 import React from 'react';
-import { FiGithub, FiLinkedin } from 'react-icons/fi';
-
 import '@styles/global.css';
 import '@styles-sections/contact.css';
-
+import { FiGithub, FiLinkedin } from 'react-icons/fi';
 import { contactLinks } from '../../data/sections/contactLinks';
 
 const Contact: React.FC = () => {
@@ -11,8 +9,8 @@ const Contact: React.FC = () => {
     <section id="contact" className="contact">
       <h2 className="section-contact">Contato</h2>
       <p className="contact-description">
-        Caso tenha alguma dúvida ou queira entrar em contato, responderei com
-        prazer assim que possível.
+        Caso tenha alguma dúvida ou queira entrar em contato, responderei com prazer assim que
+        possível.
       </p>
       <div className="link-format">
         <a

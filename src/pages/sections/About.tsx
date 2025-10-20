@@ -1,10 +1,10 @@
 import React from 'react';
 import '@styles/global.css';
 import '@styles-sections/about.css';
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import { aboutData } from '@data-sections/aboutData';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import profileImage from '@images/profile-photo.jpeg';
-import HighlightedText from '@text-highlight/HighlightedTextAbout';
+import HighlightedText from '@/components/highlight/AboutHighlighter';
 
 const About: React.FC = () => {
   const { paragraphs, highlights, techStack } = aboutData;
@@ -16,11 +16,7 @@ const About: React.FC = () => {
         <div className="profile-description">
           {paragraphs.map((text, index) => (
             <p key={index}>
-              <HighlightedText
-                text={text}
-                highlights={highlights}
-                highlightClass="highlight"
-              />
+              <HighlightedText text={text} highlights={highlights} highlightClass="highlight" />
             </p>
           ))}
 
