@@ -12,6 +12,7 @@ import { manyToOne } from '@/data/code/manyToOne';
 import { oneToMany } from '@/data/code/oneToMany';
 import { buildDefaultEntity } from '@/data/code/buildDefaultEntity';
 import { prePersistUpdate } from '@/data/code/prePersistUpdate';
+import { sharedPrimaryKey } from '@/data/code/sharedPrimaryKey';
 
 const EntityImplementation: React.FC = () => {
   return (
@@ -84,6 +85,14 @@ const EntityImplementation: React.FC = () => {
         </ul>
 
         <TitledCodeBlock title={oneToMany.title} code={oneToMany.code} />
+
+        <QuickbiteHighlighter asParagraph={true}>
+          Para criar a tabela UserProfile, adicionei a anotação @MapsId, pois essa tebela é um
+          complemento da tabela User. As duas entidades compartilham a mesma chave primária, desta
+          forma, a entidade UserProfile herda a chave primária da entidade principal User.
+        </QuickbiteHighlighter>
+
+        <TitledCodeBlock title={sharedPrimaryKey.title} code={sharedPrimaryKey.code} />
 
         <QuickbiteHighlighter asParagraph={true}>
           Para ter um controle da criação e edição dos registros, implementei campos de data com
