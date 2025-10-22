@@ -1,6 +1,4 @@
-export const sharedPrimaryKey = {
-  title: 'Primary Key Compartilhada entre Entidades',
-  code: `
+export const sharedPrimaryKey = `
 public class UserProfile {
 
     @Id
@@ -9,5 +7,4 @@ public class UserProfile {
     @OneToOne
     @MapsId // Usa o ID do User como chave primária (herda)
     @JoinColumn(name = "user_id")
-    private User user;`.trim(),
-};
+    private User user;`.trim();

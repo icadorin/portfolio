@@ -1,6 +1,4 @@
-export const codeWithBuilder = {
-  title: 'Com o uso do Builder',
-  code: `
+export const codeWithBuilder = `
 private User createUser(RegisterRequest request) {
     return userRepository.save(
         User.builder()
@@ -10,5 +8,4 @@ private User createUser(RegisterRequest request) {
             // NÃO precisa setar role/status - usa valores default
             .build()
     );
-}`.trim(),
-};
+}`.trim();

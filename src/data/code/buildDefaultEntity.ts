@@ -1,6 +1,3 @@
-export const buildDefaultEntity = {
-  title: 'Configurando campo como valores padrão',
-  code: `
+export const buildDefaultEntity = `
 @Builder.Default
-private UserStatus status = UserStatus.ACTIVE;`.trim(),
-};
+private UserStatus status = UserStatus.ACTIVE;`.trim();

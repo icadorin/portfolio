@@ -1,9 +1,6 @@
-export const construtors = {
-  title: 'Construtores',
-  code: `
+export const construtors = `
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class User { //...
-`.trim(),
-};
+`.trim();

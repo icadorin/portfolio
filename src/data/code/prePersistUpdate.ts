@@ -1,6 +1,4 @@
-export const prePersistUpdate = {
-  title: 'Ciclo de vida JPA - @PrePersist e @PreUpdate',
-  code: `
+export const prePersistUpdate = `
 @PrePersist
 protected void onCreate() {
     createdAt = LocalDateTime.now();
@@ -11,5 +9,4 @@ protected void onCreate() {
 protected void onUpdate() {
     updatedAt = LocalDateTime.now();
 }
-`.trim(),
-};
+`.trim();

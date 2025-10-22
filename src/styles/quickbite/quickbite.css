@@ -10,6 +10,11 @@
   margin: 20px 20%;
 }
 
+.sub-description {
+  font-weight: 600;
+  color: var(--color-text-ice);
+}
+
 .car-container {
   display: grid;
   margin-top: 3rem;

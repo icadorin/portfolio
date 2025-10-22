@@ -1,6 +1,4 @@
-export const codeJakarAnn = {
-  title: 'Anotações Jakarta',
-  code: `
+export const codeJakarAnn = `
 // Pacote jakarta.persistence fornecido pelo spring-boot-starter-data-jpa
 import jakarta.persistence.*;
 
@@ -11,8 +9,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, nullable = false, length = 255)
+    @Column(unique = true, nullable = false)
     private String email;
     // ...
-}`.trim(),
-};
+}`.trim();

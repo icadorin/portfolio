@@ -1,6 +1,4 @@
-export const codeWithoutBuilder = {
-  title: 'Sem o uso do Builder',
-  code: `
+export const codeWithoutBuilder = `
 // Construtor sem parâmetros + Setters (objeto mutável/inconsistente)
 private User createUser(RegisterRequest request) {
     User user = new User();
@@ -23,5 +21,4 @@ private User createUser(RegisterRequest request) {
     );
 
     return userRepository.save(user);
-}`.trim(),
-};
+}`.trim();

@@ -2,7 +2,7 @@ import React from 'react';
 import '@styles-quickbite/entity.css';
 import '@styles-quickbite/quickbiteHighlighter.css';
 import MavenSnippet from '@/components/code-block/MavenSnippet';
-import TitledCodeBlock from '@/components/code-block/TitledCodeBlock';
+import CodeBlock from '@/components/code-block/CodeBlock';
 import QuickbiteHighlighter from '@/components/highlight/QuickbiteHighlighter';
 import { codeJakarAnn } from '@data-code/codeJakarAnn';
 import { codeWithoutBuilder } from '@data-code/codeWithoutBuilder';
@@ -35,6 +35,7 @@ const EntityImplementation: React.FC = () => {
           artifactId="spring-boot-starter-data-jpa"
         />
 
+        <h3 className="sub-description">Anotações Jakarta</h3>
         <QuickbiteHighlighter asParagraph={true}>
           Essa dependência permite o acesso ao JPA e Hibernate. Dessa forma, utilizo as anotações do
           JPA, como: @Table, @Id, @Column, etc; para montar um planejamento dos dados com o JPA.
@@ -46,8 +47,9 @@ const EntityImplementation: React.FC = () => {
           No código abaixo, faço o uso das anotações do Jakarta, que estão contidas no JPA.
         </QuickbiteHighlighter>
 
-        <TitledCodeBlock title={codeJakarAnn.title} code={codeJakarAnn.code} />
+        <CodeBlock code={codeJakarAnn} />
 
+        <h3 className="sub-description">Relação ManyToOne com FetchType.LAZY</h3>
         <QuickbiteHighlighter asParagraph={true}>
           Para implementação de alguns campos, utilizei relacionamentos como(@OneToMany, @ManyToOne,
           etc) onde a configuração é adaptada conforme a necessidade. Neste caso, implementei um
@@ -56,8 +58,9 @@ const EntityImplementation: React.FC = () => {
           consulta específica quando necessário.
         </QuickbiteHighlighter>
 
-        <TitledCodeBlock title={manyToOne.title} code={manyToOne.code} />
+        <CodeBlock code={manyToOne} />
 
+        <h3 className="sub-description">Relação OneToMany com Cascade e Orphan Removal</h3>
         <QuickbiteHighlighter asParagraph={true}>
           Neste caso, com @OneToMany usei outras configurações, um pouco mais específicas, porém
           comum para salvar dados, apesar de não ser o comportamento padrão:
@@ -84,16 +87,18 @@ const EntityImplementation: React.FC = () => {
           </li>
         </ul>
 
-        <TitledCodeBlock title={oneToMany.title} code={oneToMany.code} />
+        <CodeBlock code={oneToMany} />
 
+        <h3 className="sub-description">Primary Key Compartilhada entre Entidades</h3>
         <QuickbiteHighlighter asParagraph={true}>
           Para criar a tabela UserProfile, adicionei a anotação @MapsId, pois essa tebela é um
           complemento da tabela User. As duas entidades compartilham a mesma chave primária, desta
           forma, a entidade UserProfile herda a chave primária da entidade principal User.
         </QuickbiteHighlighter>
 
-        <TitledCodeBlock title={sharedPrimaryKey.title} code={sharedPrimaryKey.code} />
+        <CodeBlock code={sharedPrimaryKey} />
 
+        <h3 className="sub-description">Ciclo de vida JPA - @PrePersist e @PreUpdate</h3>
         <QuickbiteHighlighter asParagraph={true}>
           Para ter um controle da criação e edição dos registros, implementei campos de data com
           LocalDateTime. Para automatizar o preenchimento desses campos, utilizei as anotações
@@ -102,7 +107,7 @@ const EntityImplementation: React.FC = () => {
           (campos de data e hora) sem a necessidade de implementação manual dessa lógica.
         </QuickbiteHighlighter>
 
-        <TitledCodeBlock title={prePersistUpdate.title} code={prePersistUpdate.code} />
+        <CodeBlock code={prePersistUpdate} />
       </div>
 
       <div className="lombok-dep">
@@ -121,24 +126,21 @@ const EntityImplementation: React.FC = () => {
           e segura por ser imutável.
         </p>
 
-        <TitledCodeBlock
-          title={codeWithoutBuilder.title}
-          code={codeWithoutBuilder.code}
-          icon={<span>❌</span>}
-        />
-        <TitledCodeBlock
-          title={codeWithBuilder.title}
-          code={codeWithBuilder.code}
-          icon={<span>✅</span>}
-        />
+        <h3 className="sub-description">❌ Sem o uso do Builder</h3>
+        <CodeBlock code={codeWithoutBuilder} />
 
+        <h3 className="sub-description">✅ Com o uso do Builder</h3>
+        <CodeBlock code={codeWithBuilder} />
+
+        <h3 className="sub-description">Configurando campo como valores padrão</h3>
         <p>
           É importante ressaltar que, para criar objetos sem passar valores padrão com o Builder é
           necessário configurar isso no campo da entidade.
         </p>
 
-        <TitledCodeBlock title={buildDefaultEntity.title} code={buildDefaultEntity.code} />
+        <CodeBlock code={buildDefaultEntity} />
 
+        <h3 className="sub-description">Construtores</h3>
         <QuickbiteHighlighter asParagraph={true}>
           Quando o padrão Builder é utilizado, ele cria um construtor com todos os parâmetros, mas
           para que tenha esse funcionamento não pode haver outros construtores, seja criado
@@ -149,7 +151,7 @@ const EntityImplementation: React.FC = () => {
           com e sem parâmetros jutamente com o Builder.
         </QuickbiteHighlighter>
 
-        <TitledCodeBlock title={construtors.title} code={construtors.code} />
+        <CodeBlock code={construtors} />
       </div>
     </div>
   );

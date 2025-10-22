@@ -2,11 +2,6 @@
   margin-bottom: 1rem;
 }
 
-.desc-code {
-  font-weight: 600;
-  color: var(--color-text-ice);
-}
-
 .java-code-container {
   background: #1e1e1e;
   border-radius: 8px;
