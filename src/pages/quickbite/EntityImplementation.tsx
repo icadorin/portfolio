@@ -1,5 +1,4 @@
 import React from 'react';
-import '@styles-quickbite/entity.css';
 import '@styles-quickbite/quickbiteHighlighter.css';
 import MavenSnippet from '@/components/code-block/MavenSnippet';
 import CodeBlock from '@/components/code-block/CodeBlock';
@@ -16,18 +15,18 @@ import { sharedPrimaryKey } from '@/data/code/sharedPrimaryKey';
 
 const EntityImplementation: React.FC = () => {
   return (
-    <div className="entity">
-      <h1 className="entity-title">Implementação de Entidades</h1>
-      <h2 className="entity-subtitle">Dependências</h2>
-      <div className="entity-dependencies">
-        <div className="entity-tech-badge-container">
-          <span className="entity-tech-badge">JPA</span> e{' '}
-          <span className="entity-tech-badge">Lombok</span>
+    <div className="section">
+      <h1 className="section-title">Implementação de Entidades</h1>
+      <h2 className="section-subtitle">Dependências</h2>
+      <div className="section-content">
+        <div className="tech-badge-container">
+          <span className="tech-badge">JPA</span>
+          <span className="tech-badge">Lombok</span>
         </div>
       </div>
 
-      <div className="jpa-dep">
-        <h3 className="entity-tech-title">JPA</h3>
+      <div className="dep-content">
+        <h3 className="tech-title">JPA</h3>
         <p>Import da dependência no arquivo pom.xml</p>
 
         <MavenSnippet
@@ -110,8 +109,8 @@ const EntityImplementation: React.FC = () => {
         <CodeBlock code={prePersistUpdate} />
       </div>
 
-      <div className="lombok-dep">
-        <h3 className="entity-tech-title">Lombok</h3>
+      <div className="dep-content">
+        <h3 className="tech-title">Lombok</h3>
         <p>Import da dependência no arquivo pom.xml</p>
         <MavenSnippet groupId="org.projectlombok" artifactId="lombok" />
 
