@@ -16,7 +16,6 @@
       "@pages-sections/*": ["src/pages/sections/*"],
       "@pages-quickbite/*": ["src/pages/quickbite/*"],
       "@data/*": ["src/data/*"],
-      "@data-code/*": ["src/data/code/*"],
       "@data-sections/*": ["src/data/sections/*"],
       "@app-types/*": ["src/types/*"],
       "@code-block/*": ["src/components/code-block/*"],

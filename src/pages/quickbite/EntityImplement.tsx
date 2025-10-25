@@ -3,15 +3,7 @@ import '@styles-quickbite/quickbiteHighlighter.css';
 import MavenSnippet from '@/components/code-block/MavenSnippet';
 import CodeBlock from '@/components/code-block/CodeBlock';
 import QuickbiteHighlighter from '@/components/highlight/QuickbiteHighlighter';
-import { codeJakarAnn } from '@data-code/codeJakarAnn';
-import { codeWithoutBuilder } from '@data-code/codeWithoutBuilder';
-import { codeWithBuilder } from '@data-code/codeWithBuilder';
-import { construtors } from '@data-code/constructors';
-import { manyToOne } from '@/data/code/manyToOne';
-import { oneToMany } from '@/data/code/oneToMany';
-import { buildDefaultEntity } from '@/data/code/buildDefaultEntity';
-import { prePersistUpdate } from '@/data/code/prePersistUpdate';
-import { sharedPrimaryKey } from '@/data/code/sharedPrimaryKey';
+import { entityCodes } from '@/data/entityCodes';
 
 const EntityImplementation: React.FC = () => {
   return (
@@ -46,7 +38,7 @@ const EntityImplementation: React.FC = () => {
           No código abaixo, faço o uso das anotações do Jakarta, que estão contidas no JPA.
         </QuickbiteHighlighter>
 
-        <CodeBlock code={codeJakarAnn} />
+        <CodeBlock code={entityCodes.jakarAnn} />
 
         <h3 className="sub-description">Relação ManyToOne com FetchType.LAZY</h3>
         <QuickbiteHighlighter asParagraph={true}>
@@ -57,7 +49,7 @@ const EntityImplementation: React.FC = () => {
           consulta específica quando necessário.
         </QuickbiteHighlighter>
 
-        <CodeBlock code={manyToOne} />
+        <CodeBlock code={entityCodes.manyToOne} />
 
         <h3 className="sub-description">Relação OneToMany com Cascade e Orphan Removal</h3>
         <QuickbiteHighlighter asParagraph={true}>
@@ -86,7 +78,7 @@ const EntityImplementation: React.FC = () => {
           </li>
         </ul>
 
-        <CodeBlock code={oneToMany} />
+        <CodeBlock code={entityCodes.oneToMany} />
 
         <h3 className="sub-description">Primary Key Compartilhada entre Entidades</h3>
         <QuickbiteHighlighter asParagraph={true}>
@@ -95,7 +87,7 @@ const EntityImplementation: React.FC = () => {
           forma, a entidade UserProfile herda a chave primária da entidade principal User.
         </QuickbiteHighlighter>
 
-        <CodeBlock code={sharedPrimaryKey} />
+        <CodeBlock code={entityCodes.sharedPrimaryKey} />
 
         <h3 className="sub-description">Ciclo de vida JPA - @PrePersist e @PreUpdate</h3>
         <QuickbiteHighlighter asParagraph={true}>
@@ -106,7 +98,7 @@ const EntityImplementation: React.FC = () => {
           (campos de data e hora) sem a necessidade de implementação manual dessa lógica.
         </QuickbiteHighlighter>
 
-        <CodeBlock code={prePersistUpdate} />
+        <CodeBlock code={entityCodes.prePersistUpdate} />
       </div>
 
       <div className="dep-content">
@@ -126,10 +118,10 @@ const EntityImplementation: React.FC = () => {
         </p>
 
         <h3 className="sub-description">❌ Sem o uso do Builder</h3>
-        <CodeBlock code={codeWithoutBuilder} />
+        <CodeBlock code={entityCodes.codeWithoutBuilder} />
 
         <h3 className="sub-description">✅ Com o uso do Builder</h3>
-        <CodeBlock code={codeWithBuilder} />
+        <CodeBlock code={entityCodes.codeWithBuilder} />
 
         <h3 className="sub-description">Configurando campo como valores padrão</h3>
         <p>
@@ -137,7 +129,7 @@ const EntityImplementation: React.FC = () => {
           necessário configurar isso no campo da entidade.
         </p>
 
-        <CodeBlock code={buildDefaultEntity} />
+        <CodeBlock code={entityCodes.buildDefaultEntity} />
 
         <h3 className="sub-description">Construtores</h3>
         <QuickbiteHighlighter asParagraph={true}>
@@ -150,7 +142,7 @@ const EntityImplementation: React.FC = () => {
           com e sem parâmetros jutamente com o Builder.
         </QuickbiteHighlighter>
 
-        <CodeBlock code={construtors} />
+        <CodeBlock code={entityCodes.construtors} />
       </div>
     </div>
   );
