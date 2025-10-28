@@ -1,10 +1,10 @@
-import HighlightedText from '@/components/highlight/AboutHighlighter';
-import { aboutData } from '@data-sections/aboutData';
-import profileImage from '@images/profile-photo.jpeg';
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import '@styles-sections/about.css';
-import '@styles/global.css';
 import React from 'react';
+import '@styles/global.css';
+import '@styles-sections/about.css';
+import { aboutData } from '@data-sections/aboutData';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
+import profileImage from '@images/profile-photo.jpeg';
+import HighlightedText from '@/components/highlight/AboutHighlighter';
 
 const About: React.FC = () => {
   const { paragraphs, highlights, techStack } = aboutData;
@@ -19,12 +19,6 @@ const About: React.FC = () => {
               <HighlightedText text={text} highlights={highlights} highlightClass="highlight" />
             </p>
           ))}
-          {/* ARRUMAR FAVICON */}
-          {/* ARRUMAR FAVICON */}
-          {/* ARRUMAR FAVICON */}
-          {/* ARRUMAR FAVICON */}
-          {/* ARRUMAR FAVICON */}
-
           <div className="tech-columns">
             {techStack.map((column, i) => (
               <div className="tech-column" key={i}>

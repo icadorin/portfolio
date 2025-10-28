@@ -27,6 +27,12 @@ export const testCodes = {
         .thenThrow(new BadCredentialsException("Credenciais inválidas"));
   `),
 
+  whenThenAnswer: dedent(`
+    when(refreshTokenRepository.save(any(RefreshToken.class))).thenAnswer(invocation -> {
+        return invocation.<RefreshToken>getArgument(0);
+    });
+  `),
+
   verify: dedent(`
     verify(mock).metodo();                    // Chamado 1 vez
     verify(mock, times(n)).metodo();          // Chamado n vezes
