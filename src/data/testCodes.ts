@@ -56,4 +56,27 @@ export const testCodes = {
         token.getExpiresAt().isAfter(LocalDateTime.now()) // Data de expiração no futuro
     ));
   `),
+
+  beforeEach: dedent(`
+    @BeforeEach
+    void setUp() {
+        user = new User("John", "john@test.com");
+        when(userRepository.save(any(User.class))).thenReturn(user);
+    }  
+  `),
+
+  testAnnotation: dedent(`
+    @Test
+    void shouldRegisterUserSuccessfully() {
+        AuthResponse response = authService.register(registerRequest);
+        assertNotNull(response);
+    }
+  `),
+
+  assertions: dedent(`
+    // Verifica se o objeto não é nulo
+    assertNotNull(response);
+    // Verifica se o valor retornado é o esperado
+    assertEquals("access-token", response.getAccessToken());
+  `),
 } as const;

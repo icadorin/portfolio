@@ -42,17 +42,49 @@ const TestsImplement: React.FC = () => {
       <div className="dep-content">
         <h3 className="tech-title">Mockito</h3>
 
-        <h3 className="sub-description">Criação de Mocks - @Mock</h3>
+        <h3 className="sub-description">Criação de Mocks - @Mock e @InjectMocks</h3>
         <QuickbiteHighlighter asParagraph={true}>
           Com o @Mock é possível criar um objetos simulado de uma classe. Por padrão, os métodos
-          retornam valores padrão (null, 0, false). Caso seja iniciado com
-          userRepository.findById(1) sem configuração, retornará null. InjectMocks 
-          {/* ADICIONAR DESCRIÇÃO DO @INJECT */}
-          {/* ADICIONAR DESCRIÇÃO DO @INJECT */}
-          {/* ADICIONAR DESCRIÇÃO DO @INJECT */}
-          {/* ADICIONAR DESCRIÇÃO DO @INJECT */}
+          retornam valores (null, 0, false). Por exemplo, se o método userRepository.findById(1)
+          é chamado sem configuração, ele retorna null. Já com o @InjectMocks, o cenário é
+          diferente, ele criar uma instância real da classe que está sendo testada e injeta
+          automaticamente os mocks. Dessa forma, os métodos da classe testada usam os mocks configurados,
+          permitindo testas as depencências de forma isolada.
         </QuickbiteHighlighter>
 
+        <h3 className="sub-description">@BeforeEach</h3>
+        <QuickbiteHighlighter asParagraph={true}>
+          A anotação @BeforeEach é utilizada para definir um método que será executado antes de cada
+          teste. É uma boa forma de preparar o dados, inicializar objetos ou configurar mocks,
+          Para que um método seja executado antes de cada teste, utiliza-se a anotação @BeforeEach. Dessa
+          forma, é possível preparar os dados, inicializar objetos ou mocks, criando um ambiente previsível
+          para realizar os testes.
+        </QuickbiteHighlighter>
+        <CodeBlock code={testCodes.beforeEach} />
+
+        
+        <h3 className="sub-description">@Test</h3>
+        <QuickbiteHighlighter asParagraph={true}>
+          Quando um bloco de teste é iniciado, é necessário usar a anotação @Teste para marcar como um
+          caso de teste, desta forma cada método é executado de forma independente pelo Junit. É 
+          possível combinar isso com o @BeforeEach, para estruturar os testes de forma organlizada.
+        </QuickbiteHighlighter>
+        <CodeBlock code={testCodes.testAnnotation} />
+
+        <h3 className="sub-description">Assertivas - assertNotNull e assertEquals</h3>
+        <QuickbiteHighlighter asParagraph={true}>
+          Para validar o comportamento esperado são usados métodos assertivos.
+        </QuickbiteHighlighter>
+        <ul className="list">
+          <li className="list-item">
+            assertNotNull(obj) — garante que o objeto não seja nulo.
+          </li>
+          <li className="list-item">
+            assertEquals(expected, actual) — verifica se o valor obtido é igual ao esperado.
+          </li>
+        </ul>
+        <CodeBlock code={testCodes.assertions} />
+        
         <h3 className="sub-description">Definindo comportamento - when().thenReturn()</h3>
         <QuickbiteHighlighter asParagraph={true}>
           Para definir o comportamento dos métodos do mock é necessário utilizar o Mockito.when.
