@@ -17,15 +17,18 @@ const HIGHLIGHT_RULES: readonly HighlightRule[] = [
   { regex: /(@\w+)/g, className: 'annotation' },
   { regex: /\*\*(.*?)\*\*/g, className: 'bold-word' },
   { regex: /\b(JPA|Hibernate|Spring|Lombok)\b/gi, className: 'framework' },
-  {
-    regex: /\b(getters|setters|boilerplate|entity|repository)\b/gi,
-    className: 'code-concept',
-  },
+  { regex: /\b(getters|setters|boilerplate|entity|repository)\b/gi, className: 'code-concept' },
   {
     regex: /\b(builder|cascade|orphanRemoval|mappedBy|order|timestamps|LocalDateTime)\b/gi,
     className: 'programming-term',
   },
   { regex: /\b([A-Z_]{2,}|lazy)\b/g, className: 'constant' },
+  {
+    regex:
+      /\b(?:[A-Za-z_]\w*\.)?(?:when|thenReturn|thenThrow|thenAnswer|verify|assertEquals|assertNotNull|assertThrows|any|argThat|findById|save|deleteAll|findAll|existsById|count|getById)\b(?:\s*\(.*?\))?/g,
+    className: 'function-call',
+  },
+  { regex: /\b(null|true|false|0|1)\b/g, className: 'literal-value' },
 ] as const;
 
 const highlightText = (

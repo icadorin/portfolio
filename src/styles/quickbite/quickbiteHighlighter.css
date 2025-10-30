@@ -24,15 +24,15 @@
   font-weight: 600;
 }
 
-.framework {
-  font-style: italic;
-}
-
-.programming-term {
-  color: var(--color-highlight-programming-term);
-  font-style: italic;
-}
-
+.framework,
 .code-concept {
-  color: var(--color-text-ice);
+  font-style: italic;
+}
+
+.function-call,
+.literal-value,
+.programming-term {
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-weight: 600;
 }

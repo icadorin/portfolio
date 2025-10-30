@@ -59,20 +59,22 @@ const EntityImplementation: React.FC = () => {
 
         <ul className="list">
           <li className="list-item">
-            <QuickbiteHighlighter>mappedBy: Define o lado inverso da relação.</QuickbiteHighlighter>
+            <QuickbiteHighlighter>
+              mappedBy — Define o lado inverso da relação.
+            </QuickbiteHighlighter>
           </li>
           <li className="list-item">
-            <QuickbiteHighlighter>order: Garante a ordenação dos dados.</QuickbiteHighlighter>
+            <QuickbiteHighlighter>order — Garante a ordenação dos dados.</QuickbiteHighlighter>
           </li>
           <li className="list-item">
             <QuickbiteHighlighter>
-              cascade: Aplica exclusão em modo cascata para os registros.
+              cascade — Aplica exclusão em modo cascata para os registros.
             </QuickbiteHighlighter>
           </li>
           <li className="list-item">
             {' '}
             <QuickbiteHighlighter>
-              orphanRemoval: Remove entidades "órfãs", quando um registro não possui mais sua
+              orphanRemoval — Remove entidades "órfãs", quando um registro não possui mais sua
               entidade principal.
             </QuickbiteHighlighter>
           </li>
