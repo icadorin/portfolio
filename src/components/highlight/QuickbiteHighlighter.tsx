@@ -12,23 +12,76 @@ interface HighlightRule {
   className: string;
 }
 
+// Arrays separados para cada categoria
+const ANNOTATIONS = ['@\\w+'];
+const BOLD_TEXT = ['\\*\\*(.*?)\\*\\*'];
+const FRAMEWORKS_WITH_HYPHENS = ['spring-boot-starter-test'];
+const FRAMEWORKS_WITHOUT_HYPHENS = [
+  'JPA',
+  'Hibernate',
+  'Spring-boot',
+  'Lombok',
+  'JUnit 5',
+  'Junit',
+  'Mockito',
+];
+const CODE_CONCEPTS = ['getters', 'setters', 'boilerplate', 'entity', 'repository'];
+const PROGRAMMING_TERMS = [
+  'builder',
+  'cascade',
+  'orphanRemoval',
+  'mappedBy',
+  'order',
+  'timestamps',
+  'LocalDateTime',
+  'mock',
+  'mocks',
+];
+const CONSTANTS = ['[A-Z_]{2,}', 'lazy'];
+const FUNCTIONS = [
+  'when',
+  'thenReturn',
+  'thenThrow',
+  'thenAnswer',
+  'verify',
+  'assertEquals',
+  'assertNotNull',
+  'assertThrows',
+  'any',
+  'argThat',
+  'findById',
+  'save',
+  'deleteAll',
+  'findAll',
+  'existsById',
+  'count',
+  'getById',
+];
+const LITERAL_VALUES = ['null', 'true', 'false', '0', '1'];
+
 // Regras de destaque em ordem de prioridade
 const HIGHLIGHT_RULES: readonly HighlightRule[] = [
-  { regex: /(@\w+)/g, className: 'annotation' },
-  { regex: /\*\*(.*?)\*\*/g, className: 'bold-word' },
-  { regex: /\b(JPA|Hibernate|Spring|Lombok)\b/gi, className: 'framework' },
-  { regex: /\b(getters|setters|boilerplate|entity|repository)\b/gi, className: 'code-concept' },
+  { regex: new RegExp(`(${ANNOTATIONS[0]})`, 'g'), className: 'annotation' },
+  { regex: new RegExp(`(${BOLD_TEXT[0]})`, 'g'), className: 'bold-word' },
+  { regex: new RegExp(`(${FRAMEWORKS_WITH_HYPHENS.join('|')})`, 'gi'), className: 'framework' },
   {
-    regex: /\b(builder|cascade|orphanRemoval|mappedBy|order|timestamps|LocalDateTime)\b/gi,
+    regex: new RegExp(`\\b(${FRAMEWORKS_WITHOUT_HYPHENS.join('|')})\\b`, 'gi'),
+    className: 'framework',
+  },
+  { regex: new RegExp(`\\b(${CODE_CONCEPTS.join('|')})\\b`, 'gi'), className: 'code-concept' },
+  {
+    regex: new RegExp(`\\b(${PROGRAMMING_TERMS.join('|')})\\b`, 'gi'),
     className: 'programming-term',
   },
-  { regex: /\b([A-Z_]{2,}|lazy)\b/g, className: 'constant' },
+  { regex: new RegExp(`\\b(${CONSTANTS.join('|')})\\b`, 'g'), className: 'constant' },
   {
-    regex:
-      /\b(?:[A-Za-z_]\w*\.)?(?:when|thenReturn|thenThrow|thenAnswer|verify|assertEquals|assertNotNull|assertThrows|any|argThat|findById|save|deleteAll|findAll|existsById|count|getById)\b(?:\s*\(.*?\))?/g,
+    regex: new RegExp(
+      `\\b(?:[A-Za-z_]\\w*\\.)?(?:${FUNCTIONS.join('|')})\\b(?:\\s*\\(.*?\\))?`,
+      'g'
+    ),
     className: 'function-call',
   },
-  { regex: /\b(null|true|false|0|1)\b/g, className: 'literal-value' },
+  { regex: new RegExp(`\\b(${LITERAL_VALUES.join('|')})\\b`, 'g'), className: 'literal-value' },
 ] as const;
 
 const highlightText = (

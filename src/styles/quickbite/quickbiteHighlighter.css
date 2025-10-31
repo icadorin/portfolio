@@ -7,7 +7,6 @@
 
 .annotation {
   color: var(--color-highlight-annotation);
-  padding: 2px 4px;
   font-weight: 600;
 }
 

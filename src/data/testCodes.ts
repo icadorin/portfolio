@@ -79,4 +79,11 @@ export const testCodes = {
     // Verifica se o valor retornado é o esperado
     assertEquals("access-token", response.getAccessToken());
   `),
+
+  assertThrows: dedent(`
+    AuthException exception = assertThrows(AuthException.class, () ->
+        authService.login(validEmail, "wrong-password")
+    );
+    assertEquals("Credenciais inválidas", exception.getMessage());
+  `),
 } as const;

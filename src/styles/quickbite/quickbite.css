@@ -189,6 +189,15 @@
   opacity: 0.8;
 }
 
+.note {
+  background-color: #634d2e;
+  border-left: 4px solid #ffa500;
+  padding: 2px 6px;
+  margin: 12px 0;
+  color: #333;
+  border-radius: 4px;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

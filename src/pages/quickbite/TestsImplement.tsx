@@ -6,7 +6,6 @@ import QuickbiteHighlighter from '@/components/highlight/QuickbiteHighlighter';
 import { testCodes } from '@/data/testCodes';
 
 const TestsImplement: React.FC = () => {
-  // prettier-ignore
   return (
     <div className="section">
       <h1 className="section-title">Implementação de Testes</h1>
@@ -15,20 +14,23 @@ const TestsImplement: React.FC = () => {
         <div className="tech-badge-container">
           <span className="tech-badge">JUnit 5</span>
           <span className="tech-badge">Mockito</span>
-          <span className="tech-badge">Testcontainers</span>
-          <span className="tech-badge">Spring Security Test</span>
         </div>
       </div>
-
       <div className="dep-content">
-        <h3 className="tech-title">JUnit 5</h3>
-        <p>Import da dependência no arquivo pom.xml</p>
-
+        <p>Import das dependências no arquivo pom.xml</p>
+        <QuickbiteHighlighter asParagraph={true}>
+          Para realizar os testes, utilizei como dependência o pacote spring-boot-starter-test. Esse
+          pacote reúne uma série de bibliotecas importantes para a execução dos teste no ambiente
+          Spring-boot, incluindo o Junit 5 e o Mockito.
+        </QuickbiteHighlighter>
         <MavenSnippet
           groupId="org.springframework.boot"
           artifactId="spring-boot-starter-test"
           scope="test"
         />
+      </div>
+      <div className="dep-content">
+        <h3 className="tech-title">JUnit 5</h3>
 
         <h3 className="sub-description">Integração com Mockito - @ExtendWith</h3>
         <QuickbiteHighlighter asParagraph={true}>
@@ -36,7 +38,26 @@ const TestsImplement: React.FC = () => {
           utilzar as anotações do Mockito, como @Mock e @InjectMocks, para criar mocks e injetá-los.
           Assim os mocks são gerados automaticamente antes de cada teste.
         </QuickbiteHighlighter>
+        <p className="note">
+          Nota: A anotação @ExtendWith é usada para integrar Mockito com JUnit 5.
+        </p>
         <CodeBlock code={testCodes.extendWith} />
+
+        <h3 className="sub-description">@BeforeEach</h3>
+        <QuickbiteHighlighter asParagraph={true}>
+          Para que um método seja executado antes de cada teste, utiliza-se a anotação @BeforeEach.
+          Dessa forma, é possível preparar os dados, inicializar objetos ou mocks, criando um
+          ambiente previsível para realizar os testes.
+        </QuickbiteHighlighter>
+        <CodeBlock code={testCodes.beforeEach} />
+
+        <h3 className="sub-description">@Test</h3>
+        <QuickbiteHighlighter asParagraph={true}>
+          Quando um bloco de teste é iniciado, é necessário usar a anotação @Test para marcar como
+          um caso de teste, desta forma cada método é executado de forma independente pelo Junit. É
+          possível combinar isso com o @BeforeEach, para estruturar os testes de forma organlizada.
+        </QuickbiteHighlighter>
+        <CodeBlock code={testCodes.testAnnotation} />
       </div>
 
       <div className="dep-content">
@@ -45,55 +66,40 @@ const TestsImplement: React.FC = () => {
         <h3 className="sub-description">Criação de Mocks - @Mock e @InjectMocks</h3>
         <QuickbiteHighlighter asParagraph={true}>
           Com o @Mock é possível criar um objetos simulado de uma classe. Por padrão, os métodos
-          retornam valores (null, 0, false). Por exemplo, se o método userRepository.findById(1)
-          é chamado sem configuração, ele retorna null. Já com o @InjectMocks, o cenário é
-          diferente, ele criar uma instância real da classe que está sendo testada e injeta
-          automaticamente os mocks. Dessa forma, os métodos da classe testada usam os mocks configurados,
-          permitindo testas as depencências de forma isolada.
+          retornam valores (null, 0, false). Por exemplo, se o método userRepository.findById(1) é
+          chamado sem configuração, ele retorna null. Já com o @InjectMocks, o cenário é diferente,
+          ele cria uma instância real da classe que está sendo testada e injeta automaticamente os
+          mocks. Dessa forma, os métodos da classe testada usam os mocks configurados, permitindo
+          testas as dependências de forma isolada.
         </QuickbiteHighlighter>
-
-        <h3 className="sub-description">@BeforeEach</h3>
-        <QuickbiteHighlighter asParagraph={true}>
-          A anotação @BeforeEach é utilizada para definir um método que será executado antes de cada
-          teste. É uma boa forma de preparar o dados, inicializar objetos ou configurar mocks,
-          Para que um método seja executado antes de cada teste, utiliza-se a anotação @BeforeEach. Dessa
-          forma, é possível preparar os dados, inicializar objetos ou mocks, criando um ambiente previsível
-          para realizar os testes.
-        </QuickbiteHighlighter>
-        <CodeBlock code={testCodes.beforeEach} />
-
-        
-        <h3 className="sub-description">@Test</h3>
-        <QuickbiteHighlighter asParagraph={true}>
-          Quando um bloco de teste é iniciado, é necessário usar a anotação @Teste para marcar como um
-          caso de teste, desta forma cada método é executado de forma independente pelo Junit. É 
-          possível combinar isso com o @BeforeEach, para estruturar os testes de forma organlizada.
-        </QuickbiteHighlighter>
-        <CodeBlock code={testCodes.testAnnotation} />
 
         <h3 className="sub-description">Assertivas - assertNotNull e assertEquals</h3>
         <QuickbiteHighlighter asParagraph={true}>
-          Para validar o comportamento esperado são usados métodos assertivos.
+          Para validar o comportamento esperado nos teste são usados métodos assertivos.
         </QuickbiteHighlighter>
         <ul className="list">
           <li className="list-item">
-            assertNotNull(obj) — garante que o objeto não seja nulo.
+            <QuickbiteHighlighter>
+              assertNotNull(obj) — garante que o objeto não seja nulo.
+            </QuickbiteHighlighter>
           </li>
           <li className="list-item">
-            assertEquals(expected, actual) — verifica se o valor obtido é igual ao esperado.
+            <QuickbiteHighlighter>
+              assertEquals(expected, actual) — verifica se o valor obtido é igual ao esperado.
+            </QuickbiteHighlighter>
           </li>
         </ul>
         <CodeBlock code={testCodes.assertions} />
-        
+
         <h3 className="sub-description">Definindo comportamento - when().thenReturn()</h3>
         <QuickbiteHighlighter asParagraph={true}>
           Para definir o comportamento dos métodos do mock é necessário utilizar o Mockito.when.
-          Neste exemplo, o when().thenReturn() configura o que o mock deve retornar, deve forma
+          Neste exemplo, o when().thenReturn() configura o mock que deve retornar, deve forma
           permite simular o comportamento normal do método.
         </QuickbiteHighlighter>
         <CodeBlock code={testCodes.whenThenReturn} />
 
-        <h3 className="sub-description">Simulando execeções - when().thenThrow()</h3>
+        <h3 className="sub-description">Simulando exceções - when().thenThrow()</h3>
         <QuickbiteHighlighter asParagraph={true}>
           Já para o when().thenThrow(), configuro o mock para lançar excessões, possibilitando
           testar como o código lida com erros e exceções.
@@ -102,19 +108,20 @@ const TestsImplement: React.FC = () => {
 
         <h3 className="sub-description">Respostas dinâmicas - when().thenAnswer()</h3>
         <QuickbiteHighlighter asParagraph={true}>
-          O uso do when().thenAnswer() permite modificar o uso do mock. Enquantoo thenReturn()
-          retorna um valor fixo, o thenAnswer() executa uma função lambda quando o método é chamado
-          possibilitando criar respostas com valores dinâmicos, baseado nos argumentos que o método
-          recebe. Nessa situação, o mock é configurado para retornar exatamente o mesmo valor do
-          objeto RefreshToken que foi passado como parâmetro. Isso simula o funcionamento padrão
-          do método save(), que geralmente retorna a entidade após salvar no banco de dados.
+          O uso do when().thenAnswer() permite modificar o funcionamento do mock. Enquanto
+          thenReturn() retorna um valor fixo, o thenAnswer() executa uma função lambda quando o
+          método é chamado possibilitando criar respostas com valores dinâmicos, baseado nos
+          argumentos que o método recebe. Nessa situação, o mock é configurado para retornar
+          exatamente o mesmo valor do objeto RefreshToken que foi passado como parâmetro. Isso
+          simula o funcionamento padrão do método save(), que geralmente retorna a entidade após
+          salvar no banco de dados.
         </QuickbiteHighlighter>
-        <CodeBlock code={ testCodes.whenThenAnswer } />
+        <CodeBlock code={testCodes.whenThenAnswer} />
 
         <h3 className="sub-description">Verificação de chamadas - verify()</h3>
         <QuickbiteHighlighter asParagraph={true}>
-          Para veficar as chamadas dos métodos e quantas vezes os métodos foram chamados. Com as
-          opções de se chamado uma vez, n vezes ou não ser chamado nunca.
+          Para veficar as chamadas dos métodos e quantas vezes os métodos foram chamados é feito o
+          uso do verify(), com as opções de chamada uma única vez, n vezes ou não ser chamado nunca.
         </QuickbiteHighlighter>
         <CodeBlock code={testCodes.verify} />
 
@@ -131,17 +138,6 @@ const TestsImplement: React.FC = () => {
         </QuickbiteHighlighter>
         <CodeBlock code={testCodes.argumentArgThat} />
       </div>
-
-
-        ////////////////////////////////////////////////////
-        <MavenSnippet groupId="org.testcontainers" artifactId="junit-jupiter" scope="test" />
-        <MavenSnippet groupId="org.testcontainers" artifactId="postgresql" scope="test" />
-        <MavenSnippet
-          groupId="org.springframework.security"
-          artifactId="spring-security-test"
-          scope="test"
-        />
-      
     </div>
   );
 };
