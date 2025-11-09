@@ -3,6 +3,7 @@ import '@styles-quickbite/quickbite.css';
 import { ArrowUp } from 'lucide-react';
 import EntityImplementation from './EntityImplement';
 import Tests from './TestsImplement';
+import GitHubStatus from '../../components/layout/GitHubStatus';
 
 interface DriftCar {
   id: number;
@@ -51,12 +52,14 @@ const QuickBite: React.FC = () => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (
-    <div>
+    <div className="main-container">
       <h1 className="title">QuickBite</h1>
       <p className="description">
         Aqui eu explico um pouco sobre a implementação do projeto, como os componentes estão sendo
         criados e a interação do framework e dependências.
       </p>
+
+      <GitHubStatus />
 
       <div className="car-container">
         <div className="side-bar">

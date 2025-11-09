@@ -1,0 +1,123 @@
+.github-container {
+  padding: 1rem;
+}
+
+.github-status {
+  margin-top: 20px;
+  border-bottom: 2px solid var(--color-background-button);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.github-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.section-block {
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-block h3 {
+  margin: 0 0 16px 0;
+  color: var(--color-text-primary);
+  padding-bottom: 8px;
+  font-size: 1.2em;
+  height: 40px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info-item {
+  background: var(--color-section-background);
+  padding: 12px 14px;
+  border-left: 4px solid var(--color-border-highlight);
+  border-radius: 3px;
+  color: var(--color-text-primary);
+  height: 3.2rem;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  justify-content: space-between;
+}
+
+.commit-message {
+  font-weight: 500;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.commit-meta {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  margin-left: 6px;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  height: 22px;
+  box-sizing: border-box;
+}
+
+.status.success {
+  background: var(--color-text-status);
+  color: var(--color-text-light);
+}
+.status.failure {
+  background: var(--color-red-highlight);
+  color: var(--color-text-light);
+}
+.status.cancelled {
+  background: #8a8a8a;
+  color: var(--color-text-light);
+}
+.status.skipped {
+  background: var(--color-text-muted);
+  color: var(--color-background-dark);
+}
+.status.queued {
+  background: var(--color-text-muted);
+  color: var(--color-background-dark);
+}
+.status.in_progress {
+  background: var(--color-upgrade);
+  color: var(--color-background-dark);
+}
+.status.completed {
+  background: var(--color-primary);
+  color: var(--color-text-light);
+}
+
+.github-link {
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding: 10px 18px;
+  background: var(--color-background-button);
+  color: var(--color-text-light);
+  text-decoration: none;
+  border: 1px solid var(--color-border-primary);
+  font-weight: 500;
+  transition: background-color 0.4s ease;
+}
+
+.github-link:hover {
+  background-color: var(--color-background-hover);
+}
