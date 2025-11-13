@@ -30,13 +30,13 @@ interface WorkflowRunsResponse {
 }
 
 const workflowStatusMap: Record<RunStatus | Exclude<ConclusionStatus, null> | string, string> = {
-  success: 'Sucesso',
-  failure: 'Falha',
-  cancelled: 'Cancelado',
-  skipped: 'Ignorado',
-  queued: 'Em Fila',
-  in_progress: 'Em Progresso',
-  completed: 'Concluído',
+  success: 'Success',
+  failure: 'Failure',
+  cancelled: 'Cancelled',
+  skipped: 'Skipped',
+  queued: 'Queued',
+  in_progress: 'In Progress',
+  completed: 'Completed',
 };
 
 const GitHubStatus: React.FC = () => {
