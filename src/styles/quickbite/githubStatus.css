@@ -31,6 +31,18 @@
   align-items: flex-end;
 }
 
+.github-status.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+}
+
+.icon-space-right {
+  margin-right: 8px;
+  color: var(--color-border-highlight);
+}
+
 .info-list {
   display: flex;
   flex-direction: column;
@@ -43,7 +55,7 @@
   border-left: 4px solid var(--color-border-highlight);
   border-radius: 3px;
   color: var(--color-text-primary);
-  height: 3.2rem;
+  height: 2.2rem;
   display: flex;
   align-items: center;
   white-space: nowrap;

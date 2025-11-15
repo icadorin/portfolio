@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { AlertTriangle, GitCommit, Activity } from 'lucide-react';
 import '@styles-quickbite/githubStatus.css';
 
 type ConclusionStatus = 'success' | 'failure' | 'cancelled' | 'skipped' | null;
@@ -17,6 +18,11 @@ interface GitHubCommit {
       name: string;
       date: string;
     };
+  };
+  stats?: {
+    additions: number;
+    deletions: number;
+    total: number;
   };
 }
 
@@ -121,11 +127,16 @@ const GitHubStatus: React.FC = () => {
   };
 
   if (loading) {
-    return <div className="github-status loading">Carregando status do repositório...</div>;
+    return <div>Carregando status do repositório...</div>;
   }
 
   if (error) {
-    return <div className="github-status error">⚠️ **Erro:** {error}</div>;
+    return (
+      <div className="github-status error">
+        <AlertTriangle size={18} className="icon-space-right" />
+        <span>Não foi possível carregar os dados do GitHub.</span>
+      </div>
+    );
   }
 
   return (
@@ -133,7 +144,9 @@ const GitHubStatus: React.FC = () => {
       <div className="github-status">
         <div className="github-grid">
           <div className="section-block">
-            <h3>📊 Status do Repositório</h3>
+            <h3>
+              <Activity className="icon-space-right" size={20} /> Status do Repositório
+            </h3>
             {repoData && (
               <div className="info-list">
                 <div className="info-item">
@@ -155,7 +168,9 @@ const GitHubStatus: React.FC = () => {
           </div>
 
           <div className="section-block">
-            <h3>🕒 Últimos Commits</h3>
+            <h3>
+              <GitCommit className="icon-space-right" size={20} /> Últimos Commits
+            </h3>
             <div className="info-list">
               {commits.map((commit) => (
                 <div key={commit.sha} className="info-item commit-item">
