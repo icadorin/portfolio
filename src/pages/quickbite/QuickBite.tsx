@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import '@styles-quickbite/quickbite.css';
 import { ArrowUp } from 'lucide-react';
 import EntityImplementation from './EntityImplement';
@@ -39,6 +39,7 @@ const sectionComponents: Record<string, React.FC> = {
 const QuickBite: React.FC = () => {
   const [selectedCar, setSelectedCar] = useState(availableCars[0]);
   const [showButton, setShowButton] = useState(false);
+  const menuRef = useRef<HTMLHeadingElement | null>(null);
 
   const SelectedComponent =
     sectionComponents[selectedCar.model] || (() => <ComingSoon title={selectedCar.model} />);
@@ -49,7 +50,9 @@ const QuickBite: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  const scrollToTop = () => {
+    menuRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 
   return (
     <div className="main-container">
@@ -61,7 +64,7 @@ const QuickBite: React.FC = () => {
 
       <GitHubStatus />
 
-      <div className="car-container">
+      <div ref={menuRef} className="car-container">
         <div className="side-bar">
           {availableCars.map((car) => (
             <button
