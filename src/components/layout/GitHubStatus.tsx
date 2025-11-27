@@ -7,7 +7,6 @@ type RunStatus = 'queued' | 'in_progress' | 'completed';
 
 interface GitHubRepo {
   updated_at: string;
-  description: string | null;
 }
 
 interface GitHubCommit {
@@ -47,6 +46,7 @@ const workflowStatusMap: Record<RunStatus | Exclude<ConclusionStatus, null> | st
 
 const GitHubStatus: React.FC = () => {
   const [repoData, setRepoData] = useState<GitHubRepo | null>(null);
+  const [portfolioData, setPortfolioData] = useState<GitHubRepo | null>(null);
   const [commits, setCommits] = useState<GitHubCommit[]>([]);
   const [workflowStatus, setWorkflowStatus] = useState<GitHubWorkflowRun | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -59,6 +59,13 @@ const GitHubStatus: React.FC = () => {
         const repoPromise = fetch('https://api.github.com/repos/icadorin/quick-bite-backend').then(
           (res) => {
             if (!res.ok) throw new Error(`Erro HTTP (Repo)! status: ${res.status}`);
+            return res.json();
+          }
+        );
+
+        const portfolioPromise = fetch('https://api.github.com/repos/icadorin/portfolio').then(
+          (res) => {
+            if (!res.ok) throw new Error(`ERROR HTTP (Portfolio)! status: ${res.status}`);
             return res.json();
           }
         );
@@ -77,13 +84,15 @@ const GitHubStatus: React.FC = () => {
           return res.json();
         });
 
-        const [repoResult, commitsResult, workflowsResult] = await Promise.all([
+        const [repoResult, portfolioResult, commitsResult, workflowsResult] = await Promise.all([
           repoPromise,
+          portfolioPromise,
           commitsPromise,
           workflowsPromise,
         ]);
 
         setRepoData(repoResult as GitHubRepo);
+        setPortfolioData(portfolioResult as GitHubRepo);
         setCommits((commitsResult as GitHubCommit[]).slice(0, 3));
         const workflowsData = workflowsResult as WorkflowRunsResponse;
         if (workflowsData.workflow_runs.length > 0) {
@@ -150,18 +159,24 @@ const GitHubStatus: React.FC = () => {
             {repoData && (
               <div className="info-list">
                 <div className="info-item">
-                  <strong>Última atualização:</strong> {formatGitHubDate(repoData.updated_at)}
+                  <strong>Útima atualização Quickbite:</strong>{' '}
+                  {formatGitHubDate(repoData.updated_at)}
                 </div>
                 {workflowStatus && (
                   <div className="info-item">
-                    <strong>GitHub Actions:</strong>
+                    <strong>Pipeline (GitHub Actions):</strong>
                     <span className={`status ${getWorkflowStatusClass(workflowStatus)}`}>
                       {getWorkflowStatusText(workflowStatus)}
                     </span>
                   </div>
                 )}
-                <div className="info-item">
-                  <strong>Descrição:</strong> {repoData.description || 'Sem descrição'}
+                <div>
+                  {portfolioData && (
+                    <div className="info-item">
+                      <strong>Útima atualização da Documentação:</strong>{' '}
+                      {formatGitHubDate(portfolioData.updated_at)}
+                    </div>
+                  )}
                 </div>
               </div>
             )}
@@ -169,7 +184,7 @@ const GitHubStatus: React.FC = () => {
 
           <div className="section-block">
             <h3>
-              <GitCommit className="icon-space-right" size={20} /> Últimos Commits
+              <GitCommit className="icon-space-right" size={20} /> Últimos Commits - Quickbite
             </h3>
             <div className="info-list">
               {commits.map((commit) => (

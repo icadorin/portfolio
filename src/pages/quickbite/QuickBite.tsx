@@ -57,6 +57,7 @@ const QuickBite: React.FC = () => {
   return (
     <div className="main-container">
       <h1 className="title">QuickBite</h1>
+      <h4 className="sub-title">Backend Java Spring Boot para sistema de delivery</h4>
       <p className="description">
         Aqui eu explico um pouco sobre a implementação do projeto, como os componentes estão sendo
         criados e a interação do framework e dependências.
