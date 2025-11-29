@@ -30,6 +30,61 @@ const TestsImplement: React.FC = () => {
         />
       </div>
       <div className="dep-content">
+        <h3 className="tech-title">Geral</h3>
+        <h3 className="sub-description">Cobertura de Testes</h3>
+        <ul className="list">
+          <li className="list-item">Happy paths (comportamentos esperados)</li>
+          <li className="list-item">Casos de erro e exceções</li>
+          <li className="list-item">Validações de entrada</li>
+          <li className="list-item">Comportamento de borda</li>
+          <li className="list-item">Integração entre componentes</li>
+        </ul>
+        <h3 className="sub-description">Padrões de Nomenclatura</h3>
+        <QuickbiteHighlighter asParagraph={true}>
+          Padrão utilizado: [Método]_[Cenário]_[Resultado Esperado]
+        </QuickbiteHighlighter>
+        <QuickbiteHighlighter asParagraph={true}>Exemplo:</QuickbiteHighlighter>
+        <ul className="list">
+          <li className="list-item">register_ShouldCreateUserSuccessfully</li>
+          <li className="list-item">login_ShouldThrowExceptionWhenCredentialsAreInvalid</li>
+          <li className="list-item">getCategoryById_ShouldReturnCategoryWhenExists</li>
+        </ul>
+        <h3 className="sub-description">Organização com Constantes</h3>
+        <QuickbiteHighlighter asParagraph={true}>
+          Para facilitar a manutenção e garantir a consistência dos testes, adicionei as mensagens
+          esperadas em constantes.
+        </QuickbiteHighlighter>
+        <ul className="list">
+          <li className="list-item">Mensagens de erro padronizadas</li>
+          <li className="list-item">Dados de teste reutilizáveis</li>
+          <li className="list-item">Valores de configuração</li>
+        </ul>
+        <h3 className="sub-description">Estrutura geral dos testes</h3>
+        <ul className="list">
+          <li className="list-item">
+            <QuickbiteHighlighter>Configuração de mocks (@Mock, @InjectMocks)</QuickbiteHighlighter>
+          </li>
+          <li className="list-item">
+            <QuickbiteHighlighter>Preparação de dados (@BeforeEach)</QuickbiteHighlighter>
+          </li>
+          <li className="list-item">
+            <QuickbiteHighlighter>
+              Configuração de comportamentos (when().thenReturn())
+            </QuickbiteHighlighter>
+          </li>
+          <li className="list-item">
+            <QuickbiteHighlighter>Execução do método sob teste</QuickbiteHighlighter>
+          </li>
+          <li className="list-item">
+            <QuickbiteHighlighter>Verificação de resultados (assertions)</QuickbiteHighlighter>
+          </li>
+          <li className="list-item">
+            <QuickbiteHighlighter>Validação de interações (verify())</QuickbiteHighlighter>
+          </li>
+        </ul>
+      </div>
+
+      <div className="dep-content">
         <h3 className="tech-title">JUnit 5</h3>
 
         <h3 className="sub-description">Integração com Mockito - @ExtendWith</h3>
@@ -94,7 +149,7 @@ const TestsImplement: React.FC = () => {
         <h3 className="sub-description">Definindo comportamento - when().thenReturn()</h3>
         <QuickbiteHighlighter asParagraph={true}>
           Para definir o comportamento dos métodos do mock é necessário utilizar o Mockito.when.
-          Neste exemplo, o when().thenReturn() configura o mock que deve retornar, deve forma
+          Neste exemplo, o when().thenReturn() configura o mock que deve retornar, dessa forma
           permite simular o comportamento normal do método.
         </QuickbiteHighlighter>
         <CodeBlock code={testCodes.whenThenReturn} />
