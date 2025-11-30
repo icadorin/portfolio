@@ -1,8 +1,9 @@
 import React, { useRef, useEffect, useState } from 'react';
 import '@styles-quickbite/quickbite.css';
 import { ArrowUp } from 'lucide-react';
-import EntityImplementation from './EntityImplement';
-import Tests from './TestsImplement';
+import EntityImpl from './EntityImpl';
+import RepositoryImpl from './RepositoryImpl';
+import TestsImpl from './TestsImpl';
 import GitHubStatus from '../../components/layout/GitHubStatus';
 
 interface DriftCar {
@@ -12,11 +13,11 @@ interface DriftCar {
 
 const availableCars: DriftCar[] = [
   { id: 1, model: 'Entities' },
+  { id: 2, model: 'Repositories' },
   { id: 8, model: 'Tests' },
 ];
 
 const comingSoonCars: DriftCar[] = [
-  { id: 2, model: 'Repositories' },
   { id: 3, model: 'DTOs' },
   { id: 4, model: 'Exceptions' },
   { id: 5, model: 'Spring Security' },
@@ -32,8 +33,9 @@ const ComingSoon: React.FC<{ title: string }> = ({ title }) => (
 );
 
 const sectionComponents: Record<string, React.FC> = {
-  Entities: EntityImplementation,
-  Tests: Tests,
+  Entities: EntityImpl,
+  Repositories: RepositoryImpl,
+  Tests: TestsImpl,
 };
 
 const QuickBite: React.FC = () => {
