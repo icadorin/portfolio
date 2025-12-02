@@ -12,7 +12,6 @@ interface HighlightRule {
   className: string;
 }
 
-// Arrays separados para cada categoria
 const ANNOTATIONS = ['@\\w+'];
 const BOLD_TEXT = ['\\*\\*(.*?)\\*\\*'];
 const FRAMEWORKS_WITH_HYPHENS = ['spring-boot-starter-test'];
@@ -38,6 +37,20 @@ const PROGRAMMING_TERMS = [
   'mocks',
 ];
 const CONSTANTS = ['[A-Z_]{2,}', 'lazy'];
+
+const TEST_FUNCTION_PATTERNS = [
+  '\\b\\w+_(?:Should|When|Given)(?:[A-Z][a-zA-Z]*)+\\b',
+  '\\btest[A-Z]\\w*\\b',
+];
+
+const REPOSITORY_METHOD_PATTERNS = [
+  'findBy\\w+(?:OrderBy\\w+)?(?:Asc|Desc)?',
+  'countBy\\w+',
+  'existsBy\\w+',
+  'deleteBy\\w+',
+  'getBy\\w+',
+];
+
 const FUNCTIONS = [
   'when',
   'thenReturn',
@@ -57,9 +70,10 @@ const FUNCTIONS = [
   'count',
   'getById',
 ];
+
 const LITERAL_VALUES = ['null', 'true', 'false', '0', '1'];
 
-// Regras de destaque em ordem de prioridade
+// Regras de destaque em ordem de prioridade - CORRIGIDA
 const HIGHLIGHT_RULES: readonly HighlightRule[] = [
   { regex: new RegExp(`(${ANNOTATIONS[0]})`, 'g'), className: 'annotation' },
   { regex: new RegExp(`(${BOLD_TEXT[0]})`, 'g'), className: 'bold-word' },
@@ -74,6 +88,14 @@ const HIGHLIGHT_RULES: readonly HighlightRule[] = [
     className: 'programming-term',
   },
   { regex: new RegExp(`\\b(${CONSTANTS.join('|')})\\b`, 'g'), className: 'constant' },
+  {
+    regex: new RegExp(`\\b(${TEST_FUNCTION_PATTERNS.join('|')})\\b`, 'g'),
+    className: 'function-call',
+  },
+  {
+    regex: new RegExp(`\\b(${REPOSITORY_METHOD_PATTERNS.join('|')})\\b`, 'g'),
+    className: 'function-call',
+  },
   {
     regex: new RegExp(
       `\\b(?:[A-Za-z_]\\w*\\.)?(?:${FUNCTIONS.join('|')})\\b(?:\\s*\\(.*?\\))?`,
