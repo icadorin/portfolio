@@ -16,6 +16,7 @@ const TestsImplement: React.FC = () => {
           <span className="tech-badge">Mockito</span>
         </div>
       </div>
+
       <div className="dep-content">
         <p>Import das dependências no arquivo pom.xml</p>
         <QuickbiteHighlighter asParagraph={true}>
@@ -29,6 +30,7 @@ const TestsImplement: React.FC = () => {
           scope="test"
         />
       </div>
+
       <div className="dep-content">
         <h3 className="tech-title">Geral</h3>
         <h3 className="sub-description">Cobertura de Testes</h3>
@@ -39,16 +41,28 @@ const TestsImplement: React.FC = () => {
           <li className="list-item">Comportamento de borda</li>
           <li className="list-item">Integração entre componentes</li>
         </ul>
+
         <h3 className="sub-description">Padrões de Nomenclatura</h3>
         <QuickbiteHighlighter asParagraph={true}>
           Padrão utilizado: [Método]_[Cenário]_[Resultado Esperado]
         </QuickbiteHighlighter>
         <QuickbiteHighlighter asParagraph={true}>Exemplo:</QuickbiteHighlighter>
         <ul className="list">
-          <li className="list-item">register_ShouldCreateUserSuccessfully</li>
-          <li className="list-item">login_ShouldThrowExceptionWhenCredentialsAreInvalid</li>
-          <li className="list-item">getCategoryById_ShouldReturnCategoryWhenExists</li>
+          <li className="list-item">
+            <QuickbiteHighlighter>register_ShouldCreateUserSuccessfully</QuickbiteHighlighter>
+          </li>
+          <li className="list-item">
+            <QuickbiteHighlighter>
+              login_ShouldThrowExceptionWhenCredentialsAreInvalid
+            </QuickbiteHighlighter>
+          </li>
+          <li className="list-item">
+            <QuickbiteHighlighter>
+              getCategoryById_ShouldReturnCategoryWhenExists
+            </QuickbiteHighlighter>
+          </li>
         </ul>
+
         <h3 className="sub-description">Organização com Constantes</h3>
         <QuickbiteHighlighter asParagraph={true}>
           Para facilitar a manutenção e garantir a consistência dos testes, adicionei as mensagens
@@ -59,6 +73,7 @@ const TestsImplement: React.FC = () => {
           <li className="list-item">Dados de teste reutilizáveis</li>
           <li className="list-item">Valores de configuração</li>
         </ul>
+
         <h3 className="sub-description">Estrutura geral dos testes</h3>
         <ul className="list">
           <li className="list-item">
