@@ -46,22 +46,7 @@ const TestsImplement: React.FC = () => {
         <QuickbiteHighlighter asParagraph={true}>
           Padrão utilizado: [Método]_[Cenário]_[Resultado Esperado]
         </QuickbiteHighlighter>
-        <QuickbiteHighlighter asParagraph={true}>Exemplo:</QuickbiteHighlighter>
-        <ul className="list">
-          <li className="list-item">
-            <QuickbiteHighlighter>register_ShouldCreateUserSuccessfully</QuickbiteHighlighter>
-          </li>
-          <li className="list-item">
-            <QuickbiteHighlighter>
-              login_ShouldThrowExceptionWhenCredentialsAreInvalid
-            </QuickbiteHighlighter>
-          </li>
-          <li className="list-item">
-            <QuickbiteHighlighter>
-              getCategoryById_ShouldReturnCategoryWhenExists
-            </QuickbiteHighlighter>
-          </li>
-        </ul>
+        <CodeBlock code={testCodes.case} />
 
         <h3 className="sub-description">Organização com Constantes</h3>
         <QuickbiteHighlighter asParagraph={true}>
@@ -73,6 +58,7 @@ const TestsImplement: React.FC = () => {
           <li className="list-item">Dados de teste reutilizáveis</li>
           <li className="list-item">Valores de configuração</li>
         </ul>
+        <CodeBlock code={testCodes.testConstants} />
 
         <h3 className="sub-description">Estrutura geral dos testes</h3>
         <ul className="list">

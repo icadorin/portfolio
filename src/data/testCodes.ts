@@ -1,6 +1,36 @@
 import { dedent } from '@/utils/dedent';
 
 export const testCodes = {
+  case: dedent(`
+    void register_ShouldCreateUserSuccessfully() {
+        // ...
+    }
+
+    void login_ShouldGenerateValidRefreshToken() {
+        // ...
+    }
+
+    void register_ShouldAcceptValidPhoneNumber() {
+        // ...
+    }
+  `),
+
+  testConstants: dedent(`
+    public class TestConstants {
+
+        public static final String VALID_EMAIL = "usuario@example.com";
+        public static final String VALID_PASSWORD = "senha123";
+        public static final String VALID_FULL_NAME = "Usuário Teste";
+
+        // ...
+
+        public static final Long USER_ID = 1L;
+        public static final Long TOKEN_EXPIRATION = 3600L;
+
+        // ...
+    }
+  `),
+
   extendWith: dedent(`
     @ExtendWith(MockitoExtension.class)
     public class AuthServiceTest {
