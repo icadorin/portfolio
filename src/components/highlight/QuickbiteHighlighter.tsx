@@ -93,6 +93,10 @@ const HIGHLIGHT_RULES: readonly HighlightRule[] = [
     className: 'function-call',
   },
   {
+    regex: new RegExp(`\\b([a-z]+(?:[A-Z][a-zA-Z]*)+)\\b`, 'g'),
+    className: 'function-call',
+  },
+  {
     regex: new RegExp(`\\b(${REPOSITORY_METHOD_PATTERNS.join('|')})\\b`, 'g'),
     className: 'function-call',
   },
