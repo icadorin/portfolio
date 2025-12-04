@@ -1,6 +1,7 @@
 import React from 'react';
 import QuickbiteHighlighter from '@/components/highlight/QuickbiteHighlighter';
 import MavenSnippet from '@/components/code-block/MavenSnippet';
+import CodeBlock from '@/components/code-block/CodeBlock';
 import { repositoryCode } from '@/data/repositoryCode';
 
 const RepositoryImpl: React.FC = () => {
@@ -18,9 +19,9 @@ const RepositoryImpl: React.FC = () => {
       <div className="dep-content">
         <p>Import das dependências no arquivo.pom</p>
         <QuickbiteHighlighter asParagraph={true}>
-          O Spring Data JPA simplifica de forma significativa a implementação de repositórios, ele
-          fornece métodos de CRUD prontos e permite a criação de queries personalizadas através de
-          convenções de nomeclatura ou anotações.
+          O uso do Spring Data JPA simplifica a implementação da camada de repositórios, atuando
+          como uma abstração sobre o JPA (Java Persistense API), que fornece os métodos CRUD
+          prontos, permitindo a criação de queries personalizadas de maneira eficiente.
         </QuickbiteHighlighter>
         <MavenSnippet
           groupId="org.springframework.boot"
@@ -33,72 +34,114 @@ const RepositoryImpl: React.FC = () => {
 
         <h3 className="sub-description">Interface JpaRepository</h3>
         <QuickbiteHighlighter asParagraph={true}>
-          O Spring JPA permite criar queries apenas seguindo padrões de nomeclatura. Os métodos são
-          automaticamente implementados baseando-se nas palavras chave como: findBy, existsBy,
-          countBy, etc.
+          A função principal é a capacidade de criar consultas a partir do padrão de nomeclatura. O
+          Spring Data JPA gera automaticamente a implementação dos métodos com base nas palavras
+          pré-definidas, como: findyBy, existsBy, countBy, deleteBy, assim por diante. Desta forma,
+          facilita e acelera essa parte da implementação.
         </QuickbiteHighlighter>
 
-        <h3 className="sub-description">Consultas com @Query</h3>
+        <h3 className="sub-description">Consultas personalizadas com @Query</h3>
         <QuickbiteHighlighter asParagraph={true}>
-          Para utilizar quries mais complexas que não seguem o padrão de nomeclatura reconhecido
-          pelo Spring JPA, implementei anotação @Query com JPQL (Java Persistense Query Language).
-          Isso garante o controle sobre as consultas e otimizaçãoes específicas.
+          Quando as regra de negócio exigem consultas mais complexas que não podem ser geradas
+          automaticamente pelo JPA, utilizei a anotação @Query em conjunto com o JPQL (Java
+          Persistense Query Language). Essa abordagem possibilita o controle necessário sobre a
+          consulta, com otimizações específicas e buscar dados em cenários de joins complexos ou
+          projeções.
         </QuickbiteHighlighter>
+        <CodeBlock code={repositoryCode.queryAnnotation} />
 
         <h3 className="sub-description">Parâmetros com @Param</h3>
         <QuickbiteHighlighter asParagraph={true}>
-          Para garantir que as queries sejam seguras e legiveis, adotei o uso do @Param para
-          vincular parâmetros. Isso previne SQL injection e torna o código mais claro.
+          Para garantir que todas as queries personalizadas sejam seguras e legíveis, adotei o uso
+          do @Param que vincula parâmetros nomeados. Esta prática é muito importante, pois ela
+          previne que qualquer caractere especial digitado pelo usuário seja interpretado como parte
+          do comando SQL (SQL Injection) e torna o código mais claro, em especial com consultas que
+          possuem múltiplos filtros.
         </QuickbiteHighlighter>
+        <CodeBlock code={repositoryCode.queryWithParams} />
 
         <h3 className="sub-description">Consultas com operações de modificação</h3>
         <QuickbiteHighlighter asParagraph={true}>
-          Nas operações de UPDATE E DELETE que modificam o banco de dados, é preciso usar a anotação
-          @Modifyingem conjunto com @Query. Isso informa ao Spring Data essa determinada operação
-          que altera os dados e não é apenas uma consulta.
+          Em operações personalizadas que modificam o banco de dados (UPDATE E DELETE), é
+          obrigatório o uso da anotação @Modifying. Desta forma, a operação se difere das consultas
+          de leitura (SELECT), garantindo que o Spring Data JPA execute a query com as configurações
+          necessárias para uma operação de modificação de dados seja executada corretamente.
         </QuickbiteHighlighter>
+        <CodeBlock code={repositoryCode.modifyingQuery} />
 
         <h3 className="sub-decription">Consultas com condições complexas</h3>
         <QuickbiteHighlighter asParagraph={true}>
-          Em consultas que envolvem diferentes condições e join entre entidades, fiz o uso do JPQL
-          com cláusula WHERE especifica. Desta forma, permite filtrar por relacionamentos e
-          propriedades encadeadas.
+          Em consultas que envolvem diferentes condições e JOINS entre entidades, o uso do JPQL com
+          a cláusula WHERE expecífica é essencial, para que seja possível filtrar registros não
+          apenas por propriedades da entidade principal, mas também por relacionamentos e
+          propriedades encadeadas (ex: buscar um pedido pelo nome do cliente).
         </QuickbiteHighlighter>
+        <CodeBlock code={repositoryCode.complexQuery} />
 
         <h3 className="sub-description">Consultas com agregação</h3>
         <QuickbiteHighlighter asParagraph={true}>
-          As operações de contagem e agregação são realizadas através da função COUNT em conjunto
-          com condições específicas, facilitando a visualização de estatísticas e relatórios.
+          As operações de contagem, soma e outras formas de agregação foram implementadas através de
+          funções como COUNT e SUM dentro da @Query, para facilitar os dados gerados de estatísticas
+          e relatórios, como número de registros ativos ou a soma total de vendas.
         </QuickbiteHighlighter>
+        <CodeBlock code={repositoryCode.aggregationQuery} />
 
-        <h3 className="sub-description">Busca com Igone Case</h3>
+        <h3 className="sub-description">Busca "Case-Insensitive"</h3>
         <QuickbiteHighlighter asParagraph={true}>
-          Para buscar case-insensitive é feito por meio da função LOWER() nas queries para garantir
-          que a pesquisa não dependa de letras maiúsculas e minúsculas.
+          Para evitar que buscas de texto como email, nome ou descrição dependam de letras
+          maiúsculas ou minúsculas, apliquei a função LOWER() diretamente nas queries, para que a
+          comparação seja case-insensitive garantindo que o usuário tenha experiência melhor em
+          buscas, independente de como o texto é digitado.
         </QuickbiteHighlighter>
+        <CodeBlock code={repositoryCode.caseInsensitiveQuery} />
 
-        <h3 className="sub-description">Consulta com intervalo de datas</h3>
+        <h3 className="sub-description">Filtro por intervalo de datas</h3>
         <QuickbiteHighlighter asParagraph={true}>
-          Para fitrar por intervalos de tempo, utilizamos BETWEEN com parâmetros de data, que
-          normalmente são usados para relatórios e históricos.
+          No repositório de pedidos, implementei um método específico para buscar registros dentro
+          de um intervalo de tempo. Esse filtro é feito com o uso da cláusula BETWEEN diretamente na
+          query JPQL, permitindo difinir uma data inicial e final. Esse tipo de consulta é útil para
+          gerar relatórios, acompanhar históricos de pedidos e analisar atividades do usuário em
+          períodos específicos, mantendo a lógica simples.
         </QuickbiteHighlighter>
+        <CodeBlock code={repositoryCode.dateRangeQuery} />
 
         <h3 className="sub-description">Consultas com ordenação</h3>
         <QuickbiteHighlighter asParagraph={true}>
-          O método de ordenação é muito comum em repositórios para ordenação automática, como por
-          exemplo: findByIsActiveTrueOrderBySortOrderAsc, esse método retorna registros ativos
-          ordenados por uma conluna específica.
+          A ordenação de resultados é um requisito comum e o Spring Data JPA simplifica isso com o
+          padrão de nomeclatura, como por exemplo: findByIsActiveTrueOrderBySortOrderAsc. Este
+          método retorna os registros ativos automaticamente ordenados pela coluna sortOrder de
+          forma ascendente.
         </QuickbiteHighlighter>
+        <CodeBlock code={repositoryCode.orderingQuery} />
       </div>
 
       <div className="dep-content">
         <h3 className="tech-title">Padrões de Implementação</h3>
 
         <h3 className="sub-description"></h3>
-        <QuickbiteHighlighter>Sepração com módulo</QuickbiteHighlighter>
+        <QuickbiteHighlighter>Padronização de nomes</QuickbiteHighlighter>
         <QuickbiteHighlighter asParagraph={true}>
-          Os repositórios são organizados por módulo de negócio (auth_service, product_service,
-          order_service), cada um com suas entidades e quiries específicas.
+          Utilização de nomes consistentes para nomear os métodos dos repositórios:
+        </QuickbiteHighlighter>
+
+        <ul className="list">
+          <li className="list-item">findBy[Propriedades] - Busca por propriedades específicas</li>
+          <li className="list-item">exists[Propriedades] - Verifica existência</li>
+          <li className="list-item">countBy[Propriedades] - Contagem de registros</li>
+          <li className="list-item">findBy[Propriedades]And[Propriedade] - Múltiplas condições</li>
+          <li className="list-item">search[Entidade]By[Critério] - Buscas personalizadas</li>
+        </ul>
+
+        <h3 className="sub-description">Filtros por status</h3>
+        <QuickbiteHighlighter asParagraph={true}>
+          Implementado filtros por status (isActive, revoked, isAvailable) para garantir que apenas
+          dados esperados sejam retornados.
+        </QuickbiteHighlighter>
+
+        <h3 className="sub-description">Operador para valores opcionais</h3>
+        <QuickbiteHighlighter asParagraph={true}>
+          Optional foi usado para métodos que podem retornar valores nulos, para lidar com possíves
+          problemas.
         </QuickbiteHighlighter>
       </div>
     </div>
