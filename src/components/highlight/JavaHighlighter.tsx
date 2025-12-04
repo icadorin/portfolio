@@ -98,6 +98,8 @@ const JavaHighlighter: React.FC<JavaHighlighterProps> = ({
         `\\b(?<keyword>${keywords.join('|')})\\b`,
         // Tipos
         `\\b(?<type>${types.join('|')})\\b`,
+        // Captura generics <Category>, <Map<String, List<Product>>>
+        '(?<customType>\\b[A-Z]\\w*(?:\\s*<[^>]+>)?)\\b',
         // Números
         '\\b(?<number>\\d+)\\b',
         // Métodos
@@ -115,6 +117,7 @@ const JavaHighlighter: React.FC<JavaHighlighterProps> = ({
       number: 'java-number',
       method: 'java-method',
       constant: 'java-constant',
+      customType: 'java-type',
     };
 
     return javaCode.replace(combinedRegex, (match, ...args) => {
