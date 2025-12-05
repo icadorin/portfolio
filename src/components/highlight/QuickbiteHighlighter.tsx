@@ -19,6 +19,7 @@ const FRAMEWORKS_WITHOUT_HYPHENS = [
   'JPA',
   'Hibernate',
   'Spring-boot',
+  'Spring Data',
   'Lombok',
   'JUnit 5',
   'Junit',
@@ -35,6 +36,7 @@ const PROGRAMMING_TERMS = [
   'LocalDateTime',
   'mock',
   'mocks',
+  'revoked',
 ];
 const CONSTANTS = ['[A-Z_]{2,}', 'lazy'];
 
