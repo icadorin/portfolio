@@ -18,13 +18,13 @@ export const repositoryCode = {
   `),
 
   complexQuery: dedent(`
-  @Query("""
-  SELECT p
-  FROM Product p
-  WHERE p.isAvailable = true
-      AND p.restaurant.isActive = true
-      AND LOWER(p.name) LIKE LOWER(CONCAT('%', :name, '%'))
-  """)
+  @Query(
+      "SELECT p" +
+      "FROM Product p" +
+      "WHERE p.isAvailable = true" +
+      "    AND p.restaurant.isActive = true" +
+      "    AND LOWER(p.name) LIKE LOWER(CONCAT('%', :name, '%'))"
+  )
   List<Product> searchAvailableProductsByName(@Param("name") String name);
   `),
 
@@ -56,5 +56,36 @@ export const repositoryCode = {
 
   // Ordenação por data de criação descendente  
   OrderStatusHistory findFirstByOrderIdOrderByCreatedAtDesc(Long orderId);
+  `),
+
+  optionalUsage: dedent(`
+  // Retorna Optional para evitar NullPointerException
+  Optional<User> findByEmail(String email);
+  Optional<UserProfile> findByUserId(Long userId);
+  `),
+
+  nameConventions: dedent(`
+  // findBy[Propriedades] - Busca por propriedades específicas
+  findByEmail(String email)
+
+  // exists[Propriedades] - Verifica existência
+  existsByEmail(String email)
+
+  // countBy[Propriedades] - Contagem de registros
+  countByRestaurantIdAndIsAvailableTrue(Long restaurantId)
+
+  // findBy[Propriedades]And[Propriedade] - Múltiplas condições
+  findByUserIdAndStatus(Long userId, OrderStatus status)
+
+  // search[Entidade]By[Critério] - Buscas personalizadas
+  searchAvailableProductsByName(String name)
+  `),
+
+  statusFilter: dedent(`
+  // Apenas produtos ativos e disponíveis
+  List<Product> findByIsActiveTrueAndIsAvailableTrue();
+
+  // Busca por nome, mas somente produtos disponíveis
+  List<Product> findByNameContainingIgnoreCaseAndIsAvailableTrue(String name);
   `),
 } as const;

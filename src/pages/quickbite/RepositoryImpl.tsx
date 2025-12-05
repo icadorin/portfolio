@@ -69,7 +69,7 @@ const RepositoryImpl: React.FC = () => {
         </QuickbiteHighlighter>
         <CodeBlock code={repositoryCode.modifyingQuery} />
 
-        <h3 className="sub-decription">Consultas com condições complexas</h3>
+        <h3 className="sub-description">Consultas com condições complexas</h3>
         <QuickbiteHighlighter asParagraph={true}>
           Em consultas que envolvem diferentes condições e JOINS entre entidades, o uso do JPQL com
           a cláusula WHERE expecífica é essencial, para que seja possível filtrar registros não
@@ -108,7 +108,7 @@ const RepositoryImpl: React.FC = () => {
         <h3 className="sub-description">Consultas com ordenação</h3>
         <QuickbiteHighlighter asParagraph={true}>
           A ordenação de resultados é um requisito comum e o Spring Data JPA simplifica isso com o
-          padrão de nomeclatura, como por exemplo: findByIsActiveTrueOrderBySortOrderAsc. Este
+          padrão de nomeclatura, como por exemplo: findByIsActiveTrueOrderBySortOrderAsc, este
           método retorna os registros ativos automaticamente ordenados pela coluna sortOrder de
           forma ascendente.
         </QuickbiteHighlighter>
@@ -118,31 +118,26 @@ const RepositoryImpl: React.FC = () => {
       <div className="dep-content">
         <h3 className="tech-title">Padrões de Implementação</h3>
 
-        <h3 className="sub-description"></h3>
-        <QuickbiteHighlighter>Padronização de nomes</QuickbiteHighlighter>
+        <h3 className="sub-description">Padronização de nomes</h3>
         <QuickbiteHighlighter asParagraph={true}>
-          Utilização de nomes consistentes para nomear os métodos dos repositórios:
+          Utilização de nomes com palavras-chave do Spring Data JPA para derivar consultas
+          automaticamente para métodos do repositório:
         </QuickbiteHighlighter>
-
-        <ul className="list">
-          <li className="list-item">findBy[Propriedades] - Busca por propriedades específicas</li>
-          <li className="list-item">exists[Propriedades] - Verifica existência</li>
-          <li className="list-item">countBy[Propriedades] - Contagem de registros</li>
-          <li className="list-item">findBy[Propriedades]And[Propriedade] - Múltiplas condições</li>
-          <li className="list-item">search[Entidade]By[Critério] - Buscas personalizadas</li>
-        </ul>
+        <CodeBlock code={repositoryCode.nameConventions} />
 
         <h3 className="sub-description">Filtros por status</h3>
         <QuickbiteHighlighter asParagraph={true}>
-          Implementado filtros por status (isActive, revoked, isAvailable) para garantir que apenas
-          dados esperados sejam retornados.
+          Alguns filtros por status também foram implementados (isActive, revoked, isAvailable),
+          para garantir que apenas dados esperados sejam retornados.
         </QuickbiteHighlighter>
+        <CodeBlock code={repositoryCode.statusFilter} />
 
         <h3 className="sub-description">Operador para valores opcionais</h3>
         <QuickbiteHighlighter asParagraph={true}>
           Optional foi usado para métodos que podem retornar valores nulos, para lidar com possíves
           problemas.
         </QuickbiteHighlighter>
+        <CodeBlock code={repositoryCode.optionalUsage} />
       </div>
     </div>
   );
