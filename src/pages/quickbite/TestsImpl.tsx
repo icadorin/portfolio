@@ -111,7 +111,7 @@ const TestsImplement: React.FC = () => {
         <QuickbiteHighlighter asParagraph={true}>
           Quando um bloco de teste é iniciado, é necessário usar a anotação @Test para marcar como
           um caso de teste, desta forma cada método é executado de forma independente pelo Junit. É
-          possível combinar isso com o @BeforeEach, para estruturar os testes de forma organlizada.
+          possível combinar isso com o @BeforeEach, para estruturar os testes de forma organizada.
         </QuickbiteHighlighter>
         <CodeBlock code={testCodes.testAnnotation} />
       </div>
@@ -126,7 +126,7 @@ const TestsImplement: React.FC = () => {
           chamado sem configuração, ele retorna null. Já com o @InjectMocks, o cenário é diferente,
           ele cria uma instância real da classe que está sendo testada e injeta automaticamente os
           mocks. Dessa forma, os métodos da classe testada usam os mocks configurados, permitindo
-          testas as dependências de forma isolada.
+          testar as dependências de forma isolada.
         </QuickbiteHighlighter>
 
         <h3 className="sub-description">Assertivas - assertNotNull e assertEquals</h3>
@@ -157,8 +157,8 @@ const TestsImplement: React.FC = () => {
 
         <h3 className="sub-description">Simulando exceções - when().thenThrow()</h3>
         <QuickbiteHighlighter asParagraph={true}>
-          Já para o when().thenThrow(), configuro o mock para lançar excessões, possibilitando
-          testar como o código lida com erros e exceções.
+          Já para o when().thenThrow(), configuro o mock para lançar exceções, possibilitando testar
+          como o código lida com erros e exceções.
         </QuickbiteHighlighter>
         <CodeBlock code={testCodes.whenThenThrow} />
 
@@ -176,7 +176,7 @@ const TestsImplement: React.FC = () => {
 
         <h3 className="sub-description">Verificação de chamadas - verify()</h3>
         <QuickbiteHighlighter asParagraph={true}>
-          Para veficar as chamadas dos métodos e quantas vezes os métodos foram chamados é feito o
+          Para verificar as chamadas dos métodos e quantas vezes os métodos foram chamados é feito o
           uso do verify(), com as opções de chamada uma única vez, n vezes ou não ser chamado nunca.
         </QuickbiteHighlighter>
         <CodeBlock code={testCodes.verify} />
