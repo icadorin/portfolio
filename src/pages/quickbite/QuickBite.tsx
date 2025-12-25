@@ -4,6 +4,8 @@ import { ArrowUp } from 'lucide-react';
 import EntityImpl from './EntityImpl';
 import RepositoryImpl from './RepositoryImpl';
 import TestsImpl from './TestsImpl';
+import DtosImpl from './DtosImpl';
+import DependenciesImpl from './DependenciesImpl';
 import GitHubStatus from '../../components/layout/GitHubStatus';
 
 interface DriftCar {
@@ -14,11 +16,12 @@ interface DriftCar {
 const availableCars: DriftCar[] = [
   { id: 1, model: 'Entities' },
   { id: 2, model: 'Repositories' },
+  { id: 3, model: 'Dtos' },
   { id: 8, model: 'Tests' },
+  { id: 9, model: 'Dependencies' },
 ];
 
 const comingSoonCars: DriftCar[] = [
-  { id: 3, model: 'DTOs' },
   { id: 4, model: 'Exceptions' },
   { id: 5, model: 'Spring Security' },
   { id: 6, model: 'Controllers' },
@@ -36,6 +39,8 @@ const sectionComponents: Record<string, React.FC> = {
   Entities: EntityImpl,
   Repositories: RepositoryImpl,
   Tests: TestsImpl,
+  Dtos: DtosImpl,
+  Dependencies: DependenciesImpl,
 };
 
 const QuickBite: React.FC = () => {
