@@ -14,20 +14,39 @@ interface HighlightRule {
 
 const ANNOTATIONS = ['@\\w+'];
 const BOLD_TEXT = ['\\*\\*(.*?)\\*\\*'];
-const FRAMEWORKS_WITH_HYPHENS = ['spring-boot-starter-test'];
+const FRAMEWORKS_WITH_HYPHENS = ['spring-boot-starter-test', 'spring-boot-starter-web'];
 const FRAMEWORKS_WITHOUT_HYPHENS = [
   'JPA',
   'Hibernate',
+  'Spring',
   'Spring-boot',
   'Spring Data',
+  'Spring Test',
   'Lombok',
   'JUnit 5',
   'Junit',
   'Mockito',
+  'Spring Security',
+  'Docker',
 ];
-const CODE_CONCEPTS = ['getters', 'setters', 'boilerplate', 'entity', 'repository'];
+
+const CODE_CONCEPTS = [
+  'getters',
+  'setters',
+  'boilerplate',
+  'entity',
+  'repository',
+  'Tomcat',
+  'Jackson',
+  'pom.xml',
+  'JpaRepository',
+  'JWT',
+  'DTOs',
+];
+
 const PROGRAMMING_TERMS = [
   'builder',
+  'builders',
   'cascade',
   'orphanRemoval',
   'mappedBy',
@@ -37,7 +56,13 @@ const PROGRAMMING_TERMS = [
   'mock',
   'mocks',
   'revoked',
+  'Create',
+  'Read',
+  'Update',
+  'Delete',
+  'endpoints',
 ];
+
 const CONSTANTS = ['[A-Z_]{2,}', 'lazy'];
 
 const TEST_FUNCTION_PATTERNS = [
@@ -79,14 +104,17 @@ const LITERAL_VALUES = ['null', 'true', 'false', '0', '1'];
 const HIGHLIGHT_RULES: readonly HighlightRule[] = [
   { regex: new RegExp(`(${ANNOTATIONS[0]})`, 'g'), className: 'annotation' },
   { regex: new RegExp(`(${BOLD_TEXT[0]})`, 'g'), className: 'bold-word' },
-  { regex: new RegExp(`(${FRAMEWORKS_WITH_HYPHENS.join('|')})`, 'gi'), className: 'framework' },
+  {
+    regex: new RegExp(`(${FRAMEWORKS_WITH_HYPHENS.join('|')})`, 'gi'),
+    className: 'framework-hyphens',
+  },
   {
     regex: new RegExp(`\\b(${FRAMEWORKS_WITHOUT_HYPHENS.join('|')})\\b`, 'gi'),
     className: 'framework',
   },
   { regex: new RegExp(`\\b(${CODE_CONCEPTS.join('|')})\\b`, 'gi'), className: 'code-concept' },
   {
-    regex: new RegExp(`\\b(${PROGRAMMING_TERMS.join('|')})\\b`, 'gi'),
+    regex: new RegExp(`\\b(${PROGRAMMING_TERMS.join('|')})\\b`, 'g'),
     className: 'programming-term',
   },
   { regex: new RegExp(`\\b(${CONSTANTS.join('|')})\\b`, 'g'), className: 'constant' },
