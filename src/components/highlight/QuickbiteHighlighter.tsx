@@ -2,7 +2,7 @@ import React from 'react';
 
 interface HighlightedTextProps {
   text?: string;
-  children?: string;
+  children?: React.ReactNode;
   asParagraph?: boolean;
   className?: string;
 }
@@ -100,7 +100,6 @@ const FUNCTIONS = [
 
 const LITERAL_VALUES = ['null', 'true', 'false', '0', '1'];
 
-// Regras de destaque em ordem de prioridade - CORRIGIDA
 const HIGHLIGHT_RULES: readonly HighlightRule[] = [
   { regex: new RegExp(`(${ANNOTATIONS[0]})`, 'g'), className: 'annotation' },
   { regex: new RegExp(`(${BOLD_TEXT[0]})`, 'g'), className: 'bold-word' },
@@ -140,18 +139,31 @@ const HIGHLIGHT_RULES: readonly HighlightRule[] = [
   { regex: new RegExp(`\\b(${LITERAL_VALUES.join('|')})\\b`, 'g'), className: 'literal-value' },
 ] as const;
 
+const extractText = (node: React.ReactNode): string => {
+  if (typeof node === 'string') return node;
+
+  if (Array.isArray(node)) {
+    return node.map(extractText).join('');
+  }
+
+  if (React.isValidElement<{ children?: React.ReactNode }>(node)) {
+    return extractText(node.props.children);
+  }
+
+  return '';
+};
+
 const highlightText = (
   text: string,
   rules: readonly HighlightRule[]
 ): (string | React.ReactNode)[] => {
   return rules.reduce<(string | React.ReactNode)[]>(
-    (parts, { regex, className }) => {
-      return parts.flatMap((part) => {
+    (parts, { regex, className }) =>
+      parts.flatMap((part) => {
         if (typeof part !== 'string') return part;
 
         const result: (string | React.ReactNode)[] = [];
         let lastIndex = 0;
-
         const freshRegex = new RegExp(regex.source, regex.flags);
         let match: RegExpExecArray | null;
 
@@ -175,8 +187,7 @@ const highlightText = (
         }
 
         return result;
-      });
-    },
+      }),
     [text]
   );
 };
@@ -187,13 +198,13 @@ const QuickbiteHighlighter: React.FC<HighlightedTextProps> = ({
   asParagraph = false,
   className,
 }) => {
-  const content = text ?? children ?? '';
-  if (!content) return null;
+  const rawText = text ?? extractText(children);
+  if (!rawText) return null;
 
-  const highlightedContent = highlightText(content, HIGHLIGHT_RULES);
+  const highlightedContent = highlightText(rawText, HIGHLIGHT_RULES);
 
   if (asParagraph) {
-    return <p className={`highlighted-paragraph ${className}`}>{highlightedContent}</p>;
+    return <p className={`highlighted-paragraph ${className ?? ''}`}>{highlightedContent}</p>;
   }
 
   return <>{highlightedContent}</>;

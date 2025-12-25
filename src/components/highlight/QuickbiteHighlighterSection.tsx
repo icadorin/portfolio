@@ -14,19 +14,26 @@ const QuickbiteHighlighterSection: React.FC<Props> = ({ children, className }) =
           return null;
         }
 
-        if (typeof child === 'string' || typeof child === 'number') {
-          const text = String(child).trim();
-          if (!text) return null;
+        if (React.isValidElement(child)) {
+          if (child.type === React.Fragment) {
+            const fragment = child as React.ReactElement<{ children?: React.ReactNode }>;
 
-          return <QuickbiteHighlighter asParagraph>{text}</QuickbiteHighlighter>;
-        }
+            return (
+              <QuickbiteHighlighterSection>{fragment.props.children}</QuickbiteHighlighterSection>
+            );
+          }
 
-        if (React.isValidElement(child) && child.type === React.Fragment) {
-          const fragment = child as React.ReactElement<{ children?: React.ReactNode }>;
+          if (child.type === 'p') {
+            const element = child as React.ReactElement<{ children?: React.ReactNode }>;
 
-          return (
-            <QuickbiteHighlighterSection>{fragment.props.children}</QuickbiteHighlighterSection>
-          );
+            return (
+              <p {...element.props}>
+                <QuickbiteHighlighter asParagraph>{element.props.children}</QuickbiteHighlighter>
+              </p>
+            );
+          }
+
+          return child;
         }
 
         return child;
