@@ -1,7 +1,7 @@
 import React from 'react';
 import '@styles-quickbite/quickbiteHighlighter.css';
 
-import DependencySection from '@/components/dependencies/DependencySection';
+import DependencySection from '@/components/documentation/DependencySection';
 import HighlightedList from '@/components/highlight/HighlightedList';
 import SimpleList from '@/components/ui/SimpleList';
 
