@@ -15,14 +15,14 @@ interface LayerSectionProps {
 
 const LayerSection: React.FC<LayerSectionProps> = ({ title, overview, sections }) => {
   return (
-    <div className="layer-content">
-      <h3 className="layer-title">{title}</h3>
+    <div className="doc-section">
+      <h3 className="doc-section-title">{title}</h3>
 
       {overview && <QuickbiteHighlighterSection>{overview}</QuickbiteHighlighterSection>}
 
       {sections.map((section, index) => (
         <div key={index}>
-          <h4 className="sub-description">{section.title}</h4>
+          <h3 className="doc-section-subtitle">{section.title}</h3>
 
           {section.description && (
             <QuickbiteHighlighterSection>{section.description}</QuickbiteHighlighterSection>

@@ -1,15 +1,15 @@
-.main-container {
+.doc-layout {
   padding: 2rem;
 }
 
-.dep-content {
+.doc-section {
   padding: 20px;
   margin: 2rem 0;
   border-radius: 4px;
   background-color: var(--color-section-background);
 }
 
-.tech-title {
+.doc-section-title {
   font-size: 1.4rem;
   color: var(--color-primary-lighter);
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
@@ -70,50 +70,50 @@
   margin-right: 0.5rem;
 }
 
-.title {
+.doc-page-title {
   text-align: center;
   font-size: 2.5rem;
   margin-top: 30px;
 }
 
-.sub-title,
-.description {
+.doc-page-subtitle,
+.doc-page-description {
   text-align: center;
   font-size: 0.9rem;
   margin: 20px 20%;
 }
 
-.sub-description {
+.doc-section-subtitle {
   font-weight: 600;
   color: var(--color-text-ice);
 }
 
-.car-container {
+.doc-shell {
   display: grid;
   padding: 1rem;
   grid-template-columns: minmax(200px, 1fr) minmax(300px, 4fr);
 }
 
-.side-bar {
+.doc-nav {
   display: flex;
   flex-direction: column;
   margin-top: 0;
   gap: 20px;
 }
 
-.cars-items-button {
+.doc-nav-item {
   all: unset;
   padding: 10px 20px;
   border: 1px solid var(--color-border-primary);
   transition: all 0.15s ease-in-out;
 }
 
-.cars-items-button:hover {
+.doc-nav-item:hover {
   background-color: var(--color-border-arch);
   cursor: pointer;
 }
 
-.content {
+.doc-content {
   margin: 0 5.3rem 5rem 2rem;
   overflow-y: auto;
   scroll-behavior: smooth;
@@ -163,7 +163,7 @@
   color: var(--color-upgrade);
 }
 
-.cars-items-button.soon {
+.doc-nav-item.soon {
   opacity: 0.6;
   transition: opacity 0.2s ease;
 }

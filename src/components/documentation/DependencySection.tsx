@@ -24,8 +24,8 @@ const DependencySection: React.FC<DependencySectionProps> = ({
   sections,
 }) => {
   return (
-    <div className="dep-content">
-      <h3 className="tech-title">{title}</h3>
+    <div className="doc-section">
+      <h3 className="doc-section-title">{title}</h3>
 
       {maven && (
         <QuickbiteHighlighterSection>
@@ -38,7 +38,7 @@ const DependencySection: React.FC<DependencySectionProps> = ({
 
       {sections.map((section, index) => (
         <div key={index}>
-          <h3 className="sub-description">{section.title}</h3>
+          <h3 className="doc-section-subtitle">{section.title}</h3>
           <QuickbiteHighlighterSection>{section.content}</QuickbiteHighlighterSection>
         </div>
       ))}
