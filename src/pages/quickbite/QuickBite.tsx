@@ -62,22 +62,22 @@ const QuickBite: React.FC = () => {
   };
 
   return (
-    <div className="main-container">
-      <h1 className="title">QuickBite</h1>
-      <h4 className="sub-title">Backend Java Spring Boot para sistema de delivery</h4>
-      <p className="description">
+    <div className="doc-layout">
+      <h1 className="doc-page-title">QuickBite</h1>
+      <h4 className="doc-page-subtitle">Backend Java Spring Boot para sistema de delivery</h4>
+      <p className="doc-page-description">
         Aqui eu explico um pouco sobre a implementação do projeto, como os componentes estão sendo
         criados e a interação do framework e dependências.
       </p>
 
       <GitHubStatus />
 
-      <div ref={menuRef} className="car-container">
-        <div className="side-bar">
+      <div ref={menuRef} className="doc-shell">
+        <div className="doc-nav">
           {availableCars.map((car) => (
             <button
               key={car.id}
-              className={`cars-items-button ${selectedCar.id === car.id ? 'selected' : ''}`}
+              className={`doc-nav-item ${selectedCar.id === car.id ? 'selected' : ''}`}
               onClick={() => setSelectedCar(car)}
             >
               {car.model}
@@ -87,7 +87,7 @@ const QuickBite: React.FC = () => {
           {comingSoonCars.map((car) => (
             <button
               key={car.id}
-              className={`cars-items-button ${selectedCar.id === car.id ? 'selected' : ''} soon`}
+              className={`doc-nav-item ${selectedCar.id === car.id ? 'selected' : ''} soon`}
               onClick={() => setSelectedCar(car)}
             >
               {car.model}
@@ -95,7 +95,7 @@ const QuickBite: React.FC = () => {
           ))}
         </div>
 
-        <div className="content">
+        <div className="doc-content">
           <SelectedComponent />
         </div>
       </div>
