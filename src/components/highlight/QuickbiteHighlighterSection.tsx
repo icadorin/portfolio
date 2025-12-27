@@ -28,7 +28,7 @@ const QuickbiteHighlighterSection: React.FC<Props> = ({ children, className }) =
 
             return (
               <p {...element.props}>
-                <QuickbiteHighlighter asParagraph>{element.props.children}</QuickbiteHighlighter>
+                <QuickbiteHighlighter>{element.props.children}</QuickbiteHighlighter>
               </p>
             );
           }
