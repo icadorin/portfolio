@@ -1,6 +1,6 @@
 import React from 'react';
 import MavenSnippet from '@/components/code-block/MavenSnippet';
-import QuickbiteHighlighterSection from '@/components/highlight/QuickbiteHighlighterSection';
+import QuickbiteHighlighterSection from '@/components/highlight/quickbite/QuickbiteHighlighterSection';
 
 export interface DependencySubSection {
   title: string;

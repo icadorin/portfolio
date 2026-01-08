@@ -4,7 +4,7 @@ import '@styles-sections/about.css';
 import { aboutData } from '@data-sections/aboutData';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import profileImage from '@images/profile-photo.jpeg';
-import HighlightedText from '@/components/highlight/AboutHighlighter';
+import HighlightedText from '@/components/highlight/portfolio/TextHighlighter';
 
 const About: React.FC = () => {
   const { paragraphs, highlights, techStack } = aboutData;

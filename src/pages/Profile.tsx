@@ -4,6 +4,7 @@ import '@styles-sections/profile.css';
 import Header from '@layout/Header';
 import Resume from '@pages-sections/Resume';
 import About from '@pages-sections/About';
+import CurrentWork from '@pages-sections/CurrentWork';
 import Experience from '@pages-sections/Experience';
 import Projects from '@pages-sections/Projects';
 import Contact from '@pages-sections/Contact';
@@ -42,6 +43,7 @@ const Profile: React.FC = () => {
       <main className="content-wrapper">
         <Resume />
         <About />
+        <CurrentWork />
         <Experience selectedCompany={selectedCompany} setSelectedCompany={setSelectedCompany} />
         <Projects />
         <Contact />

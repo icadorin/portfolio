@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { AlertTriangle, GitCommit, Activity } from 'lucide-react';
-import '@styles-quickbite/githubStatus.css';
+import '@styles-quickbite/github-status.css';
 
 type ConclusionStatus = 'success' | 'failure' | 'cancelled' | 'skipped' | null;
 type RunStatus = 'queued' | 'in_progress' | 'completed';

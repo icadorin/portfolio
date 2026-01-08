@@ -1,7 +1,7 @@
 import React from 'react';
 import { HighlightedTextProps } from '@app-types/highlightedText';
 
-const AboutHighlighter: React.FC<HighlightedTextProps> = ({
+const TextHighlighter: React.FC<HighlightedTextProps> = ({
   text,
   highlights = [],
   highlightClass = 'highlight',
@@ -37,4 +37,4 @@ const AboutHighlighter: React.FC<HighlightedTextProps> = ({
   );
 };
 
-export default AboutHighlighter;
+export default TextHighlighter;

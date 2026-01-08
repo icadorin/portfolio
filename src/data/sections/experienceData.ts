@@ -2,13 +2,24 @@ import type { Company } from '@app-types/experience.ts';
 
 export const companiesData: Company[] = [
   {
+    id: 0,
+    name: 'QuickBite',
+    position: 'Desenvolvedor Full-Stack',
+    period: '2024 - Atual',
+    descriptions: [
+      'Desenvolvimento de APIs REST utilizando Java e Spring Boot, com autenticação e autorização via JWT.',
+      'Implementação de funcionalidades em arquitetura de microserviços, incluindo configuração de API Gateway para roteamento entre serviços.',
+      'Criação de testes automatizados com JUnit e Mockito e configuração de integração contínua com GitHub Actions.',
+    ],
+  },
+  {
     id: 1,
     name: 'SoftExpert',
     position: 'Estágio em Desenvolvimento',
     period: 'Jan 2021 - Jan 2022',
     descriptions: [
-      'Desenvolvimento front-end com criação de novas funcionalidades e componentes React.',
-      'Refatoração de código legado e otimizações de performance para maior eficiência.',
+      'Desenvolvimento e manutenção de funcionalidades em ERP web, utilizando Java, PHP, JavaScript e React.',
+      'Correções e melhorias seguindo padrões internos de código, com versionamento e colaboração via Git e persistência de dados em MySQL.',
     ],
   },
   {
@@ -17,7 +28,8 @@ export const companiesData: Company[] = [
     position: 'Desenvolvedor Front-End',
     period: 'Mar 2019 - Jul 2019',
     descriptions: [
-      'Desenvolvimento de interfaces responsivas utilizando Vuetify.',
+      'Desenvolvimento de interfaces web para acompanhamento de metas, utilizando Vue.js e Vuetify.',
+      'Implementação de componentes responsivos com JavaScript, em ambiente colaborativo com controle de versão via Git e GitHub.',
     ],
   },
 ];

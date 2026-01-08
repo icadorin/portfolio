@@ -1,5 +1,4 @@
 import React from 'react';
-import QuickbiteHighlighterSection from '@/components/highlight/QuickbiteHighlighterSection';
 
 export interface LayerSubSection {
   title: string;
@@ -18,17 +17,14 @@ const LayerSection: React.FC<LayerSectionProps> = ({ title, overview, sections }
     <div className="doc-section">
       <h3 className="doc-section-title">{title}</h3>
 
-      {overview && <QuickbiteHighlighterSection>{overview}</QuickbiteHighlighterSection>}
+      {overview}
 
       {sections.map((section, index) => (
         <div key={index}>
           <h3 className="doc-section-subtitle">{section.title}</h3>
 
-          {section.description && (
-            <QuickbiteHighlighterSection>{section.description}</QuickbiteHighlighterSection>
-          )}
-
-          {section.content && section.content}
+          {section.description}
+          {section.content}
         </div>
       ))}
     </div>

@@ -13,18 +13,10 @@ export const projectsData: ProjectList = [
   {
     id: 2,
     title: 'Calculadora de Frete',
-    description:
-      'API para cálculo de frete com base no estado, usando a API **ViaCEP**.',
+    description: 'API para cálculo de frete com base no estado, usando a API **ViaCEP**.',
     githubUrl: 'https://github.com/icadorin/calculadora-de-frete',
     liveUrl: 'https://calcular-frete-ic.vercel.app',
-    technologies: [
-      'React',
-      'Vite',
-      'TypeScript',
-      'Java',
-      'Spring Boot',
-      'ViaCEP API',
-    ],
+    technologies: ['React', 'Vite', 'TypeScript', 'Java', 'Spring Boot', 'ViaCEP API'],
   },
   {
     id: 3,
@@ -37,11 +29,13 @@ export const projectsData: ProjectList = [
       'Java',
       'Spring Boot',
       'Spring Cloud',
-      'PostgreSQL',
-      'Kafka',
-      'Redis',
+      'APIs REST',
       'JWT',
       'Microservices',
+      'PostgreSQL',
+      'JUnit 5',
+      'Mockito',
+      'GitHub Actions',
     ],
   },
 ];

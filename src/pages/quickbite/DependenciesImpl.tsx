@@ -1,8 +1,7 @@
 import React from 'react';
-import '@styles-quickbite/quickbiteHighlighter.css';
-
+import '@styles-quickbite/quickbite-highlighter.css';
 import DependencySection from '@/components/documentation/DependencySection';
-import HighlightedList from '@/components/highlight/HighlightedList';
+import HighlightedList from '@/components/highlight/quickbite/HighlightedList';
 import SimpleList from '@/components/ui/SimpleList';
 
 const DependenciesImplementation: React.FC = () => {

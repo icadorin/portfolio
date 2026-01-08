@@ -1,5 +1,5 @@
 import React from 'react';
-import QuickbiteHighlighter from '@/components/highlight/QuickbiteHighlighter';
+import QuickbiteHighlighter from '@/components/highlight/quickbite/QuickbiteHighlighter';
 import MavenSnippet from '@/components/code-block/MavenSnippet';
 import CodeBlock from '@/components/code-block/CodeBlock';
 import { repositoryCode } from '@/data/repositoryCode';

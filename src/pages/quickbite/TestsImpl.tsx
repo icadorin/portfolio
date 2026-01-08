@@ -1,8 +1,8 @@
 import React from 'react';
-import '@styles-quickbite/quickbiteHighlighter.css';
+import '@styles-quickbite/quickbite-highlighter.css';
 import MavenSnippet from '@/components/code-block/MavenSnippet';
 import CodeBlock from '@/components/code-block/CodeBlock';
-import QuickbiteHighlighter from '@/components/highlight/QuickbiteHighlighter';
+import QuickbiteHighlighter from '@/components/highlight/quickbite/QuickbiteHighlighter';
 import { testCodes } from '@/data/testCodes';
 
 const TestsImplement: React.FC = () => {

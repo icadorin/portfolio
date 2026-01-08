@@ -1,5 +1,5 @@
 import React from 'react';
-import JavaHighlighter from '@/components/highlight/JavaHighlighter';
+import JavaHighlighter from '@/components/highlight/quickbite/JavaHighlighter';
 
 interface CodeBlockProps {
   code: string;

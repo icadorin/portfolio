@@ -1,5 +1,5 @@
 import React from 'react';
-import '@styles-quickbite/mavenSnippet.css';
+import '@styles-quickbite/maven-snippet.css';
 
 interface MavenSnippetProps {
   groupId: string;

@@ -1,7 +1,7 @@
 import React from 'react';
-import '@styles-quickbite/quickbiteHighlighter.css';
+import '@styles-quickbite/quickbite-highlighter.css';
 import MavenSnippet from '@/components/code-block/MavenSnippet';
-import QuickbiteHighlighter from '@/components/highlight/QuickbiteHighlighter';
+import QuickbiteHighlighter from '@/components/highlight/quickbite/QuickbiteHighlighter';
 
 const DtosImplementation: React.FC = () => {
   return (

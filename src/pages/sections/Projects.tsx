@@ -4,7 +4,7 @@ import '@styles-sections/projects.css';
 import { FaGithub } from 'react-icons/fa';
 import { FiExternalLink } from 'react-icons/fi';
 import { projectsData } from '@data-sections/projectsData.ts';
-import { highlightLinks } from '@/components/highlight/ProjectLinkHighlighter';
+import { highlightLinks } from '@/components/highlight/portfolio/ProjectLinkHighlighter';
 
 const Projects: React.FC = () => {
   return (

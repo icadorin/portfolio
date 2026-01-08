@@ -34,6 +34,7 @@ p {
 }
 
 #about,
+#current-work,
 #experience,
 #projects,
 #contact {
@@ -42,6 +43,7 @@ p {
 }
 
 .section-about,
+.section-current-work,
 .section-experience,
 .section-projects,
 .section-contact {
@@ -73,15 +75,19 @@ p {
   background-color: var(--color-accent-hover);
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1900px) {
   section:not(:first-child) {
     padding-top: 7rem;
     padding-bottom: 7rem;
   }
 
+  #about,
+  #current-work,
+  #experience,
+  #projects,
   #contact {
-    padding-top: 7rem;
-    padding-bottom: 17rem;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
   }
 }
 
@@ -97,6 +103,7 @@ p {
   }
 
   .section-about,
+  .section-current-work,
   .section-experience,
   .section-projects,
   .section-contact {

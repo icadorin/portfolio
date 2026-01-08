@@ -1,5 +1,5 @@
 import React from 'react';
-import '@styles-quickbite/javaHighlighter.css';
+import '@styles-quickbite/java-highlighter.css';
 
 interface JavaHighlighterProps {
   code: string;

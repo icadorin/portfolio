@@ -1,6 +1,5 @@
 import React from 'react';
-import '@styles-quickbite/quickbiteHighlighter.css';
-
+import '@styles-quickbite/quickbite-highlighter.css';
 import LayerSection from '@/components/documentation/LayerSection';
 import SimpleList from '@/components/ui/SimpleList';
 import CodeBlock from '@/components/code-block/CodeBlock';
@@ -15,14 +14,15 @@ const EntityImplementation: React.FC = () => {
         overview={
           <>
             <p>
-              A camada de entidades representa o modelo de dados central da aplicação. Ela define
-              quais dados existem, como eles se relacionam e quais regras estruturais precisam ser
-              respeitadas para que a persistência ocorra de forma consistencia.
+              Essa camada funciona como a <strong>base do sistema</strong>. Todas as outras camadas
+              dependem diretamente da forma como as
+              <code>entidades</code> são modeladas, enquanto as entidades permanecem
+              <strong>independentes das regras de negócio</strong> e dos fluxos da aplicação.
             </p>
             <p>
-              Essa mada funciona como a base do sistema, todas as outras camadas dependem da forma
-              como as entidades são modeladas, mas as entidades não dependem das regras de negócio
-              ou dos fluxos da aplicação.
+              Essa mada funciona como a <strong>base do sistema</strong>, todas as outras camadas
+              dependem da forma como as entidades são modeladas, mas as entidades não dependem das
+              regras de negócio ou dos fluxos da aplicação.
             </p>
             <SimpleList
               items={[
@@ -117,8 +117,8 @@ const EntityImplementation: React.FC = () => {
 
                 <p>
                   Um exemplo dessa dependência pode ser visto no relacionamento entre pedidos e
-                  itens de pedido. Um orderItem não existe de forma independente e faz parte
-                  integral do ciclo de vida do order.
+                  itens de pedido. Um <code>OrderItem</code> não existe de forma independente e faz
+                  parte integral do <strong>ciclo de vida</strong> de um <code>Order</code>.
                 </p>
 
                 <CodeBlock code={entityCodes.OrderEntity} />
@@ -143,13 +143,13 @@ const EntityImplementation: React.FC = () => {
                 </p>
 
                 <p>
-                  Essa estratégia melhora o desempenho das consultas e torna o comportamento do
-                  sistema mais previsível
+                  Essa estratégia melhora o <strong>desempenho das consultas</strong> e torna o
+                  comportamento do sistema mais previsível.
                 </p>
 
                 <p>
-                  Para evitar carregamentos desnecessários dados, os relacionamentos entre entidades
-                  utilizam carretamento sob demanda (LAZY).
+                  Para evitar carregamentos desnecessários de dados, os relacionamentos entre
+                  entidades utilizam <code>carregamento sob demanda (LAZY)</code>.
                 </p>
 
                 <CodeBlock code={entityCodes.fetchTypeLazy} />
@@ -216,7 +216,7 @@ const EntityImplementation: React.FC = () => {
 
                 <p>
                   Para evitar entidades em estados inválidos, valores padrão são definidos
-                  diratamente no modelo e integrado ao padrão Builder.
+                  diratamente no modelo e integrado ao padrão <code>Builder</code>.
                 </p>
 
                 <CodeBlock code={entityCodes.builderDefaultUserStatus} />
@@ -262,9 +262,9 @@ const EntityImplementation: React.FC = () => {
               <>
                 <p>
                   Em alguns cenários, uma entidade não representa um conceito independentedo
-                  domínio, mas sim uma extensão estrutural de outra entidade principal. Nesses
-                  casos, criar uma nova identidade (chave primária própria) pode introduzir
-                  duplicações desnecessárias.
+                  domínio, mas sim uma <strong>extensão estrutural</strong> de outra entidade
+                  principal. Nesses casos, criar uma nova identidade (chave primária própria) pode
+                  introduzir duplicações desnecessárias.
                 </p>
                 <p>
                   Para resolver essa questão, o modelo de entidade compartilhada é utilizado, onde
@@ -272,16 +272,17 @@ const EntityImplementation: React.FC = () => {
                   que ambas fazem parte do mesmo conjunto.
                 </p>
                 <p>
-                  EEsse padrão foi aplicado na relação entre User e UserProfile, onde o perfil não
-                  existe de forma isolada, apenas complementa os dados do usuário principal.
+                  Esse padrão foi aplicado na relação entre User e <code>UserProfile</code>, onde o
+                  perfil não existe de forma isolada, apenas complementa os dados do usuário
+                  principal.
                 </p>
 
                 <CodeBlock code={entityCodes.userProfile} />
 
                 <p>
-                  Nesse modelo, UserProfile funciona como uma extensão direta da entidade User,
-                  compartilhando a mesma chave primária e garantindo uma única identidade no banco
-                  de dados.
+                  Nesse modelo, <code>UserProfile</code> funciona como uma extensão direta da
+                  entidade User, compartilhando a mesma chave primária e garantindo uma única
+                  identidade no banco de dados.
                 </p>
               </>
             ),

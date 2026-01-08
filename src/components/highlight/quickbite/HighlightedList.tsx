@@ -1,5 +1,5 @@
 import React from 'react';
-import QuickbiteHighlighter from '@/components/highlight/QuickbiteHighlighter';
+import QuickbiteHighlighter from '@/components/highlight/quickbite/QuickbiteHighlighter';
 
 interface HighlightedListProps {
   items: string[];
