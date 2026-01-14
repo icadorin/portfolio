@@ -42,11 +42,7 @@ p {
   padding-bottom: 5rem;
 }
 
-.section-about,
-.section-current-work,
-.section-experience,
-.section-projects,
-.section-contact {
+section h2 {
   font-size: 1.8rem;
   margin-bottom: 2rem;
   color: var(--color-text-secondary);
@@ -102,11 +98,7 @@ p {
     height: 90vh;
   }
 
-  .section-about,
-  .section-current-work,
-  .section-experience,
-  .section-projects,
-  .section-contact {
+  section > h2 {
     font-size: 1.6rem;
   }
 

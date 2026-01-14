@@ -4,12 +4,19 @@ import { CustomHamburgerIcon } from '@icons/CustomHamburgerIcon';
 import { CustomCloseIcon } from '@icons/CustomCloseIcon';
 import { useHeaderScroll } from '@hooks/useHeaderScroll';
 import { HeaderProps } from '@app-types/header';
-import { navItems } from '@data-sections/navItems';
-import resumePdf from '@assets/resumo.pdf';
+import resumePdf from '@assets/resume.pdf';
+
+const navItems = [
+  { id: 'hero', label: 'Início' },
+  { id: 'about', label: 'Sobre Mim' },
+  { id: 'experience', label: 'Experiência' },
+  { id: 'projects', label: 'Projetos' },
+  { id: 'contact', label: 'Contato' },
+  { id: 'resume', label: 'Perfil', isPrimary: true },
+];
 
 const Header: React.FC<HeaderProps> = ({ scrollToSection }) => {
-  const { isVisible, hasShadow, isAtTop, setIsProgrammaticScroll } =
-    useHeaderScroll();
+  const { isVisible, hasShadow, isAtTop, setIsProgrammaticScroll } = useHeaderScroll();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {

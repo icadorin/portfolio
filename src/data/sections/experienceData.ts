@@ -5,7 +5,7 @@ export const companiesData: Company[] = [
     id: 0,
     name: 'QuickBite',
     position: 'Desenvolvedor Full-Stack',
-    period: '2024 - Atual',
+    period: '2025 - Atual',
     descriptions: [
       'Desenvolvimento de APIs REST utilizando Java e Spring Boot, com autenticação e autorização via JWT.',
       'Implementação de funcionalidades em arquitetura de microserviços, incluindo configuração de API Gateway para roteamento entre serviços.',
