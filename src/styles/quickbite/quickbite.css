@@ -76,6 +76,11 @@
   margin-top: 30px;
 }
 
+.warning {
+  text-align: center;
+  color: var(--color-red-highlight);
+}
+
 .doc-page-subtitle,
 .doc-page-description {
   text-align: center;
