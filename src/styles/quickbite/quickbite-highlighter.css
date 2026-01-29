@@ -1,43 +1,58 @@
 .highlighted-paragraph {
   font-size: 1rem;
   color: var(--color-text-primary);
-  line-height: 1.8;
-  margin-bottom: 1rem;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
 }
 
 .annotation {
-  color: var(--color-highlight-annotation);
-  font-weight: 600;
+  color: var(--color-primary-lighter);
 }
 
 .bold-word {
-  background-color: var(--color-highlight-bold-bg);
-  color: var(--color-highlight-bold-text);
-  padding: 2px 4px;
+  background-color: rgba(100, 108, 255, 0.08);
+  color: var(--color-text-secondary);
+  padding: 0.1rem 0.35rem;
   border-radius: 3px;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .constant {
-  color: var(--color-highlight-constant);
+  color: #a0c4ff;
   font-weight: 600;
 }
 
 .framework,
 .code-concept {
   font-style: italic;
+  color: var(--color-text-muted);
+  font-weight: 500;
 }
 
 .framework-hyphens {
   font-style: italic;
-  padding: 0px 6px 4px 6px;
-  border-radius: 4px;
-  background-color: var(--color-background);
+  color: var(--color-text-muted);
+  background-color: rgba(100, 108, 255, 0.05);
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
 }
 
-.function-call,
-.literal-value,
+.data-structure {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
 .programming-term {
-  text-align: center;
-  color: var(--color-text-secondary);
+  color: var(--color-text-muted); /* cinza claro #c2c2c2 – discreto */
+  font-weight: 500; /* mantém um leve negrito, mas sem exagerar */
+}
+
+.function-call {
+  color: #89b4fa;
+  font-weight: 500;
+}
+
+.literal-value {
+  color: #9ca3af;
+  font-weight: 500;
 }

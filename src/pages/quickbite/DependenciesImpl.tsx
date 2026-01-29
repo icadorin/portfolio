@@ -1,302 +1,219 @@
 import React from 'react';
 import '@styles-quickbite/quickbite-highlighter.css';
-import DependencySection from '@/components/documentation/DependencySection';
-import HighlightedList from '@/components/highlight/quickbite/HighlightedList';
-import SimpleList from '@/components/ui/SimpleList';
+
+import MavenSnippet from '@/components/code-block/MavenSnippet';
+import QuickbiteHighlighterSection from '@/components/highlight/quickbite/QuickbiteHighlighterSection';
+import { HighlightedSection } from '@/components/documentation-layout/HighlightedSection';
+import { SimpleSection } from '@/components/documentation-layout/SimpleSection';
 
 const DependenciesImplementation: React.FC = () => {
   return (
     <div className="section">
       <h1 className="section-title">Dependências</h1>
 
-      <DependencySection
-        title="Visão Geral"
-        sections={[
-          {
-            title: 'Contexto',
-            content: (
-              <p>
-                Esta seção descreve as principais dependências utilizadas no ecossistema Quickbite,
-                com foco nas decisões técnicas e arquiteturais adotadas durante o desenvolvimento.
-                Os detalhes de implementação e trechos de código são abordados nas seções
-                específicas do projeto (Entidades, Repositórios, Serviços, Testes, etc.).
-              </p>
-            ),
-          },
-        ]}
-      />
+      <h2 className="section-subtitle">Visão Geral</h2>
+      <p className="section-intro">
+        Esta seção descreve as principais dependências utilizadas no ecossistema Quickbite, com foco
+        nas decisões técnicas e arquiteturais adotadas durante o desenvolvimento. Os detalhes de
+        implementação e exemplos de código são apresentados nas seções específicas de cada
+        dependência.
+      </p>
 
-      <DependencySection
-        title="Spring Boot Starter Web"
-        maven={{
-          groupId: 'org.springframework.boot',
-          artifactId: 'spring-boot-starter-web',
-        }}
-        sections={[
-          {
-            title: 'O que é',
-            content: (
-              <p>
-                O spring-boot-starter-web é a dependência responsável por permitir a criação de APIs
-                REST utilizando o padrão Spring MVC, possibilitando o tratamento de requisições HTTP
-                como GET, POST, PUT e DELETE.
-              </p>
-            ),
-          },
-          {
-            title: 'Por que foi utilizado',
-            content: (
-              <p>
-                Foi adotado porque o projeto é baseado em serviços que se comunicam via HTTP. Essa
-                dependência padroniza a forma como os endpoints são expostos e simplifica a
-                construção da camada de entrada da aplicação.
-              </p>
-            ),
-          },
-          {
-            title: 'Como funciona',
-            content: (
-              <HighlightedList
-                items={[
-                  'Inicialização do servidor web embutido (Tomcat).',
-                  'Conversão automática entre objetos Java e JSON (usando Jackson).',
-                  'Disponibilização de anotações como @RestController e @GetMapping.',
-                ]}
-              />
-            ),
-          },
-          {
-            title: 'Onde foi utilizado',
-            content: (
-              <>
-                <SimpleList
-                  items={['API Gateway', 'Auth Service', 'Order Service', 'Product Service']}
-                />
-                <p>
-                  Utilizado principalmente na camada de controllers, que representa o ponto de
-                  entrada das requisições HTTP.
-                </p>
-              </>
-            ),
-          },
-        ]}
-      />
+      <div className="dep-content">
+        <div className="tech-block">
+          <h2 className="section-subtitle tech-title">Spring Boot Starter Web</h2>
 
-      <DependencySection
-        title="Spring Boot Starter Data JPA"
-        maven={{
-          groupId: 'org.springframework.boot',
-          artifactId: 'spring-boot-starter-data-jpa',
-        }}
-        sections={[
-          {
-            title: 'O que é',
-            content: (
-              <p>
-                O Spring Data JPA é uma abstração sobre o Java Persistence API (JPA), utilizando o
-                Hibernate como implementação padrão. Ele facilita a comunicação entre a aplicação e
-                o banco de dados relacional.
-              </p>
-            ),
-          },
-          {
-            title: 'Por que foi utilizado',
-            content: (
-              <p>
-                Foi adotado para simplificar o acesso aos dados e evitar a escrita manual de SQL em
-                grande parte dos casos.
-              </p>
-            ),
-          },
-          {
-            title: 'Como funciona',
-            content: (
-              <>
-                <p>
-                  Através de interfaces que estendem JpaRepository, o Spring gera automaticamente:
-                </p>
-                <HighlightedList
-                  items={[
-                    'Operações básicas de CRUD (Create, Read, Update, Delete).',
-                    'Consultas simples baseadas em nomes de métodos.',
-                  ]}
-                />
-                <p>
-                  Quando necessário, é possível definir consultas personalizadas usando JPQL ou
-                  anotações como @Query.
-                </p>
-              </>
-            ),
-          },
-          {
-            title: 'Impacto no projeto',
-            content: (
-              <HighlightedList
-                items={[
-                  'Redução de código repetitivo',
-                  'Repositórios mais claros e objetivos',
-                  'Separação entre regra de negócio e acesso a dados',
-                ]}
-              />
-            ),
-          },
-          {
-            title: 'Onde foi utilizado',
-            content: (
-              <>
-                <SimpleList items={['Auth Service', 'Order Service', 'Product Service']} />
-                <p>Aplicado nas entidades e repositórios.</p>
-              </>
-            ),
-          },
-        ]}
-      />
+          <QuickbiteHighlighterSection>
+            <p>Import da dependência no arquivo pom.xml</p>
+            <MavenSnippet groupId="org.springframework.boot" artifactId="spring-boot-starter-web" />
 
-      <DependencySection
-        title="Spring Security"
-        maven={{
-          groupId: 'org.springframework.boot',
-          artifactId: 'spring-boot-starter-security',
-        }}
-        sections={[
-          {
-            title: 'O que é',
-            content: (
-              <p>
-                Framework responsável por autenticação e autorização, controlando o acesso aos
-                endpoints da aplicação.
-              </p>
-            ),
-          },
-          {
-            title: 'Por que foi utilizado',
-            content: (
-              <p>
-                Utilizado para garantir que apenas usuários autenticados consigam acessar recursos
-                protegidos e para aplicar regras de segurança de forma centralizada.
-              </p>
-            ),
-          },
-          {
-            title: 'Como funciona',
-            content: (
-              <SimpleList
-                items={[
-                  'Intercepta requisições HTTP',
-                  'Valida autenticação e permissões',
-                  'Bloqueia acessos não autorizados',
-                ]}
-              />
-            ),
-          },
-          {
-            title: 'Onde foi utilizado',
-            content: (
-              <SimpleList
-                items={[
-                  'Auth Service (processo de login e autenticação)',
-                  'Order Service',
-                  'Product Service',
-                ]}
-              />
-            ),
-          },
-        ]}
-      />
+            <h3 className="sub-description">O que é</h3>
+            <p>
+              Dependência responsável por permitir a criação de APIs REST utilizando o padrão Spring
+              MVC, incluindo suporte nativo a HTTP, serialização JSON e servidor web embutido.
+            </p>
 
-      <DependencySection
-        title="JSON Web Token (JJWT)"
-        maven={{
-          groupId: 'io.jsonwebtoken',
-          artifactId: 'jjwt-api',
-        }}
-        sections={[
-          {
-            title: 'O que é',
-            content: (
-              <p>
-                Biblioteca utilizada para criação, assinatura e validação de JSON Web Tokens (JWT).
-              </p>
-            ),
-          },
-          {
-            title: 'Por que foi utilizado',
-            content: (
-              <p>
-                Permite uma abordagem stateless, desta forma o servidor não precisa manter sessão do
-                usuário.
-              </p>
-            ),
-          },
-          {
-            title: 'Como funciona',
-            content: (
-              <SimpleList
-                items={[
-                  'Usuário realiza o login',
-                  'Um token JWT é gerado pelo Auth Service',
-                  'Esse token é enviado pelo cliente em cada requisição',
-                  'Os serviços validam o token antes de permitir o acesso',
-                ]}
-              />
-            ),
-          },
-          {
-            title: 'Onde foi utilizado',
-            content: <SimpleList items={['Auth Service']} />,
-          },
-        ]}
-      />
+            <h3 className="sub-description">Por que foi utilizado</h3>
+            <p>
+              Foi adotado porque o projeto é baseado em microsserviços que se comunicam via HTTP,
+              oferecendo uma forma padronizada e robusta de exposição de APIs.
+            </p>
+          </QuickbiteHighlighterSection>
+          <h3 className="sub-description">Como funciona</h3>
+          <HighlightedSection
+            title=""
+            items={[
+              'Inicialização automática de um servidor web embutido (Tomcat).',
+              'Conversão automática entre objetos Java e JSON usando Jackson.',
+              'Disponibilização de anotações como @RestController e @GetMapping.',
+            ]}
+          />
 
-      <DependencySection
-        title="Lombok"
-        maven={{
-          groupId: 'org.projectlombok',
-          artifactId: 'lombok',
-        }}
-        sections={[
-          {
-            title: 'O que é',
-            content: (
-              <p>Biblioteca que automatiza a geração de código repetitivo durante a compilação.</p>
-            ),
-          },
-          {
-            title: 'Por que foi utilizado',
-            content: (
-              <p>Para evitar a escrita manual de getters, setters, construtores e builders.</p>
-            ),
-          },
-          {
-            title: 'Como funciona',
-            content: (
-              <HighlightedList
-                items={[
-                  '@Getter, @Setter ou @Data',
-                  '@Builder',
-                  '@NoArgsConstructor e @AllArgsConstructor',
-                ]}
-              />
-            ),
-          },
-          {
-            title: 'Impacto no projeto',
-            content: (
-              <HighlightedList
-                items={[
-                  'Menos código repetitivo',
-                  'Classes mais curtas',
-                  'Melhor manutenção a longo prazo',
-                ]}
-              />
-            ),
-          },
-          {
-            title: 'Onde foi utilizado',
-            content: <SimpleList items={['Entidades', 'DTOs']} />,
-          },
-        ]}
-      />
+          <h3 className="sub-description">Onde foi utilizado</h3>
+          <SimpleSection
+            title=""
+            items={['API Gateway', 'Auth Service', 'Order Service', 'Product Service']}
+          />
+        </div>
+
+        <div className="tech-block">
+          <h2 className="section-subtitle tech-title">Spring Boot Starter Data JPA</h2>
+
+          <QuickbiteHighlighterSection>
+            <p>Import da dependência no arquivo pom.xml</p>
+            <MavenSnippet
+              groupId="org.springframework.boot"
+              artifactId="spring-boot-starter-data-jpa"
+            />
+
+            <h3 className="sub-description">O que é</h3>
+            <p>
+              Abstração sobre a Java Persistence API (JPA) que facilita o acesso a bancos de dados
+              relacionais utilizando o Hibernate como implementação padrão.
+            </p>
+
+            <h3 className="sub-description">Por que foi utilizado</h3>
+            <p>
+              Reduz drasticamente a necessidade de escrita manual de SQL e promove uma separação
+              clara entre regra de negócio e persistência.
+            </p>
+          </QuickbiteHighlighterSection>
+          <h3 className="sub-description">Como funciona</h3>
+          <HighlightedSection
+            title=""
+            items={[
+              'Interfaces que estendem JpaRepository geram CRUD automaticamente.',
+              'Consultas simples baseadas no nome dos métodos.',
+              'Suporte a consultas personalizadas via JPQL ou @Query.',
+            ]}
+          />
+
+          <h3 className="sub-description">Impacto no projeto</h3>
+          <HighlightedSection
+            title=""
+            items={[
+              'Redução de código repetitivo.',
+              'Repositórios mais claros e objetivos.',
+              'Menor acoplamento entre domínio e persistência.',
+            ]}
+          />
+
+          <h3 className="sub-description">Onde foi utilizado</h3>
+          <SimpleSection title="" items={['Auth Service', 'Order Service', 'Product Service']} />
+        </div>
+
+        <div className="tech-block">
+          <h2 className="section-subtitle tech-title">Spring Security</h2>
+
+          <QuickbiteHighlighterSection>
+            <p>Import da dependência no arquivo pom.xml</p>
+            <MavenSnippet
+              groupId="org.springframework.boot"
+              artifactId="spring-boot-starter-security"
+            />
+
+            <h3 className="sub-description">O que é</h3>
+            <p>
+              Framework responsável por autenticação e autorização, controlando o acesso aos
+              endpoints da aplicação.
+            </p>
+
+            <h3 className="sub-description">Por que foi utilizado</h3>
+            <p>
+              Permite centralizar regras de segurança, garantindo que apenas usuários autenticados e
+              autorizados acessem recursos protegidos.
+            </p>
+          </QuickbiteHighlighterSection>
+          <h3 className="sub-description">Como funciona</h3>
+          <SimpleSection
+            title=""
+            items={[
+              'Intercepta requisições HTTP.',
+              'Valida autenticação e permissões.',
+              'Bloqueia acessos não autorizados.',
+            ]}
+          />
+
+          <h3 className="sub-description">Onde foi utilizado</h3>
+          <SimpleSection
+            title=""
+            items={['Auth Service (login e autenticação)', 'Order Service', 'Product Service']}
+          />
+        </div>
+
+        <div className="tech-block">
+          <h2 className="section-subtitle tech-title">JSON Web Token (JJWT)</h2>
+
+          <QuickbiteHighlighterSection>
+            <p>Import da dependência no arquivo pom.xml</p>
+            <MavenSnippet groupId="io.jsonwebtoken" artifactId="jjwt-api" />
+
+            <h3 className="sub-description">O que é</h3>
+            <p>
+              Biblioteca utilizada para criação, assinatura e validação de JSON Web Tokens (JWT).
+            </p>
+
+            <h3 className="sub-description">Por que foi utilizado</h3>
+            <p>
+              Permite uma abordagem stateless, eliminando a necessidade de manter sessão no
+              servidor.
+            </p>
+          </QuickbiteHighlighterSection>
+          <h3 className="sub-description">Como funciona</h3>
+          <SimpleSection
+            title=""
+            items={[
+              'Usuário realiza o login.',
+              'Token JWT é gerado pelo Auth Service.',
+              'Token é enviado em cada requisição.',
+              'Serviços validam o token antes do acesso.',
+            ]}
+          />
+
+          <h3 className="sub-description">Onde foi utilizado</h3>
+          <SimpleSection title="" items={['Auth Service']} />
+        </div>
+
+        <div className="tech-block">
+          <h2 className="section-subtitle tech-title">Lombok</h2>
+
+          <QuickbiteHighlighterSection>
+            <p>Import da dependência no arquivo pom.xml</p>
+            <MavenSnippet groupId="org.projectlombok" artifactId="lombok" />
+
+            <h3 className="sub-description">O que é</h3>
+            <p>Biblioteca que automatiza a geração de código repetitivo durante a compilação.</p>
+
+            <h3 className="sub-description">Por que foi utilizado</h3>
+            <p>
+              Evita a escrita manual de getters, setters, construtores e builders, mantendo as
+              classes mais limpas.
+            </p>
+          </QuickbiteHighlighterSection>
+          <h3 className="sub-description">Como funciona</h3>
+          <HighlightedSection
+            title=""
+            items={[
+              '@Getter, @Setter ou @Data',
+              '@Builder',
+              '@NoArgsConstructor e @AllArgsConstructor',
+            ]}
+          />
+
+          <h3 className="sub-description">Impacto no projeto</h3>
+          <HighlightedSection
+            title=""
+            items={[
+              'Menos código repetitivo.',
+              'Classes mais curtas.',
+              'Melhor manutenção a longo prazo.',
+            ]}
+          />
+
+          <h3 className="sub-description">Onde foi utilizado</h3>
+          <HighlightedSection title="" items={['Entidades', 'DTOs']} />
+        </div>
+      </div>
     </div>
   );
 };

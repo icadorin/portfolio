@@ -40,7 +40,7 @@ const BugFixesEnterprise: React.FC = () => {
           ]}
         />
 
-        <SimpleSection
+        <HighlightedSection
           title="Benefícios das Correções"
           items={[
             'Maior consistência e integridade dos dados com relacionamentos corretos',
@@ -55,7 +55,7 @@ const BugFixesEnterprise: React.FC = () => {
         <h2 className="section-subtitle">Exemplos de Código – Decisões Técnicas Relevantes</h2>
 
         <div className="tech-block">
-          <h3>Correção de Relacionamento em UserProfile</h3>
+          <h3 className="sub-description tech-title">Correção de Relacionamento em UserProfile</h3>
           <ProblemDecisionBenefit
             problem="O relacionamento estava modelado como OneToMany, gerando inconsistência de chave e queries incorretas."
             decision="Ajustar para OneToOne com @MapsId e tabela correta."
@@ -65,37 +65,41 @@ const BugFixesEnterprise: React.FC = () => {
         </div>
 
         <div className="tech-block">
-          <h3>Adição de Endereço em UserProfile</h3>
+          <h3 className="sub-description tech-title">Adição de Endereço em UserProfile</h3>
           <CodeBlock code={codeFixes.addAddress} />
         </div>
 
         <div className="tech-block">
-          <h3>Correção de Nome de Variável</h3>
+          <h3 className="sub-description tech-title">Correção de Nome de Variável</h3>
           <CodeBlock code={codeFixes.correctImageUrl} />
         </div>
 
         <div className="tech-block">
-          <h3>Adição de Builder default e jsonb para mapeamento</h3>
+          <h3 className="sub-description tech-title">
+            Adição de Builder default e jsonb para mapeamento
+          </h3>
           <ProblemDecisionBenefit
             problem="Ao utilizar o padrão Builder, os atributos que são inicializados diretamente na entidade não são populados automaticamente sem o uso de @Builder.Default. Também, sem a definição do tipo jsonb, o Hibernate não consegue mapear corretamente campo JSON para o banco de dados."
-            decision="Utilizar Builder.Default para atributos que possuem valores padrão e definir o tipo jsonb para campos do tipo Map."
+            decision="Utilizar @Builder.Default para atributos que possuem valores padrão e definir o tipo jsonb para campos do tipo Map."
             benefit="Garantir valores padrão e consistentes ao usar o Builder e persistência correta de estruturas JSON no banco de dados."
           />
           <CodeBlock code={codeFixes.builderDefaults} />
         </div>
 
         <div className="tech-block">
-          <h3>Mudança de List para Map</h3>
+          <h3 className="sub-description tech-title">Mudança de List para Map</h3>
           <ProblemDecisionBenefit
             problem="Campos tipados com List faziam com que o service conhecesse detalhes de persistência, sendo responsável pela serialização dos dados. Havia lógica técnica misturada com regra de negócio."
-            decision="Ajustar a tipagem para Map<String, Object> e definir o campo como jsonb com @JdbcTypeCode(SqlTypes.JSON)"
+            decision="Ajustar a tipagem para Map<String, Object> e definir o campo como jsonb com @JdbcTypeCode (SqlTypes.JSON)"
             benefit="Melhor separação de responsabilidades, o service passa a orquestrar dados, enquanto a persistência e a conversão JSON ficam a cargo do Hibernate, eliminando a necessidade de conversões manuais."
           />
           <CodeBlock code={codeFixes.listToMap} />
         </div>
 
         <div className="tech-block">
-          <h3>Mapeamento direto de entidade para response</h3>
+          <h3 className="sub-description tech-title">
+            Mapeamento direto de entidade para response
+          </h3>
           <ProblemDecisionBenefit
             problem="O uso de ObjectMapper para conversão automática e desserialização de campos JSON submetia o service a lidar com detalhes de serialização e tratamento de exceção, além de introduzir mapeamento implícito."
             decision="Remover o uso de conversão automática e realizar mapeamento manual e explícito de todos os campos da entidade para o DTO de resposta, utilizando estruturas já desserializadas pelo Hibernate."
@@ -105,12 +109,14 @@ const BugFixesEnterprise: React.FC = () => {
         </div>
 
         <div className="tech-block">
-          <h3>Adição de Getters/Setters em DTO</h3>
+          <h3 className="sub-description tech-title">Adição de Getters/Setters em DTO</h3>
           <CodeBlock code={codeFixes.gettersSetters} />
         </div>
 
         <div className="tech-block">
-          <h3>Login com tratamento de erro e ciclo de refresh token</h3>
+          <h3 className="sub-description tech-title">
+            Login com tratamento de erro e ciclo de refresh token
+          </h3>
           <ProblemDecisionBenefit
             problem="O fluxo de autenticação não tratava exceções específicas de forma controlada, expondo mensagens genéricas ou falhas inesperadas. Além disso, não tinha uma garantia direta de que o refresh token era gerado, persistido e validado corretamente."
             decision="Implementar tratamento de forma direta para AuthenticationException no login e adicionar testes automatizados para validar a geração, persistência e estado do refresh token."
@@ -121,7 +127,9 @@ const BugFixesEnterprise: React.FC = () => {
         </div>
 
         <div className="tech-block">
-          <h3>Padronização de propriedades de banco por serviço</h3>
+          <h3 className="sub-description tech-title">
+            Padronização de propriedades de banco por serviço
+          </h3>
           <ProblemDecisionBenefit
             problem="As configurações de banco de dados estavam misturadas com valores reais de ambiente, o que gerava risco de exposição de credenciais."
             decision="Criar arquivos application.properties.example contendo apenas valores de referência, mantendo as configurações reais fora do versionamento."
@@ -130,7 +138,7 @@ const BugFixesEnterprise: React.FC = () => {
         </div>
 
         <div className="tech-block">
-          <h3>Handler global de validação</h3>
+          <h3 className="sub-description tech-title">Handler global de validação</h3>
           <ProblemDecisionBenefit
             problem="Erros de validação eram tratados de forma inconsistente espalhados pelos controllers, dificultando padronização de mensagens e manutenção de código."
             decision="Centralizar o tratamento de exceções de validação em um handler global utilizando @RestControllerAdvice e @ExceptionHandler."
@@ -160,7 +168,7 @@ const BugFixesEnterprise: React.FC = () => {
           ]}
         />
 
-        <SimpleSection
+        <HighlightedSection
           title="Resultados e Impacto"
           items={[
             'Redução significativa de erros de validação em runtime',

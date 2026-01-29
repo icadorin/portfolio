@@ -12,7 +12,7 @@ interface HighlightRule {
   className: string;
 }
 
-const ANNOTATIONS = ['@\\w+'];
+const ANNOTATIONS = ['@\\w+(?:\\.\\w+)*'];
 const BOLD_TEXT = ['\\*\\*(.*?)\\*\\*'];
 const FRAMEWORKS_WITH_HYPHENS = ['spring-boot-starter-test', 'spring-boot-starter-web'];
 const FRAMEWORKS_WITHOUT_HYPHENS = [
@@ -29,6 +29,7 @@ const FRAMEWORKS_WITHOUT_HYPHENS = [
   'Spring Security',
   'Docker',
   'PostgreSQL',
+  'SQL',
 ];
 
 const CODE_CONCEPTS = [
@@ -43,7 +44,17 @@ const CODE_CONCEPTS = [
   'JpaRepository',
   'JWT',
   'DTOs',
+  'DTO',
+  'JSON',
+  'JSONB',
+  'JPQL',
+  'HTTP',
+  'API',
+  'APIs',
+  'REST',
 ];
+
+const DATA_STRUCTURES = ['List', 'Map'];
 
 const PROGRAMMING_TERMS = [
   'builder',
@@ -63,9 +74,14 @@ const PROGRAMMING_TERMS = [
   'Delete',
   'endpoints',
   'Matchers.anyOf',
+  'ObjectMapper ',
+  'CRUD',
+  'stateless',
+  'REST',
+  'MVC',
 ];
 
-const CONSTANTS = ['[A-Z_]{2,}', 'lazy'];
+const CONSTANTS = ['[A-Z]+(?:_[A-Z]+)+'];
 
 const TEST_FUNCTION_PATTERNS = [
   '\\b\\w+_(?:Should|When|Given)(?:[A-Z][a-zA-Z]*)+\\b',
@@ -114,6 +130,10 @@ const HIGHLIGHT_RULES: readonly HighlightRule[] = [
     className: 'framework',
   },
   { regex: new RegExp(`\\b(${CODE_CONCEPTS.join('|')})\\b`, 'gi'), className: 'code-concept' },
+  {
+    regex: new RegExp(`\\b(${DATA_STRUCTURES.join('|')})\\b`, 'g'),
+    className: 'data-structure',
+  },
   {
     regex: new RegExp(`\\b(${PROGRAMMING_TERMS.join('|')})\\b`, 'g'),
     className: 'programming-term',
