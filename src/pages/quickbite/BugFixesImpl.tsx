@@ -11,7 +11,7 @@ import CodeBlock from '@/components/code-block/CodeBlock';
 const BugFixesEnterprise: React.FC = () => {
   return (
     <div className="section">
-      <h1 className="section-title">Refatoração e Correções no Backend do QuickBite</h1>
+      <h1 className="section-title">Refatoração e Correções no Backend</h1>
 
       <h2 className="section-subtitle">Visão geral</h2>
       <p className="section-intro">

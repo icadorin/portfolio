@@ -54,4 +54,26 @@
   --color-highlight-constant: #c586c0;
   --color-highlight-programming-term: #6899d0;
   --color-list-marker: #6899d0;
+  --color-constant: #a0c4ff;
+  --color-function-name: #6482b1;
+  --color-function-args: #664679;
+  --color-literal-value: #9ca3af;
+
+  /* Maven Dependency Colors */
+  --color-maven-background: #1e1e1e;
+  --color-maven-border: #333;
+  --color-maven-text: #d4d4d4;
+  --color-maven-tag: #569cd6;
+  --color-maven-value: #ce9178;
+  --color-maven-scroll-thumb: #424242;
+  --color-maven-scroll-thumb-hover: #4f4f4f;
+  --color-maven-hover-shadow: rgba(86, 156, 214, 0.1);
+
+  /* Problem/Decision/Benefit Colors */
+  --color-problem-border: rgba(255, 165, 0, 0.6);
+  --color-problem-text: #ffb247ad;
+  --color-decision-border: rgba(100, 149, 237, 0.6);
+  --color-decision-text: #7aa2f7bd;
+  --color-benefit-border: rgba(60, 179, 113, 0.6);
+  --color-benefit-text: #7bd88f;
 }

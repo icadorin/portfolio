@@ -15,25 +15,25 @@
 }
 
 .pdb.problem {
-  border-left: 3px solid rgba(255, 165, 0, 0.6);
+  border-left: 3px solid var(--color-problem-border);
 }
 
 .pdb.problem strong {
-  color: #ffb247ad;
+  color: var(--color-problem-text);
 }
 
 .pdb.decision {
-  border-left: 3px solid rgba(100, 149, 237, 0.6);
+  border-left: 3px solid var(--color-decision-border);
 }
 
 .pdb.decision strong {
-  color: #7aa2f7bd;
+  color: var(--color-decision-text);
 }
 
 .pdb.benefit {
-  border-left: 3px solid rgba(60, 179, 113, 0.6);
+  border-left: 3px solid var(--color-benefit-border);
 }
 
 .pdb.benefit strong {
-  color: #7bd88f;
+  color: var(--color-benefit-text);
 }

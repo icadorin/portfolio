@@ -139,25 +139,7 @@ const HIGHLIGHT_RULES: readonly HighlightRule[] = [
     className: 'programming-term',
   },
   { regex: new RegExp(`\\b(${CONSTANTS.join('|')})\\b`, 'g'), className: 'constant' },
-  {
-    regex: new RegExp(`\\b(${TEST_FUNCTION_PATTERNS.join('|')})\\b`, 'g'),
-    className: 'function-call',
-  },
-  {
-    regex: new RegExp(`\\b([a-z]+(?:[A-Z][a-zA-Z]*)+)\\b`, 'g'),
-    className: 'function-call',
-  },
-  {
-    regex: new RegExp(`\\b(${REPOSITORY_METHOD_PATTERNS.join('|')})\\b`, 'g'),
-    className: 'function-call',
-  },
-  {
-    regex: new RegExp(
-      `\\b(?:[A-Za-z_]\\w*\\.)?(?:${FUNCTIONS.join('|')})\\b(?:\\s*\\(.*?\\))?`,
-      'g'
-    ),
-    className: 'function-call',
-  },
+  { regex: /\b(\w+(?:\.\w+)*)(\([^)]*\))/g, className: 'function-call' },
   { regex: new RegExp(`\\b(${LITERAL_VALUES.join('|')})\\b`, 'g'), className: 'literal-value' },
 ] as const;
 
@@ -194,12 +176,25 @@ const highlightText = (
             result.push(part.slice(lastIndex, match.index));
           }
 
-          const content = match[1] || match[0];
-          result.push(
-            <span key={`${className}-${match.index}`} className={className}>
-              {content}
-            </span>
-          );
+          if (className === 'function-call' && match[1] && match[2]) {
+            result.push(
+              <span key={`fn-name-${match.index}`} className="function-name">
+                {match[1]}
+              </span>
+            );
+            result.push(
+              <span key={`fn-args-${match.index}`} className="function-args">
+                {match[2]}
+              </span>
+            );
+          } else {
+            const content = match[1] || match[0];
+            result.push(
+              <span key={`${className}-${match.index}`} className={className}>
+                {content}
+              </span>
+            );
+          }
 
           lastIndex = freshRegex.lastIndex;
         }

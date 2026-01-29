@@ -1,7 +1,7 @@
 .maven-dependency-container {
-  background: #1e1e1e;
+  background: var(--color-maven-background);
   border-radius: 8px;
-  border: 1px solid #333;
+  border: 1px solid var(--color-maven-border);
   overflow: hidden;
   margin: 1rem 0;
 }
@@ -10,7 +10,7 @@
   margin: 0;
   padding: 1rem;
   background: transparent;
-  color: #d4d4d4;
+  color: var(--color-maven-text);
   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
   font-size: 14px;
   line-height: 1.5;
@@ -23,12 +23,12 @@
 }
 
 .tag-code {
-  color: #569cd6;
+  color: var(--color-maven-tag);
   font-weight: bold;
 }
 
 .maven-value {
-  color: #ce9178;
+  color: var(--color-maven-value);
   font-weight: 400;
   margin: 0 2px;
   padding: 1px 4px;
@@ -45,7 +45,7 @@
 }
 
 .maven-dependency-container:hover {
-  box-shadow: 0 0 0 1px rgba(86, 156, 214, 0.1);
+  box-shadow: 0 0 0 1px var(--color-maven-hover-shadow);
 }
 
 .maven-dependency-block::-webkit-scrollbar {
@@ -53,14 +53,14 @@
 }
 
 .maven-dependency-block::-webkit-scrollbar-track {
-  background: #1e1e1e;
+  background: var(--color-maven-background);
 }
 
 .maven-dependency-block::-webkit-scrollbar-thumb {
-  background: #424242;
+  background: var(--color-maven-scroll-thumb);
   border-radius: 4px;
 }
 
 .maven-dependency-block::-webkit-scrollbar-thumb:hover {
-  background: #4f4f4f;
+  background: var(--color-maven-scroll-thumb-hover);
 }
