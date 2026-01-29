@@ -1,0 +1,39 @@
+.problem-wrapper {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.pdb {
+  position: relative;
+  padding-left: 0.75rem;
+}
+
+.pdb strong {
+  font-weight: 600;
+}
+
+.pdb.problem {
+  border-left: 3px solid rgba(255, 165, 0, 0.6);
+}
+
+.pdb.problem strong {
+  color: #ffb247ad;
+}
+
+.pdb.decision {
+  border-left: 3px solid rgba(100, 149, 237, 0.6);
+}
+
+.pdb.decision strong {
+  color: #7aa2f7bd;
+}
+
+.pdb.benefit {
+  border-left: 3px solid rgba(60, 179, 113, 0.6);
+}
+
+.pdb.benefit strong {
+  color: #7bd88f;
+}

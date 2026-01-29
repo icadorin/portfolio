@@ -11,6 +11,7 @@ export const entityCodes = {
         private List<OrderItem> items = new ArrayList<>();
     }
   `),
+
   OrderItemEntity: dedent(`
     @Entity
     @Table(name = "order_items")
@@ -21,11 +22,13 @@ export const entityCodes = {
         private Order order;
     }
   `),
+
   fetchTypeLazy: dedent(`
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
   `),
+
   generatedTimestamps: dedent(`
     @PrePersist
     protected void onCreate() {
@@ -38,17 +41,20 @@ export const entityCodes = {
         updatedAt = LocalDateTime.now();
     }
   `),
+
   builderDefaultUserStatus: dedent(`
     @Enumerated(EnumType.STRING)
     @Column(length = 20)
     @Builder.Default
     private UserStatus status = UserStatus.ACTIVE;
   `),
+
   builderDefaultRevokedFlag: dedent(`
     @Column(nullable = false)
     @Builder.Default
     private boolean revoked = false;
   `),
+
   userProfile: dedent(`
     @Entity
     @Table(name = "user_profiles")

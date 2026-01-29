@@ -22,6 +22,7 @@
       "@highlight-portfolio/*": ["src/components/highlight/portfolio*"],
       "@highlight-quickbite/*": ["src/components/highlight/quickbite"],
       "@layout/*": ["src/components/layout/*"],
+      "@documentation-layout/*": ["src/components/documentation-layout/*"],
       "@hooks/*": ["src/hooks/*"],
       "@icons/*": ["src/components/icons/*"],
       "@images/*": ["src/assets/images/*"],

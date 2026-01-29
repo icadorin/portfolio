@@ -2,6 +2,40 @@
   padding: 2rem;
 }
 
+.tech-block {
+  position: relative;
+  margin-top: 3rem;
+  padding-left: 2rem;
+}
+
+.tech-block::before {
+  content: '';
+  position: absolute;
+  left: 0.25rem;
+  top: 0.7rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-border-left);
+  opacity: 0.6;
+}
+
+.tech-block::after {
+  content: '';
+  position: absolute;
+  left: 0.45rem;
+  top: 2.2rem;
+  bottom: 0;
+  width: 1px;
+  background-color: var(--color-border-primary);
+  opacity: 0.35;
+}
+
+.tech-block h3 {
+  margin-top: 0;
+  padding-left: 0;
+}
+
 .doc-section {
   padding: 20px;
   margin: 2rem 0;

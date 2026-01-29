@@ -28,6 +28,7 @@ const FRAMEWORKS_WITHOUT_HYPHENS = [
   'Mockito',
   'Spring Security',
   'Docker',
+  'PostgreSQL',
 ];
 
 const CODE_CONCEPTS = [
@@ -61,6 +62,7 @@ const PROGRAMMING_TERMS = [
   'Update',
   'Delete',
   'endpoints',
+  'Matchers.anyOf',
 ];
 
 const CONSTANTS = ['[A-Z_]{2,}', 'lazy'];
