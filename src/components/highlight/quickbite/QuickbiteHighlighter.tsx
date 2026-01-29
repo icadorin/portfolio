@@ -83,38 +83,13 @@ const PROGRAMMING_TERMS = [
 
 const CONSTANTS = ['[A-Z]+(?:_[A-Z]+)+'];
 
-const TEST_FUNCTION_PATTERNS = [
-  '\\b\\w+_(?:Should|When|Given)(?:[A-Z][a-zA-Z]*)+\\b',
-  '\\btest[A-Z]\\w*\\b',
-];
-
-const REPOSITORY_METHOD_PATTERNS = [
-  'findBy\\w+(?:OrderBy\\w+)?(?:Asc|Desc)?',
-  'countBy\\w+',
-  'existsBy\\w+',
-  'deleteBy\\w+',
-  'getBy\\w+',
-];
-
-const FUNCTIONS = [
-  'when',
-  'thenReturn',
-  'thenThrow',
-  'thenAnswer',
-  'verify',
-  'assertEquals',
-  'assertNotNull',
-  'assertThrows',
-  'any',
-  'argThat',
-  'findById',
-  'save',
-  'deleteAll',
-  'findAll',
-  'existsById',
-  'count',
-  'getById',
-];
+// const REPOSITORY_METHOD_PATTERNS = [
+//   'findBy\\w+(?:OrderBy\\w+)?(?:Asc|Desc)?',
+//   'countBy\\w+',
+//   'existsBy\\w+',
+//   'deleteBy\\w+',
+//   'getBy\\w+',
+// ];
 
 const LITERAL_VALUES = ['null', 'true', 'false', '0', '1'];
 
