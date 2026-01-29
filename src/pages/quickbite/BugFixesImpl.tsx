@@ -5,7 +5,6 @@ import '@styles-quickbite/quickbite.css';
 import BugFixesCommitTable from '@/components/documentation-layout/CommitTable';
 import { ProblemDecisionBenefit } from '@/components/documentation-layout/ProblemDecisionBenefit';
 import { HighlightedSection } from '@/components/documentation-layout/HighlightedSection';
-import { SimpleSection } from '@/components/documentation-layout/SimpleSection';
 import { codeFixes } from '@/data/codeFixes';
 import CodeBlock from '@/components/code-block/CodeBlock';
 
