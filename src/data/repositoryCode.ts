@@ -2,90 +2,120 @@ import { dedent } from '@/utils/dedent';
 
 export const repositoryCode = {
   queryAnnotation: dedent(`
-  @Query("SELECT rt FROM RefreshToken rt WHERE rt.user.id = :userId AND rt.revoked = false AND rt.expiresAt > :now")
-  List<RefreshToken> findValidTokensByUser(@Param("userId") Long userId, @Param("now") LocalDateTime now);
+    @Query(
+        "SELECT rt" +
+        "FROM RefreshToken rt" +
+        "WHERE rt.user.id = :userId" +
+            "AND rt.revoked = false" +
+            "AND rt.expiresAt > :now"
+    )
+    List<RefreshToken> findValidTokensByUser(@Param("userId") Long userId, @Param("now") LocalDateTime now);
   `),
 
   queryWithParams: dedent(`
-  @Query("SELECT COUNT(u) > 0 FROM User u WHERE LOWER(u.email) = LOWER(:email)")
-  boolean existsByEmailIgnoreCase(@Param("email") String email);
+    @Query(
+        "SELECT COUNT(u) > 0" +
+        "FROM User u" +
+        "WHERE LOWER(u.email) = LOWER(:email)"
+    )
+    boolean existsByEmailIgnoreCase(@Param("email") String email);
   `),
 
   modifyingQuery: dedent(`
-  @Modifying
-  @Query("UPDATE RefreshToken rt SET rt.revoked = true WHERE rt.expiresAt < :now AND rt.revoked = false")
-  void revokedAllExpiredSince(@Param("now") LocalDateTime now);
+    @Modifying
+    @Query(
+        "UPDATE RefreshToken rt" +
+        "SET rt.revoked = true" +
+        "WHERE rt.expiresAt < :now" +
+            "AND rt.revoked = false"
+    )
+    void revokedAllExpiredSince(@Param("now") LocalDateTime now);
   `),
 
   complexQuery: dedent(`
-  @Query(
-      "SELECT p" +
-      "FROM Product p" +
-      "WHERE p.isAvailable = true" +
-      "    AND p.restaurant.isActive = true" +
-      "    AND LOWER(p.name) LIKE LOWER(CONCAT('%', :name, '%'))"
-  )
-  List<Product> searchAvailableProductsByName(@Param("name") String name);
+    @Query(
+        "SELECT p" +
+        "FROM Product p" +
+        "WHERE p.isAvailable = true" +
+            "AND p.restaurant.isActive = true" +
+            "AND LOWER(p.name) LIKE LOWER(CONCAT('%', :name, '%'))"
+    )
+    List<Product> searchAvailableProductsByName(@Param("name") String name);
   `),
 
   aggregationQuery: dedent(`
-  @Query("SELECT COUNT(o) FROM Order o WHERE o.restaurantId = :restaurantId AND o.status = :status")
-  Long countByRestaurantAndStatus(
-      @Param("restaurantId") Long restaurantId,
-      @Param("status") Order.OrderStatus status
-  );
+    @Query(
+        "SELECT COUNT(o)" +
+        "FROM Order o" +
+        "WHERE o.restaurantId = :restaurantId" +
+            "AND o.status = :status"
+    )
+    Long countByRestaurantAndStatus(
+        @Param("restaurantId") Long restaurantId,
+        @Param("status") Order.OrderStatus status
+    );
   `),
 
   caseInsensitiveQuery: dedent(`
-  @Query("SELECT COUNT(u) > 0 FROM User u WHERE LOWER(u.email) = LOWER(:email)")
-  boolean existsByEmailIgnoreCase(@Param("email") String email);
+    @Query(
+        "SELECT COUNT(u) > 0" +
+        "FROM User u" +
+        "WHERE LOWER(u.email) = LOWER(:email)"
+    )
+    boolean existsByEmailIgnoreCase(@Param("email") String email);
   `),
 
   dateRangeQuery: dedent(`
-  @Query("SELECT o FROM Order o WHERE o.userId = :userId AND o.createdAt BETWEEN :startDate AND :endDate")
-  List<Order> findByUserIdAndCreateAtBetween(
-      @Param("userId") Long userId,
-      @Param("startDate") LocalDateTime startDate,
-      @Param("endDate") LocalDateTime endDate
-  );
+    @Query(
+        "SELECT o" +
+        "FROM Order o" +
+        "WHERE o.userId = :userId" +
+            "AND o.createdAt BETWEEN :startDate" +
+            "AND :endDate"
+    )
+    List<Order> findByUserIdAndCreateAtBetween(
+        @Param("userId") Long userId,
+        @Param("startDate") LocalDateTime startDate,
+        @Param("endDate") LocalDateTime endDate
+    );
   `),
 
   orderingQuery: dedent(`
-  // Ordenação automática por sortOrder
-  List<Category> findByIsActiveTrueOrderBySortOrderAsc();
+    // Ordenação automática por sortOrder
+    List<Category> findByIsActiveTrueOrderBySortOrderAsc();
 
-  // Ordenação por data de criação descendente  
-  OrderStatusHistory findFirstByOrderIdOrderByCreatedAtDesc(Long orderId);
+    // Ordenação por data de criação descendente  
+    OrderStatusHistory findFirstByOrderIdOrderByCreatedAtDesc(Long orderId);
   `),
 
   optionalUsage: dedent(`
-  // Retorna Optional para evitar NullPointerException
-  Optional<User> findByEmail(String email);
-  Optional<UserProfile> findByUserId(Long userId);
+    // Retorna Optional para evitar NullPointerException
+    Optional<User> findByEmail(String email);
+    Optional<UserProfile> findByUserId(Long userId);
   `),
 
   nameConventions: dedent(`
-  // findBy[Propriedades] - Busca por propriedades específicas
-  findByEmail(String email)
+    // findBy[Propriedades] - Busca por propriedades específicas
+    findByEmail(String email)
 
-  // exists[Propriedades] - Verifica existência
-  existsByEmail(String email)
+    // exists[Propriedades] - Verifica existência
+    existsByEmail(String email)
 
-  // countBy[Propriedades] - Contagem de registros
-  countByRestaurantIdAndIsAvailableTrue(Long restaurantId)
+    // countBy[Propriedades] - Contagem de registros
+    countByRestaurantIdAndIsAvailableTrue(Long restaurantId)
 
-  // findBy[Propriedades]And[Propriedade] - Múltiplas condições
-  findByUserIdAndStatus(Long userId, OrderStatus status)
+    // findBy[Propriedades]And[Propriedade] - Múltiplas condições
+    findByUserIdAndStatus(Long userId, OrderStatus status)
 
-  // search[Entidade]By[Critério] - Buscas personalizadas
-  searchAvailableProductsByName(String name)
+    // search[Entidade]By[Critério] - Buscas personalizadas
+    searchAvailableProductsByName(String name)
   `),
 
   statusFilter: dedent(`
-  // Apenas produtos ativos e disponíveis
-  List<Product> findByIsActiveTrueAndIsAvailableTrue();
+    // Apenas produtos ativos e disponíveis
+    List<Product> findByIsActiveTrueAndIsAvailableTrue();
 
-  // Busca por nome, mas somente produtos disponíveis
-  List<Product> findByNameContainingIgnoreCaseAndIsAvailableTrue(String name);
+    // Busca por nome, mas somente produtos disponíveis
+    List<Product> findByNameContainingIgnoreCaseAndIsAvailableTrue(String name);
   `),
 } as const;
