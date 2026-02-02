@@ -1,10 +1,78 @@
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c');
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700');
-@import url('https://fonts.googleapis.com/css2?family=Slabo+27px');
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900');
-@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
-@import './variables.css';
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
+
+:root {
+  /* Cores principais */
+  --color-primary: #646cff;
+  --color-primary-hover: #4548c0;
+  --color-primary-dark: #4a52e2;
+  --color-primary-darker: #535bf2;
+  --color-primary-lighter: #a3a8ff;
+  --color-lamp: #ffd700;
+  --color-heading-primary: #e2e2e2;
+  /* Fundos */
+  --color-background: #1d0327;
+  --color-background-header: #1d0327d5;
+  --color-background-card: #c0c0c01e;
+  --color-background-hover: #f8f6f809;
+  --color-background-button: #340746;
+  --color-background-dark: #18111b;
+  --color-background-mid: #290735;
+  --color-background-code: #2e2f36;
+  --color-badge-background: rgb(68, 37, 104);
+  --color-section-background: #260236;
+  /* Textos */
+  --color-text-primary: #d1d5db;
+  --color-text-secondary: #ffffff;
+  --color-text-muted: #c2c2c2;
+  --color-text-light: #f8f8f8;
+  --color-text-status: #0f885a;
+  --color-text-ice: #a6c5e4;
+  --color-text-ann: #33adcc;
+  --color-upgrade: #00e7ff;
+  /* Bordas */
+  --color-border-primary: #431a63;
+  --color-border-secondary: #c0c0c01e;
+  --color-border-light: #ddd;
+  --color-border-arch: #c0c0c018;
+  --color-border-hover: #646cff42;
+  --color-border-highlight: #ad6bcc;
+  --color-border-left: #5e268b;
+  /* Destaques e Acentos */
+  --color-green-highlight: #10b981;
+  --color-red-highlight: #ff0000;
+  --color-primary-light: #a78bfa;
+  --color-placeholder: #808080;
+  --color-accent: #646cff;
+  --color-accent-hover: #4548c0;
+  /* syntax highlighting */
+  --color-highlight-annotation: #b2b248;
+  --color-highlight-bold-bg: #e3f2fd;
+  --color-highlight-bold-text: #1565c0;
+  --color-highlight-constant: #c586c0;
+  --color-highlight-programming-term: #6899d0;
+  --color-list-marker: #6899d0;
+  --color-constant: #a0c4ff;
+  --color-function-name: #6482b1;
+  --color-function-args: #664679;
+  --color-literal-value: #9ca3af;
+  /* Maven Dependency Colors */
+  --color-maven-background: #1e1e1e;
+  --color-maven-border: #333;
+  --color-maven-text: #d4d4d4;
+  --color-maven-tag: #569cd6;
+  --color-maven-value: #ce9178;
+  --color-maven-scroll-thumb: #424242;
+  --color-maven-scroll-thumb-hover: #4f4f4f;
+  --color-maven-hover-shadow: rgba(86, 156, 214, 0.1);
+  /* Problem/Decision/Benefit Colors */
+  --color-problem-border: rgba(255, 165, 0, 0.6);
+  --color-problem-text: #ffb247ad;
+  --color-decision-border: rgba(100, 149, 237, 0.6);
+  --color-decision-text: #7aa2f7bd;
+  --color-benefit-border: rgba(60, 179, 113, 0.6);
+  --color-benefit-text: #7bd88f;
+}
 
 * {
   margin: 0;
@@ -71,12 +139,45 @@ section h2 {
   background-color: var(--color-accent-hover);
 }
 
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 8%;
+}
+
+@media (min-width: 1400px) {
+  .content-wrapper {
+    padding: 0 2%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .content-wrapper {
+    padding: 0 4%;
+  }
+}
+
+@media (max-width: 992px) {
+  .content-wrapper {
+    transition: transform 0.3s ease-in-out;
+  }
+  .content-wrapper.menu-open {
+    transform: translateX(-25%);
+  }
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
 @media (min-width: 1900px) {
   section:not(:first-child) {
     padding-top: 7rem;
     padding-bottom: 7rem;
   }
-
   #about,
   #current-work,
   #experience,
@@ -97,11 +198,9 @@ section h2 {
   #resume {
     height: 90vh;
   }
-
   section > h2 {
     font-size: 1.6rem;
   }
-
   #about {
     padding-top: 0;
   }

@@ -8,7 +8,6 @@ import HighlightedText from '@/components/highlight/portfolio/TextHighlighter';
 
 const About: React.FC = () => {
   const { paragraphs, highlights, techStack } = aboutData;
-
   return (
     <section id="about" className="about">
       <div className="profile-about">
@@ -33,10 +32,9 @@ const About: React.FC = () => {
           </div>
         </div>
       </div>
-
       <div className="photo-container">
         <div className="profile-photo">
-          <img src={profileImage} alt="Foto de perfil" className="photo" />
+          <img src={profileImage} alt="Foto de perfil" className="photo" loading="lazy" />
           <div className="photo-border"></div>
         </div>
       </div>

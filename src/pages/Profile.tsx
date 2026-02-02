@@ -40,8 +40,8 @@ const Profile: React.FC = () => {
   return (
     <section className="profile-container">
       <Header scrollToSection={scrollToSection} />
+      <Resume />
       <main className="content-wrapper">
-        <Resume />
         <About />
         <CurrentWork />
         <Experience selectedCompany={selectedCompany} setSelectedCompany={setSelectedCompany} />

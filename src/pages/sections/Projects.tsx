@@ -3,7 +3,7 @@ import '@styles/global.css';
 import '@styles-sections/projects.css';
 import { FaGithub } from 'react-icons/fa';
 import { FiExternalLink } from 'react-icons/fi';
-import { projectsData } from '@data-sections/projectsData.ts';
+import { projectsData } from '@data-sections/projectsData';
 import { highlightLinks } from '@/components/highlight/portfolio/ProjectLinkHighlighter';
 
 const Projects: React.FC = () => {
@@ -37,16 +37,14 @@ const Projects: React.FC = () => {
                   </a>
                 )}
               </div>
-
-              <h2 className="project-title">{project.title}</h2>
+              <h3 className="project-title">{project.title}</h3>
               <p className="project-status">{project.status}</p>
               <p className="project-description">{highlightLinks(project.description)}</p>
-
               <div className="technologies-container">
                 {project.technologies.map((tech, index) => (
-                  <p key={index} className="project-technologies">
+                  <span key={index} className="project-technologies">
                     {tech}
-                  </p>
+                  </span>
                 ))}
               </div>
             </div>

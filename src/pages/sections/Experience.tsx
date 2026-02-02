@@ -21,7 +21,6 @@ const Experience: React.FC<ExperienceProps> = ({ selectedCompany, setSelectedCom
             </button>
           ))}
         </div>
-
         <div className="exp-description">
           <div className="exp-desc-container">
             <p className="position">{selectedCompany.position}</p>

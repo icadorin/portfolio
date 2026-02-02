@@ -18,6 +18,7 @@ const Contact: React.FC = () => {
           href={contactLinks.github}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Perfil no GitHub"
         >
           <FiGithub size={20} />
         </a>
@@ -26,6 +27,7 @@ const Contact: React.FC = () => {
           href={contactLinks.linkedin}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Perfil no LinkedIn"
         >
           <FiLinkedin size={20} />
         </a>

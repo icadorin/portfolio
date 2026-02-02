@@ -1,6 +1,10 @@
 .about {
   display: flex;
-  padding: 0 3rem 3rem 3rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 2rem 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .about p {
@@ -87,7 +91,7 @@
 .photo-container {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 40%;
   height: 100%;
 }
 
@@ -124,21 +128,22 @@
 
 @media (max-width: 768px) {
   .about {
-    display: flex;
     flex-direction: column;
-    padding: 0;
+    padding: 0 1rem;
   }
-
+  .profile-about {
+    width: 100%;
+  }
   .section-about::after {
     width: 100%;
   }
-
   .profile-description {
     width: 100%;
   }
-
   .photo-container {
     margin-top: 3rem;
+    width: 100%;
+    justify-content: flex-start;
   }
 }
 
@@ -146,12 +151,10 @@
   .profile-description {
     font-size: 0.9rem;
   }
-
   .tech,
   .tech-underline {
     font-size: 0.8rem;
   }
-
   .highlight {
     font-size: 0.9rem;
   }

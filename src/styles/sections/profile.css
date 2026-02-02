@@ -4,6 +4,11 @@
   padding: 0 8%;
 }
 
+.section-muted {
+  background: var(--color-surface-muted);
+  padding: 80px 0;
+}
+
 @media (min-width: 1400px) {
   .content-wrapper {
     padding: 0 2%;

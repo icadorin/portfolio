@@ -1,11 +1,13 @@
+.projects {
+  padding: 0 2rem;
+  padding-bottom: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .projects p {
   max-width: 600px;
   line-height: 1.6;
-}
-
-.projects {
-  padding: 0 1rem;
-  padding-bottom: 3rem;
 }
 
 .section-projects {
@@ -34,7 +36,6 @@
   gap: 1.8rem;
   max-width: 1200px;
   margin: 2rem auto 0;
-  padding: 0 1rem;
   width: 100%;
 }
 
@@ -87,7 +88,8 @@
 
 .icon-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 1rem;
 }
 
 .github-icon,
@@ -154,37 +156,32 @@
   margin-top: 1.4rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.2rem;
+  gap: 0.5rem;
 }
 
 .project-technologies {
   font-size: 0.7rem;
-  padding: 0 0.3rem 0 0.3rem;
+  padding: 0.3rem 0.6rem;
   color: var(--color-primary-lighter);
   font-family: 'Fira Code', monospace;
   border-radius: 2px;
+  background-color: var(--color-background-hover);
 }
 
 @media (max-width: 768px) {
   .projects {
-    padding: 0 5rem;
+    padding: 0 1rem;
   }
-
   .card-container {
     grid-template-columns: minmax(260px, 1fr);
     justify-content: normal;
   }
-
   .card-container:has(.card:nth-child(1)):not(:has(.card:nth-child(2))) {
     justify-content: center;
   }
 }
 
 @media (max-width: 576px) {
-  .projects {
-    padding: 0 2rem;
-  }
-
   .projects-description {
     font-size: 0.9rem;
   }

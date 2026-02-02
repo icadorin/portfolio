@@ -2,7 +2,16 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
 .resume-greeting {
@@ -38,7 +47,6 @@
   .resume-name {
     font-size: 3.5rem;
   }
-
   .resume-proficiency {
     font-size: 2.5rem;
   }
@@ -52,25 +60,22 @@
 
 @media (max-width: 576px) {
   .resume {
-    justify-content: initial;
+    justify-content: flex-start;
     margin-top: 9rem;
+    padding: 0 1rem;
   }
-
   .resume-greeting {
     line-height: 4;
   }
-
   .resume-name,
   .resume-proficiency {
     font-size: 2.2rem;
     line-height: 1.2;
   }
-
   .resume-description,
   .description-container {
     width: 100%;
   }
-
   .resume-description {
     font-size: 0.9rem;
   }
