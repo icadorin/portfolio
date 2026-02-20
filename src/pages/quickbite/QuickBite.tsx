@@ -16,6 +16,7 @@ interface DriftCar {
 }
 
 const availableCars: DriftCar[] = [
+  { id: 1, model: 'Improvements' },
   { id: 2, model: 'Entities' },
   { id: 3, model: 'Repositories' },
   { id: 5, model: 'Tests' },
@@ -24,7 +25,6 @@ const availableCars: DriftCar[] = [
 ];
 
 const comingSoonCars: DriftCar[] = [
-  { id: 1, model: 'Improvements' },
   { id: 4, model: 'Dtos' },
   { id: 7, model: 'Exceptions' },
   { id: 8, model: 'Spring Security' },

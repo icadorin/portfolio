@@ -17,6 +17,8 @@
       "@pages-quickbite/*": ["src/pages/quickbite/*"],
       "@data/*": ["src/data/*"],
       "@data-sections/*": ["src/data/sections/*"],
+      "@data-code/*": ["src/data/code/*"],
+      "@data-commits/*": ["src/data/commits/*"],
       "@app-types/*": ["src/types/*"],
       "@code-block/*": ["src/components/code-block/*"],
       "@highlight-portfolio/*": ["src/components/highlight/portfolio*"],

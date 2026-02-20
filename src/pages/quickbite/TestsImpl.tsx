@@ -6,7 +6,7 @@ import CodeBlock from '@/components/code-block/CodeBlock';
 import QuickbiteHighlighter from '@/components/highlight/quickbite/QuickbiteHighlighter';
 import { HighlightedSection } from '@/components/documentation-layout/HighlightedSection';
 import { SimpleSection } from '@/components/documentation-layout/SimpleSection';
-import { testCodes } from '@/data/testCodes';
+import { testCodes } from '@/data/code/testCodes';
 
 const TestsImplement: React.FC = () => {
   return (

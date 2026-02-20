@@ -3,7 +3,7 @@ import QuickbiteHighlighter from '@/components/highlight/quickbite/QuickbiteHigh
 import MavenSnippet from '@/components/code-block/MavenSnippet';
 import CodeBlock from '@/components/code-block/CodeBlock';
 import { HighlightedSection } from '@/components/documentation-layout/HighlightedSection';
-import { repositoryCode } from '@/data/repositoryCode';
+import { repositoryCode } from '@/data/code/repositoryCode';
 
 const RepositoryImpl: React.FC = () => {
   return (

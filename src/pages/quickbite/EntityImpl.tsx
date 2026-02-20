@@ -3,7 +3,7 @@ import '@styles-quickbite/quickbite-highlighter.css';
 import SimpleList from '@/components/ui/SimpleList';
 import CodeBlock from '@/components/code-block/CodeBlock';
 import QuickbiteHighlighter from '@/components/highlight/quickbite/QuickbiteHighlighter';
-import { entityCodes } from '@/data/entityCodes';
+import { entityCodes } from '@/data/code/entityCodes';
 
 const EntityImplementationPage: React.FC = () => {
   return (

@@ -2,10 +2,11 @@ import React from 'react';
 import '@styles-quickbite/quickbite-highlighter.css';
 import '@styles-quickbite/quickbite.css';
 
-import BugFixesCommitTable from '@/components/documentation-layout/CommitTable';
+import Table from '@/components/documentation-layout/CommitTable';
+import { commitData } from '@/data/commits/bugFixCommitData';
 import { ProblemDecisionBenefit } from '@/components/documentation-layout/ProblemDecisionBenefit';
 import { HighlightedSection } from '@/components/documentation-layout/HighlightedSection';
-import { codeFixes } from '@/data/codeFixes';
+import { codeFixes } from '@/data/code/codeFixes';
 import CodeBlock from '@/components/code-block/CodeBlock';
 
 const BugFixesEnterprise: React.FC = () => {
@@ -183,7 +184,7 @@ const BugFixesEnterprise: React.FC = () => {
           A tabela abaixo resume commits relevantes, priorizando correções que envolveram decisões
           arquiteturais, ajustes de modelagem e melhorias em robustez e validação.
         </p>
-        <BugFixesCommitTable />
+        <Table commits={commitData} />
 
         <h2 className="section-subtitle">Conclusão</h2>
         <p>
