@@ -5,21 +5,17 @@
   margin: 0 auto;
 }
 
-.section-contact {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  padding-top: 1rem;
-}
-
-.section-contact::before,
-.section-contact::after {
-  content: '';
-  flex-grow: 1;
-  height: 2px;
-  background-color: var(--color-background-card);
-  margin: 0 0.5rem;
+.contact-description {
+  color: var(--color-text-secondary);
+  margin: 2rem 0;
+  background: rgba(0, 255, 65, 0.04);
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 1.5rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .link-format {
@@ -36,41 +32,58 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-secondary);
-  width: 40px;
-  height: 40px;
-  border: 1px solid var(--color-border-primary);
-  border-radius: 3px;
+  gap: 0.5rem;
+  padding: 6px 12px;
+  background: black;
+  border-left: 2px solid var(--matrix-border);
+  color: var(--matrix-green-bright);
+  font-weight: 600;
   transition: all 0.3s ease;
+  text-decoration: none;
+  width: auto;
+  height: auto;
+}
+
+.linkedin-icon::before,
+.github-g-icon::before {
+  content: '>';
+  color: var(--matrix-green);
+  margin-right: 5px;
 }
 
 .linkedin-icon:hover,
 .github-g-icon:hover {
-  transform: scale(1.1);
-  border-color: var(--color-border-light);
+  background: rgba(0, 255, 65, 0.1);
+  box-shadow: 0 0 15px var(--matrix-green-glow);
+  transform: translateX(5px);
+  color: var(--matrix-green);
 }
 
 .contact-email {
   display: inline-block;
   margin-top: 3rem;
   text-decoration: none;
-  color: var(--color-text-secondary);
+  color: var(--color-primary);
   transition: all 0.3s ease;
   padding: 1rem 2rem;
-  border: 2px solid var(--color-text-secondary);
-  border-radius: 2px;
-  background-color: transparent;
+  border-left: 2px solid var(--matrix-border);
+  background-color: black;
   position: relative;
-  transform: translate(-4px, -4px);
-  box-shadow: 6px 6px 0 var(--color-text-secondary);
+  font-family: var(--font-matrix);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact-email::before {
+  content: '> ';
+  color: var(--color-primary);
 }
 
 .contact-email:hover {
-  color: var(--color-text-secondary);
-  transform: translate(0, 0);
-  box-shadow: none;
-  border: 2px solid var(--color-text-secondary);
-  background-color: var(--color-background-button);
+  background: rgba(0, 255, 65, 0.1);
+  box-shadow: 0 0 15px var(--matrix-green-glow);
+  transform: translateX(5px);
+  color: var(--matrix-green);
 }
 
 @media (max-width: 992px) {
@@ -91,5 +104,6 @@
   }
   .contact-description {
     font-size: 0.9rem;
+    padding: 1rem;
   }
 }

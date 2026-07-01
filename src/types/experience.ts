@@ -4,6 +4,7 @@ export interface Company {
   position: string;
   period: string;
   descriptions: string[];
+  highlights?: string[];
 }
 
 export type CompanyList = Company[];

@@ -1,16 +1,26 @@
 export const currentWork = {
   paragraphs: [
-    `Estou desenvolvendo o QuickBite de forma contínua, com foco em refatorações frequentes, melhor
-    organização do código e aplicação de boas práticas.`,
+    `Estou desenvolvendo uma plataforma SaaS Full Stack para avaliação física e nutricional,
+    aplicando arquitetura em camadas e com foco em segurança.`,
 
-    `Também mantenho uma documentação técnica do sistema, registrando a estrutura do projeto,
-    decisões técnicas e a evolução das funcionalidades.`,
+    `O backend é construído com Java e Spring Boot, utilizando autenticação JWT, autenticação
+    em dois fatores (2FA), integração com Stripe para assinaturas recorrentes e APIs REST.`,
 
-    `A ideia é evoluir o projeto de forma gradual, criando uma base sólida para expandir com
-    novos serviços e funcionalidades.`,
+    `No frontend, desenvolvo uma interface em React e TypeScript com dashboards interativos,
+    geração de laudos em PDF e foco em experiência do usuário.`,
   ],
 
-  highlights: ['QuickBite', 'microserviços', 'APIs', 'JWT', 'JUnit', 'Mockito', 'Github Actions'],
+  highlights: [
+    'Java',
+    'Spring Boot',
+    'React',
+    'TypeScript',
+    'JWT',
+    '2FA',
+    'Stripe',
+    'APIs REST',
+    'PostgreSQL',
+  ],
 
   techStack: [
     ['Java', 'Spring Boot', 'PostgreSQL'],

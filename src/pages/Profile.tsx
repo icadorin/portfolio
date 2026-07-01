@@ -11,6 +11,7 @@ import Contact from '@pages-sections/Contact';
 import Footer from '@layout/Footer';
 import SocialSidebar from '@layout/SocialSidebar';
 import companies from '@data-sections/experienceData.ts';
+import MatrixRain from '../components/background/MatrixRain';
 
 const Profile: React.FC = () => {
   const [selectedCompany, setSelectedCompany] = useState(companies[0]);
@@ -39,6 +40,7 @@ const Profile: React.FC = () => {
 
   return (
     <section className="profile-container">
+      <MatrixRain />
       <Header scrollToSection={scrollToSection} />
       <Resume />
       <main className="content-wrapper">

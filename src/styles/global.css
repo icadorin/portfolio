@@ -1,77 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
-
 :root {
-  /* Cores principais */
-  --color-primary: #646cff;
-  --color-primary-hover: #4548c0;
-  --color-primary-dark: #4a52e2;
-  --color-primary-darker: #535bf2;
-  --color-primary-lighter: #a3a8ff;
-  --color-lamp: #ffd700;
-  --color-heading-primary: #e2e2e2;
-  /* Fundos */
-  --color-background: #1d0327;
-  --color-background-header: #1d0327d5;
-  --color-background-card: #c0c0c01e;
-  --color-background-hover: #f8f6f809;
-  --color-background-button: #340746;
-  --color-background-dark: #18111b;
-  --color-background-mid: #290735;
-  --color-background-code: #2e2f36;
-  --color-badge-background: rgb(68, 37, 104);
-  --color-section-background: #260236;
-  /* Textos */
-  --color-text-primary: #d1d5db;
-  --color-text-secondary: #ffffff;
-  --color-text-muted: #c2c2c2;
-  --color-text-light: #f8f8f8;
-  --color-text-status: #0f885a;
-  --color-text-ice: #a6c5e4;
-  --color-text-ann: #33adcc;
-  --color-upgrade: #00e7ff;
-  /* Bordas */
-  --color-border-primary: #431a63;
-  --color-border-secondary: #c0c0c01e;
-  --color-border-light: #ddd;
-  --color-border-arch: #c0c0c018;
-  --color-border-hover: #646cff42;
-  --color-border-highlight: #ad6bcc;
-  --color-border-left: #5e268b;
-  /* Destaques e Acentos */
-  --color-green-highlight: #10b981;
-  --color-red-highlight: #ff0000;
-  --color-primary-light: #a78bfa;
-  --color-placeholder: #808080;
-  --color-accent: #646cff;
-  --color-accent-hover: #4548c0;
-  /* syntax highlighting */
-  --color-highlight-annotation: #b2b248;
-  --color-highlight-bold-bg: #e3f2fd;
-  --color-highlight-bold-text: #1565c0;
-  --color-highlight-constant: #c586c0;
-  --color-highlight-programming-term: #6899d0;
-  --color-list-marker: #6899d0;
-  --color-constant: #a0c4ff;
-  --color-function-name: #6482b1;
-  --color-function-args: #664679;
-  --color-literal-value: #9ca3af;
-  /* Maven Dependency Colors */
-  --color-maven-background: #1e1e1e;
-  --color-maven-border: #333;
-  --color-maven-text: #d4d4d4;
-  --color-maven-tag: #569cd6;
-  --color-maven-value: #ce9178;
-  --color-maven-scroll-thumb: #424242;
-  --color-maven-scroll-thumb-hover: #4f4f4f;
-  --color-maven-hover-shadow: rgba(86, 156, 214, 0.1);
-  /* Problem/Decision/Benefit Colors */
-  --color-problem-border: rgba(255, 165, 0, 0.6);
-  --color-problem-text: #ffb247ad;
-  --color-decision-border: rgba(100, 149, 237, 0.6);
-  --color-decision-text: #7aa2f7bd;
-  --color-benefit-border: rgba(60, 179, 113, 0.6);
-  --color-benefit-text: #7bd88f;
+  --matrix-green: #00ff41;
+  --matrix-green-bright: #33ff66;
+  --matrix-green-dim: #00aa2a;
+  --matrix-green-dark: #006611;
+  --matrix-green-glow: rgba(0, 255, 65, 0.25);
+  --matrix-green-glow-strong: rgba(0, 255, 65, 0.5);
+
+  --matrix-bg: #0a0a0a;
+  --matrix-bg-card: rgba(10, 10, 10, 0.85);
+  --matrix-bg-section: rgba(10, 10, 10, 0.7);
+  --matrix-bg-code: #0d1117;
+  --matrix-bg-hover: rgba(0, 255, 65, 0.06);
+
+  --matrix-text: #00ff41;
+  --matrix-text-secondary: #b8ffc0;
+  --matrix-text-muted: #00aa2a;
+
+  --matrix-border: #00ff41;
+  --matrix-border-dim: rgba(0, 255, 65, 0.15);
+  --matrix-border-glow: rgba(0, 255, 65, 0.3);
+
+  --matrix-red: #ff0040;
+  --matrix-yellow: #ffff00;
+
+  /* Fontes */
+  --font-matrix: 'Fira Code', 'Courier New', monospace;
+  --font-terminal: 'Fira Code', 'Courier New', monospace;
+
+  /* Escala de z-index — única fonte de verdade */
+  --z-background: -1; /* Matrix rain — negativo garante que fica atrás de TUDO */
+  --z-crt-effects: 1; /* Scanlines + vinheta */
+  --z-content: 2; /* Conteúdo */
 }
 
 * {
@@ -80,128 +39,140 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  height: 100%;
-  width: 100%;
-  background-color: var(--color-background);
-  color: var(--color-text-primary);
-  font-family: 'Heebo', sans-serif;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
-p {
-  line-height: 1.6;
+body {
+  background: var(--matrix-bg);
+  color: var(--matrix-text);
+  font-family: var(--font-matrix);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-#resume {
-  height: 100vh;
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.12) 0px,
+    rgba(0, 0, 0, 0.12) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: var(--z-crt-effects);
+  opacity: 0.3;
 }
 
-#about,
-#current-work,
-#experience,
-#projects,
-#contact {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.5) 100%);
+  pointer-events: none;
+  z-index: var(--z-crt-effects);
 }
 
-section h2 {
-  font-size: 1.8rem;
+.section-title {
+  display: flex;
+  align-items: center;
+  padding-top: 1rem;
   margin-bottom: 2rem;
-  color: var(--color-text-secondary);
+  color: var(--color-primary);
+  font-family: var(--font-terminal);
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-#contact {
-  padding-top: 5rem;
-  padding-bottom: 11rem;
+.section-title::after {
+  content: '';
+  flex-grow: 1;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary), transparent);
+  margin-left: 10px;
+  box-shadow: 0 0 10px var(--color-glow);
 }
 
-#footer {
-  padding-bottom: 0.3rem;
+.section-title--center {
+  justify-content: center;
+}
+
+.section-title--center::before {
+  content: '';
+  flex-grow: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-primary));
+  margin-right: 10px;
+  box-shadow: 0 0 10px var(--color-glow);
+}
+
+.section-title--center::after {
+  background: linear-gradient(90deg, var(--color-primary), transparent);
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 8px;
 }
-
+::-webkit-scrollbar-track {
+  background: var(--matrix-bg);
+}
 ::-webkit-scrollbar-thumb {
-  background-color: var(--color-accent);
-  border-radius: 10px;
+  background: var(--matrix-green-dim);
+  border: 1px solid var(--matrix-green);
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--color-accent-hover);
+  background: var(--matrix-green);
+  box-shadow: 0 0 10px var(--matrix-green-glow);
+}
+::selection {
+  background: var(--matrix-green);
+  color: var(--matrix-bg);
 }
 
-.content-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 8%;
-}
-
-@media (min-width: 1400px) {
-  .content-wrapper {
-    padding: 0 2%;
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
   }
 }
 
-@media (min-width: 1200px) {
-  .content-wrapper {
-    padding: 0 4%;
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.97;
   }
 }
 
-@media (max-width: 992px) {
-  .content-wrapper {
-    transition: transform 0.3s ease-in-out;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
   }
-  .content-wrapper.menu-open {
-    transform: translateX(-25%);
-  }
-}
-
-@media (max-width: 768px) {
-  .content-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-}
-
-@media (min-width: 1900px) {
-  section:not(:first-child) {
-    padding-top: 7rem;
-    padding-bottom: 7rem;
-  }
-  #about,
-  #current-work,
-  #experience,
-  #projects,
-  #contact {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 @media (max-width: 768px) {
-  #footer {
-    padding-bottom: 1.4rem;
-  }
-}
-
-@media (max-width: 576px) {
-  #resume {
-    height: 90vh;
-  }
-  section > h2 {
-    font-size: 1.6rem;
-  }
-  #about {
-    padding-top: 0;
+  .section-title {
+    white-space: nowrap;
   }
 }

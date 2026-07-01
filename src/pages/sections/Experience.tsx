@@ -4,11 +4,12 @@ import '@styles-sections/experience.css';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import companies from '@data-sections/experienceData';
 import { ExperienceProps } from '../../types/experience';
+import HighlightedText from '@/components/highlight/portfolio/TextHighlighter';
 
 const Experience: React.FC<ExperienceProps> = ({ selectedCompany, setSelectedCompany }) => {
   return (
     <section id="experience" className="experience">
-      <h2 className="section-experience">Experiência</h2>
+      <h2 className="section-title">Experiência</h2>
       <div className="experience-container">
         <div className="exp-contents-container">
           {companies.map((company, index) => (
@@ -31,7 +32,13 @@ const Experience: React.FC<ExperienceProps> = ({ selectedCompany, setSelectedCom
             {selectedCompany.descriptions.map((desc: string, index: number) => (
               <li key={index} className="description-item">
                 <ArrowRightIcon className="arrow-icon" />
-                <span className="description-text">{desc}</span>
+                <span className="description-text">
+                  <HighlightedText
+                    text={desc}
+                    highlights={selectedCompany.highlights}
+                    highlightClass="experience-highlight"
+                  />
+                </span>
               </li>
             ))}
           </ul>

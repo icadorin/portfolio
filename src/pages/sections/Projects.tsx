@@ -9,7 +9,7 @@ import { highlightLinks } from '@/components/highlight/portfolio/ProjectLinkHigh
 const Projects: React.FC = () => {
   return (
     <section id="projects" className="projects">
-      <h2 className="section-projects">Projetos</h2>
+      <h2 className="section-title section-title--center">Projetos</h2>
       <p className="projects-description">Projetos desenvolvidos e em andamento</p>
       <div className="card-container">
         {projectsData.map((project) => (
@@ -39,7 +39,9 @@ const Projects: React.FC = () => {
               </div>
               <h3 className="project-title">{project.title}</h3>
               <p className="project-status">{project.status}</p>
-              <p className="project-description">{highlightLinks(project.description)}</p>
+              <p className="project-description">
+                {highlightLinks(project.description, project.highlights)}
+              </p>{' '}
               <div className="technologies-container">
                 {project.technologies.map((tech, index) => (
                   <span key={index} className="project-technologies">

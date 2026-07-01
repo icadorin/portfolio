@@ -1,107 +1,96 @@
 .about {
   display: flex;
-  justify-content: space-between;
+  gap: 3rem;
   align-items: flex-start;
-  padding: 0 2rem 3rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.about p {
-  margin-bottom: 1.5rem;
 }
 
 .profile-about {
-  display: flex;
-  flex-direction: column;
-}
-
-.section-about {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  white-space: nowrap;
-}
-
-.section-about::after {
-  content: '';
-  display: inline-block;
-  width: 60%;
-  height: 2px;
-  background-color: var(--color-background-card);
-  margin-left: 10px;
-  vertical-align: middle;
+  flex: 1;
 }
 
 .profile-description {
-  font-size: 1.1rem;
-  width: 90%;
+  font-size: 1.05rem;
+  color: var(--matrix-text-secondary);
+  line-height: 1.8;
+  background: rgba(0, 255, 65, 0.04);
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 1.5rem;
+}
+
+.profile-description p {
+  margin-bottom: 1.2rem;
 }
 
 .highlight {
-  color: var(--color-accent);
-  font-size: 1.1rem;
-  line-height: 1.6;
+  color: var(--matrix-green);
+  font-weight: 600;
+  text-shadow: 0 0 8px var(--matrix-green-glow);
 }
 
-.tech,
-.tech-underline {
-  font-size: 0.9rem;
-  font-family: 'Fira Code', monospace;
-  position: relative;
+.highlight::before {
+  content: '[';
+  color: var(--matrix-green-dim);
+  margin-right: 2px;
 }
-
-.tech-underline::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0px;
-  width: 100%;
-  height: 1px;
-  background: var(--color-accent);
-  opacity: 0.7;
+.highlight::after {
+  content: ']';
+  color: var(--matrix-green-dim);
+  margin-left: 2px;
 }
 
 .tech-columns {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  align-items: start;
-  margin-top: 1.5rem;
-}
-
-.tech-column {
-  display: flex;
-  flex-direction: column;
   gap: 0.8rem;
+  margin-top: 1.5rem;
 }
 
 .tech-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 6px 12px;
+  background: black;
+  box-shadow: 0 0 3px var(--matrix-green-glow);
+  transition: all 0.3s ease;
+}
+
+.tech {
+  color: var(--matrix-green-bright);
+}
+.tech::before {
+  content: '>';
+  color: var(--matrix-green);
+  margin-right: 5px;
 }
 
 .arrow-icon {
-  color: var(--color-accent);
+  color: var(--matrix-green);
   width: 1rem;
   height: 1rem;
 }
 
+/* Foto */
 .photo-container {
+  flex-shrink: 0;
+  width: 40%;
   display: flex;
   justify-content: center;
-  width: 40%;
-  height: 100%;
+  align-items: flex-start;
+  padding-top: 0.5rem;
 }
 
 .profile-photo {
   position: relative;
-  width: 170px;
-  height: 200px;
-  border-radius: 4px;
-  background-color: var(--color-placeholder);
-  flex-shrink: 0;
+  width: 174px;
+  height: 204px;
+  background: var(--matrix-bg);
+  border: 2px solid var(--matrix-border);
+  box-shadow:
+    0 0 20px var(--matrix-green-glow),
+    0 0 40px rgba(0, 255, 65, 0.05);
 }
 
 .photo {
@@ -111,8 +100,8 @@
   width: 170px;
   height: 200px;
   object-fit: cover;
-  border-radius: 2px;
   z-index: 2;
+  filter: sepia(3%) hue-rotate(60deg) saturate(102%) contrast(1.05);
 }
 
 .photo-border {
@@ -120,42 +109,24 @@
   height: 200px;
   margin-top: 25px;
   margin-left: 25px;
-  border: 2px solid var(--color-accent);
-  border-radius: 2px;
+  border: 2px solid var(--matrix-border);
   position: relative;
   z-index: -1;
+  box-shadow: 0 0 15px var(--matrix-green-glow);
 }
 
 @media (max-width: 768px) {
   .about {
     flex-direction: column;
-    padding: 0 1rem;
-  }
-  .profile-about {
-    width: 100%;
-  }
-  .section-about::after {
-    width: 100%;
-  }
-  .profile-description {
-    width: 100%;
+    padding: 0 1rem 3rem;
   }
   .photo-container {
-    margin-top: 3rem;
     width: 100%;
     justify-content: flex-start;
+    margin-top: 1rem;
   }
-}
 
-@media (max-width: 576px) {
-  .profile-description {
-    font-size: 0.9rem;
-  }
-  .tech,
-  .tech-underline {
-    font-size: 0.8rem;
-  }
-  .highlight {
-    font-size: 0.9rem;
+  .tech-columns {
+    grid-template-columns: 1fr 1fr;
   }
 }

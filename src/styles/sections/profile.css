@@ -1,7 +1,16 @@
+.profile-container {
+  position: relative;
+  z-index: var(--z-content);
+}
+
 .content-wrapper {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 8%;
+}
+
+.content-wrapper > section {
+  margin-bottom: 11rem;
 }
 
 .section-muted {
@@ -35,5 +44,8 @@
   .content-wrapper {
     max-width: 1200px;
     margin: 0 auto;
+  }
+  .content-wrapper > section {
+    margin-bottom: 4.5rem;
   }
 }

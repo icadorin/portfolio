@@ -1,9 +1,11 @@
+import HighlightedText from './TextHighlighter';
+
 const linkMap: Record<string, string> = {
-  ViaCEP: 'https://viacep.com.br',
-  'OpenWeather API': 'https://openweathermap.org/api',
+  'API ViaCEP': 'https://viacep.com.br',
+  'API OpenWeather': 'https://openweathermap.org/api',
 };
 
-export const highlightLinks = (text: string) => {
+export const highlightLinks = (text: string, highlights: string[] = []) => {
   return text.split(/(\*\*.*?\*\*)/g).map((part, index) => {
     const cleanPart = part.replace(/\*\*/g, '');
     if (linkMap[cleanPart]) {
@@ -19,6 +21,13 @@ export const highlightLinks = (text: string) => {
         </a>
       );
     }
-    return part;
+    return (
+      <HighlightedText
+        key={index}
+        text={part}
+        highlights={highlights}
+        highlightClass="project-highlight"
+      />
+    );
   });
 };

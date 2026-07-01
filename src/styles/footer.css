@@ -1,10 +1,17 @@
+.footer {
+  position: relative;
+  padding: 2rem 0 1rem;
+  z-index: 1;
+  margin-top: 2rem;
+}
+
 .easter-egg {
   position: fixed;
   bottom: 10px;
   left: 8px;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1rem;
-  color: var(--color-red-highlight);
+  font-family: var(--font-matrix);
+  color: var(--matrix-red);
+  text-shadow: 0 0 5px rgba(255, 0, 64, 0.3);
 }
 
 .serial-number {
@@ -15,19 +22,9 @@
 }
 
 .copy-right {
-  font-family: 'Fira Code', monospace;
   text-align: center;
   font-size: 0.8rem;
-}
-
-@media (max-width: 768px) {
-  .serial-number {
-    padding-bottom: 1.4rem;
-  }
-}
-
-.serial-number:hover {
-  opacity: 1;
+  color: var(--matrix-text-muted);
 }
 
 .tooltip {
@@ -36,53 +33,48 @@
   left: 50%;
   writing-mode: horizontal-tb;
   width: 280px;
-  background: rgba(29, 3, 39, 0.904);
-  color: var(--color-text-primary);
+  background: rgba(10, 10, 10, 0.95);
+  color: var(--matrix-text);
   padding: 12px;
-  border-radius: 4px;
+  border: 1px solid var(--matrix-border);
   font-size: 0.8rem;
-  font-family: 'Heebo', sans-serif;
   text-align: center;
   line-height: 1.5;
   z-index: 100;
-  border: 1px solid rgba(100, 108, 255, 0.2);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  word-spacing: 0.1em;
-  letter-spacing: 0.02em;
-
+  box-shadow: 0 0 20px var(--matrix-green-glow);
   display: flex;
   align-items: flex-start;
   gap: 10px;
 }
 
 .tooltip-icon {
-  color: var(--color-lamp);
+  color: var(--matrix-yellow);
   flex-shrink: 0;
   margin-top: 2px;
 }
-
 .tooltip-content {
   flex: 1;
   text-align: left;
 }
-
 .tooltip .engine {
-  color: var(--color-red-highlight);
+  color: var(--matrix-red);
+  text-shadow: 0 0 5px rgba(255, 0, 64, 0.3);
 }
-
-.tooltip .easter-egg-text {
-  color: var(--color-accent-light);
-  font-weight: 600;
-}
-
 .tooltip .car-model {
-  color: var(--color-green-highlight);
+  color: var(--matrix-green);
   font-weight: 600;
+  text-shadow: 0 0 5px var(--matrix-green-glow);
 }
 
 .serial-number:hover .tooltip {
   opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .serial-number {
+    padding-bottom: 1.4rem;
+  }
 }

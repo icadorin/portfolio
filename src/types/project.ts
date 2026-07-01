@@ -6,6 +6,7 @@ export interface Project {
   githubUrl: string;
   liveUrl?: string;
   technologies: string[];
+  highlights?: string[];
 }
 
 export type ProjectList = Project[];

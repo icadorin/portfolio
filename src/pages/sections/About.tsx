@@ -11,7 +11,7 @@ const About: React.FC = () => {
   return (
     <section id="about" className="about">
       <div className="profile-about">
-        <h2 className="section-about">Sobre Mim</h2>
+        <h2 className="section-title">Sobre Mim</h2>
         <div className="profile-description">
           {paragraphs.map((text, index) => (
             <p key={index}>
